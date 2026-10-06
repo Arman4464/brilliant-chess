@@ -1,0 +1,21 @@
+{
+  "id": "119920814295",
+  "tier": "Casual_1000_1400",
+  "url": "https://www.chess.com/game/live/119920814295",
+  "timeClass": "rapid",
+  "timeControl": "900+10",
+  "white": {
+    "username": "alyssahn",
+    "rating": 1044,
+    "accuracy": 48.36,
+    "result": "checkmated"
+  },
+  "black": {
+    "username": "Good_Success",
+    "rating": 1075,
+    "accuracy": 70.48,
+    "result": "win"
+  },
+  "eco": "Giuoco-Piano-Game-Giuoco-Pianissimo-Variation-4...Nf6",
+  "pgn": "[Event \"Live Chess\"]\n[Site \"Chess.com\"]\n[Date \"2024.09.12\"]\n[Round \"-\"]\n[White \"alyssahn\"]\n[Black \"Good_Success\"]\n[Result \"0-1\"]\n[CurrentPosition \"r1b5/ppp2k1p/2n2np1/2b1p1B1/2P5/2NP4/PP3qPP/R2QK2R w KQ -\"]\n[Timezone \"UTC\"]\n[ECO \"C50\"]\n[ECOUrl \"https://www.chess.com/openings/Giuoco-Piano-Game-Giuoco-Pianissimo-Variation-4...Nf6\"]\n[UTCDate \"2024.09.12\"]\n[UTCTime \"22:58:23\"]\n[WhiteElo \"1044\"]\n[BlackElo \"1075\"]\n[TimeControl \"900+10\"]\n[Termination \"Good_Success won by checkmate\"]\n[StartTime \"22:58:23\"]\n[EndDate \"2024.09.12\"]\n[EndTime \"23:05:49\"]\n[Link \"https://www.chess.com/game/live/119920814295\"]\n\n1. e4 {[%clk 0:15:10]} 1... e5 {[%clk 0:15:01]} 2. Nf3 {[%clk 0:15:16.8]} 2... Nc6 {[%clk 0:14:58.8]} 3. Bc4 {[%clk 0:15:22]} 3... Bc5 {[%clk 0:15:05.6]} 4. d3 {[%clk 0:15:29.5]} 4... Nf6 {[%clk 0:15:08.8]} 5. Ng5 {[%clk 0:15:37.8]} 5... O-O {[%clk 0:15:07.8]} 6. Nxf7 {[%clk 0:15:35.2]} 6... Rxf7 {[%clk 0:15:15.1]} 7. Bxf7+ {[%clk 0:15:23.9]} 7... Kxf7 {[%clk 0:15:21.9]} 8. Bg5 {[%clk 0:15:28.1]} 8... g6 {[%clk 0:14:39.5]} 9. Qf3 {[%clk 0:15:31.3]} 9... Nd4 {[%clk 0:14:40.2]} 10. Qd1 {[%clk 0:15:36.9]} 10... d5 {[%clk 0:14:28.3]} 11. exd5 {[%clk 0:14:42.4]} 11... Qxd5 {[%clk 0:14:33.4]} 12. c3 {[%clk 0:14:50.7]} 12... Nc6 {[%clk 0:13:49.3]} 13. c4 {[%clk 0:14:58.7]} 13... Qd4 {[%clk 0:13:31]} 14. Nc3 {[%clk 0:14:17.6]} 14... Qxf2# {[%clk 0:13:11.7]} 0-1\n"
+}

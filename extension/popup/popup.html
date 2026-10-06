@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Review Extractor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <div class="header-title">
+        <span class="icon">♟️</span>
+        <h2>Review Extractor</h2>
+      </div>
+      <span id="page-badge" class="badge">Checking...</span>
+    </header>
+
+    <main class="popup-body">
+      <div id="game-info-card" class="card">
+        <div class="card-row">
+          <span class="label">Game ID:</span>
+          <span id="game-id-text" class="value">-</span>
+        </div>
+        <div class="card-row">
+          <span class="label">Status:</span>
+          <span id="review-status-text" class="value">Checking tab...</span>
+        </div>
+      </div>
+
+      <div id="action-section">
+        <button id="extract-btn" class="btn btn-primary">
+          <span>📥</span> Extract & Download JSON
+        </button>
+      </div>
+
+      <div id="limit-notice" class="notice notice-warning hidden">
+        <strong>⚠️ Daily Limit Notice</strong>
+        <p>This game was not reviewed by Chess.com due to the daily free review limit. Chess.com's server did not generate accuracy or badges for this game.</p>
+      </div>
+
+      <div id="not-chess-notice" class="notice notice-info hidden">
+        <p>Open a Chess.com game review page (e.g. <code>chess.com/analysis/game/live/.../review</code>) to extract.</p>
+      </div>
+    </main>
+
+    <footer class="popup-footer">
+      <span>Zero coach yapping • Pure JSON data</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

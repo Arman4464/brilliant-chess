@@ -1,0 +1,1070 @@
+[
+  {
+    "ply": 0,
+    "color": "w",
+    "san": "e4",
+    "rating": "is a book move",
+    "eval": "+0.26",
+    "rawFeedback": [
+      "e4",
+      "is a book move",
+      "+0.26"
+    ]
+  },
+  {
+    "ply": 1,
+    "color": "b",
+    "san": "d5",
+    "rating": "is a book move",
+    "eval": "+0.74",
+    "rawFeedback": [
+      "d5",
+      "is a book move",
+      "+0.74"
+    ]
+  },
+  {
+    "ply": 2,
+    "color": "w",
+    "san": "exd5",
+    "rating": "is a book move",
+    "eval": "+0.74",
+    "rawFeedback": [
+      "exd5",
+      "is a book move",
+      "+0.74"
+    ]
+  },
+  {
+    "ply": 3,
+    "color": "b",
+    "san": "xd5",
+    "rating": "is a book move",
+    "eval": "+0.76",
+    "rawFeedback": [
+      "xd5",
+      "is a book move",
+      "+0.76"
+    ]
+  },
+  {
+    "ply": 4,
+    "color": "w",
+    "san": "c3",
+    "rating": "is the last book move",
+    "eval": "+0.76",
+    "rawFeedback": [
+      "c3",
+      "is the last book move",
+      "+0.76"
+    ]
+  },
+  {
+    "ply": 5,
+    "color": "b",
+    "san": "e6+",
+    "rating": "is good",
+    "eval": "+1.06",
+    "rawFeedback": [
+      "e6+",
+      "is good",
+      "+1.06"
+    ]
+  },
+  {
+    "ply": 6,
+    "color": "w",
+    "san": "e2",
+    "rating": "is an inaccuracy",
+    "eval": "+0.16",
+    "rawFeedback": [
+      "e2",
+      "is an inaccuracy",
+      "+0.16"
+    ]
+  },
+  {
+    "ply": 7,
+    "color": "b",
+    "san": "xe2+",
+    "rating": "is excellent",
+    "eval": "+0.27",
+    "rawFeedback": [
+      "xe2+",
+      "is excellent",
+      "+0.27"
+    ]
+  },
+  {
+    "ply": 8,
+    "color": "w",
+    "san": "xe2",
+    "rating": "is best",
+    "eval": "+0.27",
+    "rawFeedback": [
+      "xe2",
+      "is best",
+      "+0.27"
+    ]
+  },
+  {
+    "ply": 9,
+    "color": "b",
+    "san": "f6",
+    "rating": "is best",
+    "eval": "+0.27",
+    "rawFeedback": [
+      "f6",
+      "is best",
+      "+0.27"
+    ]
+  },
+  {
+    "ply": 10,
+    "color": "w",
+    "san": "d3",
+    "rating": "is excellent",
+    "eval": "+0.14",
+    "rawFeedback": [
+      "d3",
+      "is excellent",
+      "+0.14"
+    ]
+  },
+  {
+    "ply": 11,
+    "color": "b",
+    "san": "e5",
+    "rating": "is good",
+    "eval": "+0.62",
+    "rawFeedback": [
+      "e5",
+      "is good",
+      "+0.62"
+    ]
+  },
+  {
+    "ply": 12,
+    "color": "w",
+    "san": "f3",
+    "rating": "is good",
+    "eval": "+0.24",
+    "rawFeedback": [
+      "f3",
+      "is good",
+      "+0.24"
+    ]
+  },
+  {
+    "ply": 13,
+    "color": "b",
+    "san": "c6",
+    "rating": "is excellent",
+    "eval": "+0.28",
+    "rawFeedback": [
+      "c6",
+      "is excellent",
+      "+0.28"
+    ]
+  },
+  {
+    "ply": 14,
+    "color": "w",
+    "san": "g5",
+    "rating": "is excellent",
+    "eval": "+0.04",
+    "rawFeedback": [
+      "g5",
+      "is excellent",
+      "+0.04"
+    ]
+  },
+  {
+    "ply": 15,
+    "color": "b",
+    "san": "b4",
+    "rating": "is excellent",
+    "eval": "+0.25",
+    "rawFeedback": [
+      "b4",
+      "is excellent",
+      "+0.25"
+    ]
+  },
+  {
+    "ply": 16,
+    "color": "w",
+    "san": "d2",
+    "rating": "is excellent",
+    "eval": "+0.06",
+    "rawFeedback": [
+      "d2",
+      "is excellent",
+      "+0.06"
+    ]
+  },
+  {
+    "ply": 17,
+    "color": "b",
+    "san": "g4",
+    "rating": "is excellent",
+    "eval": "+0.27",
+    "rawFeedback": [
+      "g4",
+      "is excellent",
+      "+0.27"
+    ]
+  },
+  {
+    "ply": 18,
+    "color": "w",
+    "san": "h3",
+    "rating": "is excellent",
+    "eval": "+0.19",
+    "rawFeedback": [
+      "h3",
+      "is excellent",
+      "+0.19"
+    ]
+  },
+  {
+    "ply": 19,
+    "color": "b",
+    "san": "xf3",
+    "rating": "is excellent",
+    "eval": "+0.24",
+    "rawFeedback": [
+      "xf3",
+      "is excellent",
+      "+0.24"
+    ]
+  },
+  {
+    "ply": 20,
+    "color": "w",
+    "san": "xf3",
+    "rating": "is best",
+    "eval": "+0.24",
+    "rawFeedback": [
+      "xf3",
+      "is best",
+      "+0.24"
+    ]
+  },
+  {
+    "ply": 21,
+    "color": "b",
+    "san": "O-O-O",
+    "rating": "is good",
+    "eval": "+0.57",
+    "rawFeedback": [
+      "O-O-O",
+      "is good",
+      "+0.57"
+    ]
+  },
+  {
+    "ply": 22,
+    "color": "w",
+    "san": "xc6",
+    "rating": "is best",
+    "eval": "+0.57",
+    "rawFeedback": [
+      "xc6",
+      "is best",
+      "+0.57"
+    ]
+  },
+  {
+    "ply": 23,
+    "color": "b",
+    "san": "bxc6",
+    "rating": "is best",
+    "eval": "+0.57",
+    "rawFeedback": [
+      "bxc6",
+      "is best",
+      "+0.57"
+    ]
+  },
+  {
+    "ply": 24,
+    "color": "w",
+    "san": "O-O-O",
+    "rating": "is best",
+    "eval": "+0.57",
+    "rawFeedback": [
+      "O-O-O",
+      "is best",
+      "+0.57"
+    ]
+  },
+  {
+    "ply": 25,
+    "color": "b",
+    "san": "xc3",
+    "rating": "is excellent",
+    "eval": "+0.84",
+    "rawFeedback": [
+      "xc3",
+      "is excellent",
+      "+0.84"
+    ]
+  },
+  {
+    "ply": 26,
+    "color": "w",
+    "san": "xc3",
+    "rating": "is best",
+    "eval": "+0.84",
+    "rawFeedback": [
+      "xc3",
+      "is best",
+      "+0.84"
+    ]
+  },
+  {
+    "ply": 27,
+    "color": "b",
+    "san": "he8",
+    "rating": "is excellent",
+    "eval": "+0.88",
+    "rawFeedback": [
+      "he8",
+      "is excellent",
+      "+0.88"
+    ]
+  },
+  {
+    "ply": 28,
+    "color": "w",
+    "san": "he1",
+    "rating": "is best",
+    "eval": "+0.88",
+    "rawFeedback": [
+      "he1",
+      "is best",
+      "+0.88"
+    ]
+  },
+  {
+    "ply": 29,
+    "color": "b",
+    "san": "d7",
+    "rating": "is best",
+    "eval": "+0.88",
+    "rawFeedback": [
+      "d7",
+      "is best",
+      "+0.88"
+    ]
+  },
+  {
+    "ply": 30,
+    "color": "w",
+    "san": "b1",
+    "rating": "is good",
+    "eval": "+0.44",
+    "rawFeedback": [
+      "b1",
+      "is good",
+      "+0.44"
+    ]
+  },
+  {
+    "ply": 31,
+    "color": "b",
+    "san": "f6",
+    "rating": "is excellent",
+    "eval": "+0.66",
+    "rawFeedback": [
+      "f6",
+      "is excellent",
+      "+0.66"
+    ]
+  },
+  {
+    "ply": 32,
+    "color": "w",
+    "san": "g4",
+    "rating": "is good",
+    "eval": "+0.20",
+    "rawFeedback": [
+      "g4",
+      "is good",
+      "+0.20"
+    ]
+  },
+  {
+    "ply": 33,
+    "color": "b",
+    "san": "h6",
+    "rating": "is excellent",
+    "eval": "+0.47",
+    "rawFeedback": [
+      "h6",
+      "is excellent",
+      "+0.47"
+    ]
+  },
+  {
+    "ply": 34,
+    "color": "w",
+    "san": "h4",
+    "rating": "is excellent",
+    "eval": "+0.31",
+    "rawFeedback": [
+      "h4",
+      "is excellent",
+      "+0.31"
+    ]
+  },
+  {
+    "ply": 35,
+    "color": "b",
+    "san": "g5",
+    "rating": "is good",
+    "eval": "+0.81",
+    "rawFeedback": [
+      "g5",
+      "is good",
+      "+0.81"
+    ]
+  },
+  {
+    "ply": 36,
+    "color": "w",
+    "san": "hxg5",
+    "rating": "is good",
+    "eval": "+0.20",
+    "rawFeedback": [
+      "hxg5",
+      "is good",
+      "+0.20"
+    ]
+  },
+  {
+    "ply": 37,
+    "color": "b",
+    "san": "hxg5",
+    "rating": "is best",
+    "eval": "+0.20",
+    "rawFeedback": [
+      "hxg5",
+      "is best",
+      "+0.20"
+    ]
+  },
+  {
+    "ply": 38,
+    "color": "w",
+    "san": "f3",
+    "rating": "is excellent",
+    "eval": "0.00",
+    "rawFeedback": [
+      "f3",
+      "is excellent",
+      "0.00"
+    ]
+  },
+  {
+    "ply": 39,
+    "color": "b",
+    "san": "h8",
+    "rating": "is excellent",
+    "eval": "+0.25",
+    "rawFeedback": [
+      "h8",
+      "is excellent",
+      "+0.25"
+    ]
+  },
+  {
+    "ply": 40,
+    "color": "w",
+    "san": "a3",
+    "rating": "is excellent",
+    "eval": "0.00",
+    "rawFeedback": [
+      "a3",
+      "is excellent",
+      "0.00"
+    ]
+  },
+  {
+    "ply": 41,
+    "color": "b",
+    "san": "h3",
+    "rating": "is best",
+    "eval": "0.00",
+    "rawFeedback": [
+      "h3",
+      "is best",
+      "0.00"
+    ]
+  },
+  {
+    "ply": 42,
+    "color": "w",
+    "san": "f1",
+    "rating": "is good",
+    "eval": "-0.45",
+    "rawFeedback": [
+      "f1",
+      "is good",
+      "-0.45"
+    ]
+  },
+  {
+    "ply": 43,
+    "color": "b",
+    "san": "b6",
+    "rating": "is good",
+    "eval": "0.00",
+    "rawFeedback": [
+      "b6",
+      "is good",
+      "0.00"
+    ]
+  },
+  {
+    "ply": 44,
+    "color": "w",
+    "san": "d4",
+    "rating": "is best",
+    "eval": "0.00",
+    "rawFeedback": [
+      "d4",
+      "is best",
+      "0.00"
+    ]
+  },
+  {
+    "ply": 45,
+    "color": "b",
+    "san": "d5",
+    "rating": "is best",
+    "eval": "0.00",
+    "rawFeedback": [
+      "d5",
+      "is best",
+      "0.00"
+    ]
+  },
+  {
+    "ply": 46,
+    "color": "w",
+    "san": "b4",
+    "rating": "is a mistake",
+    "eval": "-2.37",
+    "rawFeedback": [
+      "b4",
+      "is a mistake",
+      "-2.37"
+    ]
+  },
+  {
+    "ply": 47,
+    "color": "b",
+    "san": "e3",
+    "rating": "is a great move",
+    "eval": "-2.37",
+    "rawFeedback": [
+      "e3",
+      "is a great move",
+      "-2.37"
+    ]
+  },
+  {
+    "ply": 48,
+    "color": "w",
+    "san": "dxe5",
+    "rating": "is an inaccuracy",
+    "eval": "-4.25",
+    "rawFeedback": [
+      "dxe5",
+      "is an inaccuracy",
+      "-4.25"
+    ]
+  },
+  {
+    "ply": 49,
+    "color": "b",
+    "san": "xd1",
+    "rating": "is excellent",
+    "eval": "-4.18",
+    "rawFeedback": [
+      "xd1",
+      "is excellent",
+      "-4.18"
+    ]
+  },
+  {
+    "ply": 50,
+    "color": "w",
+    "san": "exf6",
+    "rating": "is best",
+    "eval": "-4.18",
+    "rawFeedback": [
+      "exf6",
+      "is best",
+      "-4.18"
+    ]
+  },
+  {
+    "ply": 51,
+    "color": "b",
+    "san": "e3",
+    "rating": "is best",
+    "eval": "-4.18",
+    "rawFeedback": [
+      "e3",
+      "is best",
+      "-4.18"
+    ]
+  },
+  {
+    "ply": 52,
+    "color": "w",
+    "san": "e1",
+    "rating": "is excellent",
+    "eval": "-4.20",
+    "rawFeedback": [
+      "e1",
+      "is excellent",
+      "-4.20"
+    ]
+  },
+  {
+    "ply": 53,
+    "color": "b",
+    "san": "d1+",
+    "rating": "is a miss",
+    "eval": "+0.25",
+    "rawFeedback": [
+      "d1+",
+      "is a miss",
+      "+0.25"
+    ]
+  },
+  {
+    "ply": 54,
+    "color": "w",
+    "san": "xd1",
+    "rating": "is a great move",
+    "eval": "+0.25",
+    "rawFeedback": [
+      "xd1",
+      "is a great move",
+      "+0.25"
+    ]
+  },
+  {
+    "ply": 55,
+    "color": "b",
+    "san": "xd1",
+    "rating": "is best",
+    "eval": "+0.25",
+    "rawFeedback": [
+      "xd1",
+      "is best",
+      "+0.25"
+    ]
+  },
+  {
+    "ply": 56,
+    "color": "w",
+    "san": "f7",
+    "rating": "is best",
+    "eval": "+0.25",
+    "rawFeedback": [
+      "f7",
+      "is best",
+      "+0.25"
+    ]
+  },
+  {
+    "ply": 57,
+    "color": "b",
+    "san": "h8",
+    "rating": "is a blunder",
+    "eval": "+4.34",
+    "rawFeedback": [
+      "h8",
+      "is a blunder",
+      "+4.34"
+    ]
+  },
+  {
+    "ply": 58,
+    "color": "w",
+    "san": "f8=Q+",
+    "rating": "is best",
+    "eval": "+4.34",
+    "rawFeedback": [
+      "f8=  +",
+      "is best",
+      "+4.34"
+    ]
+  },
+  {
+    "ply": 59,
+    "color": "b",
+    "san": "xf8",
+    "rating": "is best",
+    "eval": "+4.34",
+    "rawFeedback": [
+      "xf8",
+      "is best",
+      "+4.34"
+    ]
+  },
+  {
+    "ply": 60,
+    "color": "w",
+    "san": "xf8",
+    "rating": "is best",
+    "eval": "+4.34",
+    "rawFeedback": [
+      "xf8",
+      "is best",
+      "+4.34"
+    ]
+  },
+  {
+    "ply": 61,
+    "color": "b",
+    "san": "d7",
+    "rating": "is an inaccuracy",
+    "eval": "+5.70",
+    "rawFeedback": [
+      "d7",
+      "is an inaccuracy",
+      "+5.70"
+    ]
+  },
+  {
+    "ply": 62,
+    "color": "w",
+    "san": "c5",
+    "rating": "is best",
+    "eval": "+5.70",
+    "rawFeedback": [
+      "c5",
+      "is best",
+      "+5.70"
+    ]
+  },
+  {
+    "ply": 63,
+    "color": "b",
+    "san": "a6",
+    "rating": "is a mistake",
+    "eval": "+6.70",
+    "rawFeedback": [
+      "a6",
+      "is a mistake",
+      "+6.70"
+    ]
+  },
+  {
+    "ply": 64,
+    "color": "w",
+    "san": "c1",
+    "rating": "is best",
+    "eval": "+6.70",
+    "rawFeedback": [
+      "c1",
+      "is best",
+      "+6.70"
+    ]
+  },
+  {
+    "ply": 65,
+    "color": "b",
+    "san": "xb2",
+    "rating": "is excellent",
+    "eval": "+6.74",
+    "rawFeedback": [
+      "xb2",
+      "is excellent",
+      "+6.74"
+    ]
+  },
+  {
+    "ply": 66,
+    "color": "w",
+    "san": "xb2",
+    "rating": "is best",
+    "eval": "+6.74",
+    "rawFeedback": [
+      "xb2",
+      "is best",
+      "+6.74"
+    ]
+  },
+  {
+    "ply": 67,
+    "color": "b",
+    "san": "e6",
+    "rating": "is excellent",
+    "eval": "+6.85",
+    "rawFeedback": [
+      "e6",
+      "is excellent",
+      "+6.85"
+    ]
+  },
+  {
+    "ply": 68,
+    "color": "w",
+    "san": "c3",
+    "rating": "is best",
+    "eval": "+6.85",
+    "rawFeedback": [
+      "c3",
+      "is best",
+      "+6.85"
+    ]
+  },
+  {
+    "ply": 69,
+    "color": "b",
+    "san": "e5",
+    "rating": "is best",
+    "eval": "+6.85",
+    "rawFeedback": [
+      "e5",
+      "is best",
+      "+6.85"
+    ]
+  },
+  {
+    "ply": 70,
+    "color": "w",
+    "san": "d3",
+    "rating": "is good",
+    "eval": "+5.84",
+    "rawFeedback": [
+      "d3",
+      "is good",
+      "+5.84"
+    ]
+  },
+  {
+    "ply": 71,
+    "color": "b",
+    "san": "f4",
+    "rating": "is excellent",
+    "eval": "+6.19",
+    "rawFeedback": [
+      "f4",
+      "is excellent",
+      "+6.19"
+    ]
+  },
+  {
+    "ply": 72,
+    "color": "w",
+    "san": "e2",
+    "rating": "is best",
+    "eval": "+6.19",
+    "rawFeedback": [
+      "e2",
+      "is best",
+      "+6.19"
+    ]
+  },
+  {
+    "ply": 73,
+    "color": "b",
+    "san": "a5",
+    "rating": "is good",
+    "eval": "+7.41",
+    "rawFeedback": [
+      "a5",
+      "is good",
+      "+7.41"
+    ]
+  },
+  {
+    "ply": 74,
+    "color": "w",
+    "san": "a4",
+    "rating": "is best",
+    "eval": "+7.41",
+    "rawFeedback": [
+      "a4",
+      "is best",
+      "+7.41"
+    ]
+  },
+  {
+    "ply": 75,
+    "color": "b",
+    "san": "e5",
+    "rating": "is best",
+    "eval": "+7.41",
+    "rawFeedback": [
+      "e5",
+      "is best",
+      "+7.41"
+    ]
+  },
+  {
+    "ply": 76,
+    "color": "w",
+    "san": "e3",
+    "rating": "is best",
+    "eval": "+7.41",
+    "rawFeedback": [
+      "e3",
+      "is best",
+      "+7.41"
+    ]
+  },
+  {
+    "ply": 77,
+    "color": "b",
+    "san": "d5",
+    "rating": "is best",
+    "eval": "+7.41",
+    "rawFeedback": [
+      "d5",
+      "is best",
+      "+7.41"
+    ]
+  },
+  {
+    "ply": 78,
+    "color": "w",
+    "san": "f4",
+    "rating": "is good",
+    "eval": "+6.59",
+    "rawFeedback": [
+      "f4",
+      "is good",
+      "+6.59"
+    ]
+  },
+  {
+    "ply": 79,
+    "color": "b",
+    "san": "gxf4",
+    "rating": "is best",
+    "eval": "+6.59",
+    "rawFeedback": [
+      "gxf4",
+      "is best",
+      "+6.59"
+    ]
+  },
+  {
+    "ply": 80,
+    "color": "w",
+    "san": "xf4",
+    "rating": "is good",
+    "eval": "+5.68",
+    "rawFeedback": [
+      "xf4",
+      "is good",
+      "+5.68"
+    ]
+  },
+  {
+    "ply": 81,
+    "color": "b",
+    "san": "e6",
+    "rating": "is an inaccuracy",
+    "eval": "+7.05",
+    "rawFeedback": [
+      "e6",
+      "is an inaccuracy",
+      "+7.05"
+    ]
+  },
+  {
+    "ply": 82,
+    "color": "w",
+    "san": "xc7",
+    "rating": "is excellent",
+    "eval": "+7.00",
+    "rawFeedback": [
+      "xc7",
+      "is excellent",
+      "+7.00"
+    ]
+  },
+  {
+    "ply": 83,
+    "color": "b",
+    "san": "f6",
+    "rating": "is excellent",
+    "eval": "+7.06",
+    "rawFeedback": [
+      "f6",
+      "is excellent",
+      "+7.06"
+    ]
+  },
+  {
+    "ply": 84,
+    "color": "w",
+    "san": "xa5",
+    "rating": "is best",
+    "eval": "+7.06",
+    "rawFeedback": [
+      "xa5",
+      "is best",
+      "+7.06"
+    ]
+  },
+  {
+    "ply": 85,
+    "color": "b",
+    "san": "g5",
+    "rating": "is good",
+    "eval": "+7.79",
+    "rawFeedback": [
+      "g5",
+      "is good",
+      "+7.79"
+    ]
+  },
+  {
+    "ply": 86,
+    "color": "w",
+    "san": "f3",
+    "rating": "is excellent",
+    "eval": "+7.29",
+    "rawFeedback": [
+      "f3",
+      "is excellent",
+      "+7.29"
+    ]
+  },
+  {
+    "ply": 87,
+    "color": "b",
+    "san": "c5",
+    "rating": "is an inaccuracy",
+    "eval": "M12",
+    "rawFeedback": [
+      "c5",
+      "is an inaccuracy",
+      "M12"
+    ]
+  },
+  {
+    "ply": 88,
+    "color": "w",
+    "san": "c4",
+    "rating": "is excellent",
+    "eval": "M13",
+    "rawFeedback": [
+      "c4",
+      "is excellent",
+      "M13"
+    ]
+  }
+]

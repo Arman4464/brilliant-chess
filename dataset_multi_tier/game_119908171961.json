@@ -1,0 +1,21 @@
+{
+  "id": "119908171961",
+  "tier": "Intermediate_1400_1800",
+  "url": "https://www.chess.com/game/live/119908171961",
+  "timeClass": "blitz",
+  "timeControl": "180+2",
+  "white": {
+    "username": "3zylryb",
+    "rating": 1427,
+    "accuracy": 92.5,
+    "result": "win"
+  },
+  "black": {
+    "username": "chandangoopta",
+    "rating": 1406,
+    "accuracy": 76.93,
+    "result": "resigned"
+  },
+  "eco": "Sicilian-Defense-Open-3...cxd4-4.Nxd4-d6-5.Nc3",
+  "pgn": "[Event \"Live Chess\"]\n[Site \"Chess.com\"]\n[Date \"2024.09.12\"]\n[Round \"-\"]\n[White \"3zylryb\"]\n[Black \"chandangoopta\"]\n[Result \"1-0\"]\n[CurrentPosition \"1r4k1/1p3ppp/p4b2/4p3/P3P3/1P6/3Q1PPP/2R1R1K1 b - -\"]\n[Timezone \"UTC\"]\n[ECO \"B33\"]\n[ECOUrl \"https://www.chess.com/openings/Sicilian-Defense-Open-3...cxd4-4.Nxd4-d6-5.Nc3\"]\n[UTCDate \"2024.09.12\"]\n[UTCTime \"19:23:10\"]\n[WhiteElo \"1427\"]\n[BlackElo \"1406\"]\n[TimeControl \"180+2\"]\n[Termination \"3zylryb won by resignation\"]\n[StartTime \"19:23:10\"]\n[EndDate \"2024.09.12\"]\n[EndTime \"19:26:02\"]\n[Link \"https://www.chess.com/game/live/119908171961\"]\n\n1. e4 {[%clk 0:03:02]} 1... c5 {[%clk 0:03:00.7]} 2. Nf3 {[%clk 0:03:02.6]} 2... Nc6 {[%clk 0:03:01.9]} 3. Nc3 {[%clk 0:03:03.5]} 3... d6 {[%clk 0:03:02.7]} 4. d4 {[%clk 0:03:04.6]} 4... cxd4 {[%clk 0:03:03.7]} 5. Nxd4 {[%clk 0:03:05.4]} 5... Nxd4 {[%clk 0:03:05.6]} 6. Qxd4 {[%clk 0:03:06.1]} 6... e5 {[%clk 0:03:07.5]} 7. Qd1 {[%clk 0:02:53.9]} 7... Nf6 {[%clk 0:03:07.7]} 8. Bc4 {[%clk 0:02:53.6]} 8... Be7 {[%clk 0:03:08]} 9. O-O {[%clk 0:02:54.4]} 9... O-O {[%clk 0:03:08.9]} 10. Re1 {[%clk 0:02:54.6]} 10... a6 {[%clk 0:03:09.2]} 11. a4 {[%clk 0:02:50]} 11... Rb8 {[%clk 0:03:09.5]} 12. Nd5 {[%clk 0:02:41.1]} 12... Nxd5 {[%clk 0:02:56.4]} 13. Bxd5 {[%clk 0:02:39.6]} 13... Be6 {[%clk 0:02:56.8]} 14. b3 {[%clk 0:02:35]} 14... Bxd5 {[%clk 0:02:56.6]} 15. Qxd5 {[%clk 0:02:36.1]} 15... Bf6 {[%clk 0:02:46.6]} 16. Ba3 {[%clk 0:02:34.9]} 16... Qc7 {[%clk 0:02:38]} 17. Bxd6 {[%clk 0:02:29.2]} 17... Qxc2 {[%clk 0:02:38.1]} 18. Bxb8 {[%clk 0:02:27]} 18... Rxb8 {[%clk 0:02:35.8]} 19. Rac1 {[%clk 0:02:26.4]} 19... Qd2 {[%clk 0:02:29.3]} 20. Qxd2 {[%clk 0:02:18]} 1-0\n"
+}

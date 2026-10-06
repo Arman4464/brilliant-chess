@@ -1,0 +1,126 @@
+{
+  "features": [
+    "acc",
+    "elo",
+    "mist",
+    "blund",
+    "miss",
+    "inacc",
+    "great"
+  ],
+  "tree": {
+    "feature": "acc",
+    "threshold": 76.4,
+    "left": {
+      "feature": "elo",
+      "threshold": 264.5,
+      "left": {
+        "isLeaf": true,
+        "value": 100,
+        "count": 1
+      },
+      "right": {
+        "feature": "acc",
+        "threshold": 58,
+        "left": {
+          "isLeaf": true,
+          "value": 250,
+          "count": 1
+        },
+        "right": {
+          "feature": "inacc",
+          "threshold": 5,
+          "left": {
+            "feature": "blund",
+            "threshold": 1.5,
+            "left": {
+              "feature": "acc",
+              "threshold": 67.55,
+              "left": {
+                "isLeaf": true,
+                "value": 850,
+                "count": 1
+              },
+              "right": {
+                "feature": "acc",
+                "threshold": 71.69999999999999,
+                "left": {
+                  "isLeaf": true,
+                  "value": 950,
+                  "count": 1
+                },
+                "right": {
+                  "isLeaf": true,
+                  "value": 900,
+                  "count": 2
+                },
+                "value": 900
+              },
+              "value": 900
+            },
+            "right": {
+              "isLeaf": true,
+              "value": 600,
+              "count": 1
+            },
+            "value": 850
+          },
+          "right": {
+            "feature": "acc",
+            "threshold": 70.1,
+            "left": {
+              "isLeaf": true,
+              "value": 550,
+              "count": 1
+            },
+            "right": {
+              "isLeaf": true,
+              "value": 600,
+              "count": 1
+            },
+            "value": 600
+          },
+          "value": 750
+        },
+        "value": 700
+      },
+      "value": 650
+    },
+    "right": {
+      "feature": "acc",
+      "threshold": 85.1,
+      "left": {
+        "feature": "mist",
+        "threshold": 0.5,
+        "left": {
+          "isLeaf": true,
+          "value": 1200,
+          "count": 1
+        },
+        "right": {
+          "feature": "inacc",
+          "threshold": 4.5,
+          "left": {
+            "isLeaf": true,
+            "value": 1300,
+            "count": 4
+          },
+          "right": {
+            "isLeaf": true,
+            "value": 1250,
+            "count": 1
+          },
+          "value": 1300
+        },
+        "value": 1300
+      },
+      "right": {
+        "isLeaf": true,
+        "value": 1400,
+        "count": 1
+      },
+      "value": 1300
+    },
+    "value": 900
+  }
+}

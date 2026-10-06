@@ -1,0 +1,1036 @@
+{
+  "totalGames": 61,
+  "reviewedGamesWithAccuracies": 58,
+  "botGames": 3,
+  "exportedAt": "2026-10-03T15:19:06.821Z",
+  "games": [
+    {
+      "index": 1,
+      "filename": "review_166630940514.json",
+      "gameId": "166630940514",
+      "date": "2026.03.30",
+      "event": "Live Chess",
+      "white": "mojjitaro",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 65.23,
+        "black": 54.09
+      },
+      "totalMoves": 67,
+      "url": "https://www.chess.com/game/live/166630940514"
+    },
+    {
+      "index": 2,
+      "filename": "review_166636820634.json",
+      "gameId": "166636820634",
+      "date": "2026.03.30",
+      "event": "Live Chess",
+      "white": "Yatin4444",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 89.58,
+        "black": 100
+      },
+      "totalMoves": 3,
+      "url": "https://www.chess.com/game/live/166636820634"
+    },
+    {
+      "index": 3,
+      "filename": "review_166662315862.json",
+      "gameId": "166662315862",
+      "date": "2026.03.31",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "stavyi",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 90.27,
+        "black": 70.64
+      },
+      "totalMoves": 34,
+      "url": "https://www.chess.com/game/live/166662315862"
+    },
+    {
+      "index": 4,
+      "filename": "review_166795112380.json",
+      "gameId": "166795112380",
+      "date": "2026.04.03",
+      "event": "Live Chess",
+      "white": "Tunaprasidhhi23",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 59.57,
+        "black": 57.6
+      },
+      "totalMoves": 167,
+      "url": "https://www.chess.com/game/live/166795112380"
+    },
+    {
+      "index": 5,
+      "filename": "review_166884235764.json",
+      "gameId": "166884235764",
+      "date": "2026.04.05",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "kill4key",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 71.92,
+        "black": 57.96
+      },
+      "totalMoves": 61,
+      "url": "https://www.chess.com/game/live/166884235764"
+    },
+    {
+      "index": 6,
+      "filename": "review_167026985196.json",
+      "gameId": "167026985196",
+      "date": "2026.04.08",
+      "event": "Live Chess",
+      "white": "BhuvanBhatiya",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 74.47,
+        "black": 79.49
+      },
+      "totalMoves": 21,
+      "url": "https://www.chess.com/game/live/167026985196"
+    },
+    {
+      "index": 7,
+      "filename": "review_167027506890.json",
+      "gameId": "167027506890",
+      "date": "2026.04.08",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "yemrecandir",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 62.3,
+        "black": 52.34
+      },
+      "totalMoves": 55,
+      "url": "https://www.chess.com/game/live/167027506890"
+    },
+    {
+      "index": 8,
+      "filename": "review_167029115564.json",
+      "gameId": "167029115564",
+      "date": "2026.04.08",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Mojezlato",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 59.36,
+        "black": 48.59
+      },
+      "totalMoves": 63,
+      "url": "https://www.chess.com/game/live/167029115564"
+    },
+    {
+      "index": 9,
+      "filename": "review_167159764456.json",
+      "gameId": "167159764456",
+      "date": "2026.04.11",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "ggghushsbw",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 36.27,
+        "black": 44.24
+      },
+      "totalMoves": 52,
+      "url": "https://www.chess.com/game/live/167159764456"
+    },
+    {
+      "index": 10,
+      "filename": "review_167194313976.json",
+      "gameId": "167194313976",
+      "date": "2026.04.12",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "RafaelFari4",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 78.75,
+        "black": 68.78
+      },
+      "totalMoves": 37,
+      "url": "https://www.chess.com/game/live/167194313976"
+    },
+    {
+      "index": 11,
+      "filename": "review_167381234104.json",
+      "gameId": "167381234104",
+      "date": "2026.04.16",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Alaa92_vip",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 76.68,
+        "black": 52.47
+      },
+      "totalMoves": 21,
+      "url": "https://www.chess.com/game/live/167381234104"
+    },
+    {
+      "index": 12,
+      "filename": "review_167383202020.json",
+      "gameId": "167383202020",
+      "date": "2026.04.16",
+      "event": "Live Chess",
+      "white": "Tamergzz",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 69.96,
+        "black": 53.44
+      },
+      "totalMoves": 51,
+      "url": "https://www.chess.com/game/live/167383202020"
+    },
+    {
+      "index": 13,
+      "filename": "review_167383752436.json",
+      "gameId": "167383752436",
+      "date": "2026.04.16",
+      "event": "Live Chess",
+      "white": "Serg_io_grand",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 67.61,
+        "black": 61.76
+      },
+      "totalMoves": 65,
+      "url": "https://www.chess.com/game/live/167383752436"
+    },
+    {
+      "index": 14,
+      "filename": "review_168025195168.json",
+      "gameId": "168025195168",
+      "date": "2026.04.30",
+      "event": "Live Chess",
+      "white": "rambo424242",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 40.68,
+        "black": 46.09
+      },
+      "totalMoves": 50,
+      "url": "https://www.chess.com/game/live/168025195168"
+    },
+    {
+      "index": 15,
+      "filename": "review_168073619082.json",
+      "gameId": "168073619082",
+      "date": "2026.05.01",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Fupicmafia",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 84.47,
+        "black": 66.91
+      },
+      "totalMoves": 51,
+      "url": "https://www.chess.com/game/live/168073619082"
+    },
+    {
+      "index": 16,
+      "filename": "review_168083279986.json",
+      "gameId": "168083279986",
+      "date": "2026.05.01",
+      "event": "Live Chess",
+      "white": "B0UL0U",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 86.53,
+        "black": 72.07
+      },
+      "totalMoves": 65,
+      "url": "https://www.chess.com/game/live/168083279986"
+    },
+    {
+      "index": 17,
+      "filename": "review_168585821738.json",
+      "gameId": "168585821738",
+      "date": "2026.05.12",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Achilles4307",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 66.79,
+        "black": 73.69
+      },
+      "totalMoves": 114,
+      "url": "https://www.chess.com/game/live/168585821738"
+    },
+    {
+      "index": 18,
+      "filename": "review_168586566834.json",
+      "gameId": "168586566834",
+      "date": "2026.05.12",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "lostboyAG22",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 83.72,
+        "black": 63.4
+      },
+      "totalMoves": 35,
+      "url": "https://www.chess.com/game/live/168586566834"
+    },
+    {
+      "index": 19,
+      "filename": "review_168589197006.json",
+      "gameId": "168589197006",
+      "date": "2026.05.12",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "hobit-16",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 82.46,
+        "black": 60.48
+      },
+      "totalMoves": 33,
+      "url": "https://www.chess.com/game/live/168589197006"
+    },
+    {
+      "index": 20,
+      "filename": "review_168589545794.json",
+      "gameId": "168589545794",
+      "date": "2026.05.12",
+      "event": "Live Chess",
+      "white": "Shashikant1966",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 70.85,
+        "black": 79.22
+      },
+      "totalMoves": 70,
+      "url": "https://www.chess.com/game/live/168589545794"
+    },
+    {
+      "index": 21,
+      "filename": "review_168600771918.json",
+      "gameId": "168600771918",
+      "date": "2026.05.12",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "always_the_same_bs",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 81.97,
+        "black": 69.26
+      },
+      "totalMoves": 30,
+      "url": "https://www.chess.com/game/live/168600771918"
+    },
+    {
+      "index": 22,
+      "filename": "review_168632643122.json",
+      "gameId": "168632643122",
+      "date": "2026.05.13",
+      "event": "Live Chess",
+      "white": "SONNAY2",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 71.18,
+        "black": 88.11
+      },
+      "totalMoves": 40,
+      "url": "https://www.chess.com/game/live/168632643122"
+    },
+    {
+      "index": 23,
+      "filename": "review_168636733738.json",
+      "gameId": "168636733738",
+      "date": "2026.05.13",
+      "event": "Live Chess",
+      "white": "staceysmansion",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 92.87,
+        "black": 58.72
+      },
+      "totalMoves": 13,
+      "url": "https://www.chess.com/game/live/168636733738"
+    },
+    {
+      "index": 24,
+      "filename": "review_168637545440.json",
+      "gameId": "168637545440",
+      "date": "2026.05.13",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "LudmillaVasata",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 59.83,
+        "black": 64.75
+      },
+      "totalMoves": 85,
+      "url": "https://www.chess.com/game/live/168637545440"
+    },
+    {
+      "index": 25,
+      "filename": "review_168726640364.json",
+      "gameId": "168726640364",
+      "date": "2026.05.15",
+      "event": "Live Chess",
+      "white": "aaron13102023",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 69.86,
+        "black": 57.64
+      },
+      "totalMoves": 35,
+      "url": "https://www.chess.com/game/live/168726640364"
+    },
+    {
+      "index": 26,
+      "filename": "review_168726989858.json",
+      "gameId": "168726989858",
+      "date": "2026.05.15",
+      "event": "Live Chess",
+      "white": "alfonso63",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 77.15,
+        "black": 56.96
+      },
+      "totalMoves": 41,
+      "url": "https://www.chess.com/game/live/168726989858"
+    },
+    {
+      "index": 27,
+      "filename": "review_168727204756.json",
+      "gameId": "168727204756",
+      "date": "2026.05.15",
+      "event": "Live Chess",
+      "white": "Vanhalen_Tht",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 56.92,
+        "black": 56.33
+      },
+      "totalMoves": 29,
+      "url": "https://www.chess.com/game/live/168727204756"
+    },
+    {
+      "index": 28,
+      "filename": "review_168729964022.json",
+      "gameId": "168729964022",
+      "date": "2026.05.15",
+      "event": "Live Chess",
+      "white": "mariocawallra",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 58.13,
+        "black": 66.24
+      },
+      "totalMoves": 66,
+      "url": "https://www.chess.com/game/live/168729964022"
+    },
+    {
+      "index": 29,
+      "filename": "review_168747813598.json",
+      "gameId": "168747813598",
+      "date": "2026.05.15",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "G3Volttt",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 64.53,
+        "black": 59.31
+      },
+      "totalMoves": 99,
+      "url": "https://www.chess.com/game/live/168747813598"
+    },
+    {
+      "index": 30,
+      "filename": "review_168788134402.json",
+      "gameId": "168788134402",
+      "date": "2026.05.16",
+      "event": "Live Chess",
+      "white": "MELEN1133",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 64,
+        "black": 82.65
+      },
+      "totalMoves": 34,
+      "url": "https://www.chess.com/game/live/168788134402"
+    },
+    {
+      "index": 31,
+      "filename": "review_168821303542.json",
+      "gameId": "168821303542",
+      "date": "2026.05.17",
+      "event": "Live Chess",
+      "white": "shortredman",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 85.57,
+        "black": 75.85
+      },
+      "totalMoves": 75,
+      "url": "https://www.chess.com/game/live/168821303542"
+    },
+    {
+      "index": 32,
+      "filename": "review_168821729992.json",
+      "gameId": "168821729992",
+      "date": "2026.05.17",
+      "event": "Live Chess",
+      "white": "jojopinkman69",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 59.86,
+        "black": 46.95
+      },
+      "totalMoves": 57,
+      "url": "https://www.chess.com/game/live/168821729992"
+    },
+    {
+      "index": 33,
+      "filename": "review_168871650362.json",
+      "gameId": "168871650362",
+      "date": "2026.05.18",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Gowthy9999",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 65.27,
+        "black": 56.27
+      },
+      "totalMoves": 45,
+      "url": "https://www.chess.com/game/live/168871650362"
+    },
+    {
+      "index": 34,
+      "filename": "review_168918642346.json",
+      "gameId": "168918642346",
+      "date": "2026.05.19",
+      "event": "Live Chess",
+      "white": "Filmonwg",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 73.63,
+        "black": 72.34
+      },
+      "totalMoves": 77,
+      "url": "https://www.chess.com/game/live/168918642346"
+    },
+    {
+      "index": 35,
+      "filename": "review_169024486102.json",
+      "gameId": "169024486102",
+      "date": "2026.05.21",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "mohan25368",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 79.94,
+        "black": 61.66
+      },
+      "totalMoves": 39,
+      "url": "https://www.chess.com/game/live/169024486102"
+    },
+    {
+      "index": 36,
+      "filename": "review_169057527796.json",
+      "gameId": "169057527796",
+      "date": "2026.05.22",
+      "event": "Live Chess",
+      "white": "dillonm01",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 69.56,
+        "black": 57.52
+      },
+      "totalMoves": 45,
+      "url": "https://www.chess.com/game/live/169057527796"
+    },
+    {
+      "index": 37,
+      "filename": "review_169203108116.json",
+      "gameId": "169203108116",
+      "date": "2026.05.25",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "mdtpace",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 70.1,
+        "black": 63.87
+      },
+      "totalMoves": 101,
+      "url": "https://www.chess.com/game/live/169203108116"
+    },
+    {
+      "index": 38,
+      "filename": "review_169318746214.json",
+      "gameId": "169318746214",
+      "date": "2026.05.27",
+      "event": "Live Chess",
+      "white": "Oxable",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 49.47,
+        "black": 72.15
+      },
+      "totalMoves": 28,
+      "url": "https://www.chess.com/game/live/169318746214"
+    },
+    {
+      "index": 39,
+      "filename": "review_169320332546.json",
+      "gameId": "169320332546",
+      "date": "2026.05.27",
+      "event": "Live Chess",
+      "white": "pavar_88",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 71.4,
+        "black": 48.66
+      },
+      "totalMoves": 19,
+      "url": "https://www.chess.com/game/live/169320332546"
+    },
+    {
+      "index": 40,
+      "filename": "review_171249101348.json",
+      "gameId": "171249101348",
+      "date": "2026.07.07",
+      "event": "Live Chess",
+      "white": "LittleNear",
+      "black": "Spy-deer-man",
+      "result": "1/2-1/2",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 67.69,
+        "black": 70.34
+      },
+      "totalMoves": 180,
+      "url": "https://www.chess.com/game/live/171249101348"
+    },
+    {
+      "index": 41,
+      "filename": "review_172051799672.json",
+      "gameId": "172051799672",
+      "date": "2026.07.25",
+      "event": "Live Chess",
+      "white": "ramip",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 94.02,
+        "black": 70.06
+      },
+      "totalMoves": 41,
+      "url": "https://www.chess.com/game/live/172051799672"
+    },
+    {
+      "index": 42,
+      "filename": "review_172553543312.json",
+      "gameId": "172553543312",
+      "date": "2026.08.05",
+      "event": "Live Chess",
+      "white": "lilyflwrs",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 84.3,
+        "black": 77.4
+      },
+      "totalMoves": 81,
+      "url": "https://www.chess.com/game/live/172553543312"
+    },
+    {
+      "index": 43,
+      "filename": "review_172685244054.json",
+      "gameId": "172685244054",
+      "date": "2026.08.08",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "anthonycousineaupereira",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 54,
+        "black": 65.54
+      },
+      "totalMoves": 92,
+      "url": "https://www.chess.com/game/live/172685244054"
+    },
+    {
+      "index": 44,
+      "filename": "game_bot_44_poseidon-bot.json",
+      "gameId": "bot_44",
+      "date": "2026.08.10",
+      "event": "Play vs Bot",
+      "white": "Spy-deer-man",
+      "black": "Poseidon-BOT",
+      "result": "0-1",
+      "hasAccuracies": false,
+      "accuracies": null,
+      "totalMoves": 50,
+      "url": null
+    },
+    {
+      "index": 45,
+      "filename": "game_bot_45_siren-bot.json",
+      "gameId": "bot_45",
+      "date": "2026.08.11",
+      "event": "Play vs Bot",
+      "white": "Siren-BOT",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": false,
+      "accuracies": null,
+      "totalMoves": 68,
+      "url": null
+    },
+    {
+      "index": 46,
+      "filename": "game_bot_46_siren-bot.json",
+      "gameId": "bot_46",
+      "date": "2026.08.12",
+      "event": "Play vs Bot",
+      "white": "Siren-BOT",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": false,
+      "accuracies": null,
+      "totalMoves": 54,
+      "url": null
+    },
+    {
+      "index": 47,
+      "filename": "review_172892482832.json",
+      "gameId": "172892482832",
+      "date": "2026.08.12",
+      "event": "Live Chess",
+      "white": "bewill710",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 54.64,
+        "black": 72.63
+      },
+      "totalMoves": 28,
+      "url": "https://www.chess.com/game/live/172892482832"
+    },
+    {
+      "index": 48,
+      "filename": "review_173278084784.json",
+      "gameId": "173278084784",
+      "date": "2026.08.20",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "BobTheMob22",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 87.37,
+        "black": 74.08
+      },
+      "totalMoves": 55,
+      "url": "https://www.chess.com/game/live/173278084784"
+    },
+    {
+      "index": 49,
+      "filename": "review_173346775412.json",
+      "gameId": "173346775412",
+      "date": "2026.08.22",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Vic9045",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 68.21,
+        "black": 78.89
+      },
+      "totalMoves": 52,
+      "url": "https://www.chess.com/game/live/173346775412"
+    },
+    {
+      "index": 50,
+      "filename": "review_173347035444.json",
+      "gameId": "173347035444",
+      "date": "2026.08.22",
+      "event": "Live Chess",
+      "white": "GermanBuII",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 81.75,
+        "black": 76.11
+      },
+      "totalMoves": 95,
+      "url": "https://www.chess.com/game/live/173347035444"
+    },
+    {
+      "index": 51,
+      "filename": "review_173452628330.json",
+      "gameId": "173452628330",
+      "date": "2026.08.24",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Theeran75",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 82.26,
+        "black": 60.95
+      },
+      "totalMoves": 41,
+      "url": "https://www.chess.com/game/live/173452628330"
+    },
+    {
+      "index": 52,
+      "filename": "review_173493458330.json",
+      "gameId": "173493458330",
+      "date": "2026.08.25",
+      "event": "Live Chess",
+      "white": "yogeshdoss",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 57.36,
+        "black": 64
+      },
+      "totalMoves": 70,
+      "url": "https://www.chess.com/game/live/173493458330"
+    },
+    {
+      "index": 53,
+      "filename": "review_173553503318.json",
+      "gameId": "173553503318",
+      "date": "2026.08.26",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "SYoungpub",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 60.77,
+        "black": 81.48
+      },
+      "totalMoves": 42,
+      "url": "https://www.chess.com/game/live/173553503318"
+    },
+    {
+      "index": 54,
+      "filename": "review_173876957940.json",
+      "gameId": "173876957940",
+      "date": "2026.09.02",
+      "event": "Live Chess",
+      "white": "Anton1990Gelen",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 71.05,
+        "black": 90.03
+      },
+      "totalMoves": 24,
+      "url": "https://www.chess.com/game/live/173876957940"
+    },
+    {
+      "index": 55,
+      "filename": "review_173951041500.json",
+      "gameId": "173951041500",
+      "date": "2026.09.04",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "Pincio",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 66.44,
+        "black": 60.29
+      },
+      "totalMoves": 67,
+      "url": "https://www.chess.com/game/live/173951041500"
+    },
+    {
+      "index": 56,
+      "filename": "review_174016678652.json",
+      "gameId": "174016678652",
+      "date": "2026.09.05",
+      "event": "Live Chess",
+      "white": "IPT44",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 66.64,
+        "black": 73.35
+      },
+      "totalMoves": 70,
+      "url": "https://www.chess.com/game/live/174016678652"
+    },
+    {
+      "index": 57,
+      "filename": "review_174475669234.json",
+      "gameId": "174475669234",
+      "date": "2026.09.14",
+      "event": "Live Chess",
+      "white": "poloske17",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 71.46,
+        "black": 84.02
+      },
+      "totalMoves": 28,
+      "url": "https://www.chess.com/game/live/174475669234"
+    },
+    {
+      "index": 58,
+      "filename": "review_174499872610.json",
+      "gameId": "174499872610",
+      "date": "2026.09.15",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "itzrishb29",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 91.84,
+        "black": 66.74
+      },
+      "totalMoves": 45,
+      "url": "https://www.chess.com/game/live/174499872610"
+    },
+    {
+      "index": 59,
+      "filename": "review_184047631174.json",
+      "gameId": "184047631174",
+      "date": "2026.09.19",
+      "event": "Live Chess",
+      "white": "Spy-deer-man",
+      "black": "laroussidallel",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 86.66,
+        "black": 74.6
+      },
+      "totalMoves": 37,
+      "url": "https://www.chess.com/game/live/184047631174"
+    },
+    {
+      "index": 60,
+      "filename": "review_184251181094.json",
+      "gameId": "184251181094",
+      "date": "2026.09.23",
+      "event": "Live Chess",
+      "white": "ikzirap",
+      "black": "Spy-deer-man",
+      "result": "1-0",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 95.99,
+        "black": 100
+      },
+      "totalMoves": 7,
+      "url": "https://www.chess.com/game/live/184251181094"
+    },
+    {
+      "index": 61,
+      "filename": "review_184348301442.json",
+      "gameId": "184348301442",
+      "date": "2026.09.25",
+      "event": "Live Chess",
+      "white": "Vitpopo",
+      "black": "Spy-deer-man",
+      "result": "0-1",
+      "hasAccuracies": true,
+      "accuracies": {
+        "white": 58.75,
+        "black": 76.6
+      },
+      "totalMoves": 52,
+      "url": "https://www.chess.com/game/live/184348301442"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background: #302E2B;
+  --foreground: #dedede;
+
+  --foregroundHighlighted: #ffffff;
+  --foregroundGrey: #939291;
+  --foregroundBlack: #505050;
+  --foregroundBlackDark: #363636;
+
+  --placeholder: #9e9d9c;
+
+  --backgroundBox: #00000033;
+  --backgroundBoxDarker: #121212;
+  --backgroundBoxHover: #00000024;
+  --backgroundBoxBox: #ffffff1a;
+  --backgroundBoxBoxDisabled: #00000024;
+  --backgroundBoxBoxHover: #ffffff29;
+  --backgroundBoxBoxHighlighted: #81b64c;
+  --backgroundBoxBoxHighlightedHover: #8bc550;
+  --backgroundWhiteClock: #f6f6f6;
+  --backgroundBlackClock: #1e1d1c;
+
+  --foregroundProfileWhite: #ffffff;
+  --foregroundProfileBlack: #1d1c1a;
+  --backgroundProfileWhite: #dbd9d6;
+  --backgroundProfileBlack: #474542;
+
+  --evaluationBarWhite: #ffffff;
+  --evaluationBarBlack: #403d39;
+
+  --border: #5d5d5d;
+  --borderHighlighted: #949494;
+
+  --blackBoard: #779556;
+  --whiteBoard: #ebecd0;
+
+  --highlightBrilliant: #26c2a3;
+  --highlightGreat: #749bbf;
+  --highlightBest: #81b64c;
+  --highlightExcellent: #81b64c;
+  --highlightGood: #95b776;
+  --highlightBook: #d5a47d;
+  --highlightInaccuracy: #f7c631;
+  --highlightMistake: #ffa459;
+  --highlightMiss: #ff7769;
+  --highlightBlunder: #fa412d;
+
+  --normalArrow: #ffaa00;
+  --bestArrow: #9fcf3f;
+  --badArrow: #eb6150;
+
+  --winGreen: #81b64c;
+  --lossRed: #fa412d;
+
+  --scrollbarColor: #494949;
+
+  --error: #fa412d;
+  --warning: #b8860b;
+
+  --shadowBoxBoxHighlighted: 0 0 8px;
+
+  --borderRoundness: .25rem;
+  --borderExtraRoundness: .5rem;
+
+  --scrollbarSize: 8px;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+* {
+  scrollbar-width: var(--scrollbarSize);
+  scrollbar-color: var(--scrollbarColor) transparent;
+}

@@ -1,0 +1,21 @@
+{
+  "id": "119819988495",
+  "tier": "Master_2200_2600",
+  "url": "https://www.chess.com/game/live/119819988495",
+  "timeClass": "blitz",
+  "timeControl": "180",
+  "white": {
+    "username": "DanielNaroditsky",
+    "rating": 3004,
+    "accuracy": 88.62,
+    "result": "win"
+  },
+  "black": {
+    "username": "Kiborg95",
+    "rating": 2896,
+    "accuracy": 81.2,
+    "result": "resigned"
+  },
+  "eco": "Pirc-Defense...3.Bd3-e5-4.c3-Nc6-5.Ne2",
+  "pgn": "[Event \"Live Chess\"]\n[Site \"Chess.com\"]\n[Date \"2024.09.11\"]\n[Round \"-\"]\n[White \"DanielNaroditsky\"]\n[Black \"Kiborg95\"]\n[Result \"1-0\"]\n[CurrentPosition \"r1bqr3/ppp2kb1/3p2pp/n7/1P1PPN2/2P5/P2N2PP/R2Q1RK1 b - b3\"]\n[Timezone \"UTC\"]\n[ECO \"B07\"]\n[ECOUrl \"https://www.chess.com/openings/Pirc-Defense...3.Bd3-e5-4.c3-Nc6-5.Ne2\"]\n[UTCDate \"2024.09.11\"]\n[UTCTime \"18:54:33\"]\n[WhiteElo \"3004\"]\n[BlackElo \"2896\"]\n[TimeControl \"180\"]\n[Termination \"DanielNaroditsky won by resignation\"]\n[StartTime \"18:54:33\"]\n[EndDate \"2024.09.11\"]\n[EndTime \"18:55:58\"]\n[Link \"https://www.chess.com/game/live/119819988495\"]\n\n1. e4 {[%clk 0:03:00]} 1... d6 {[%clk 0:03:00]} 2. d4 {[%clk 0:02:59.2]} 2... Nf6 {[%clk 0:02:59.6]} 3. Bd3 {[%clk 0:02:58.9]} 3... Nc6 {[%clk 0:02:57.7]} 4. c3 {[%clk 0:02:58.4]} 4... e5 {[%clk 0:02:57.3]} 5. Ne2 {[%clk 0:02:57.6]} 5... g6 {[%clk 0:02:51.6]} 6. O-O {[%clk 0:02:56.4]} 6... Bg7 {[%clk 0:02:51.3]} 7. Bg5 {[%clk 0:02:55.9]} 7... h6 {[%clk 0:02:50.3]} 8. Bh4 {[%clk 0:02:52.2]} 8... O-O {[%clk 0:02:49.3]} 9. Nd2 {[%clk 0:02:51.2]} 9... Re8 {[%clk 0:02:45.5]} 10. f4 {[%clk 0:02:46.4]} 10... exf4 {[%clk 0:02:42.6]} 11. Bxf6 {[%clk 0:02:44.6]} 11... Bxf6 {[%clk 0:02:35.4]} 12. Nxf4 {[%clk 0:02:44.5]} 12... Bg7 {[%clk 0:02:34.9]} 13. Bc4 {[%clk 0:02:39.6]} 13... Na5 {[%clk 0:02:23.2]} 14. Bxf7+ {[%clk 0:02:29.7]} 14... Kxf7 {[%clk 0:02:22.6]} 15. b4 {[%clk 0:02:29.4]} 1-0\n"
+}

@@ -1,0 +1,313 @@
+[
+  {
+    "gameId": "184653017586",
+    "color": "white",
+    "officialAcc": 60.3,
+    "ceeCaps": 65.76,
+    "avgCaps2": 66.68783783783785,
+    "avgCaps2Clamped": 74.43891891891893,
+    "avgNbCaps2Clamped": 71.34060606060606,
+    "numMoves": 37,
+    "counts": {
+      "book": 4,
+      "excellent": 7,
+      "blunder": 1,
+      "good": 7,
+      "mistake": 3,
+      "best": 10,
+      "miss": 3,
+      "greatfind": 1,
+      "forced": 1
+    }
+  },
+  {
+    "gameId": "184653017586",
+    "color": "black",
+    "officialAcc": 70,
+    "ceeCaps": 72.73,
+    "avgCaps2": 74.20783783783784,
+    "avgCaps2Clamped": 80.23513513513512,
+    "avgNbCaps2Clamped": 78.49117647058823,
+    "numMoves": 37,
+    "counts": {
+      "book": 3,
+      "excellent": 10,
+      "best": 12,
+      "inaccuracy": 3,
+      "good": 2,
+      "mistake": 3,
+      "blunder": 1,
+      "forced": 2,
+      "greatfind": 1
+    }
+  },
+  {
+    "gameId": "171608609212",
+    "color": "white",
+    "officialAcc": 74.7,
+    "ceeCaps": 75.74,
+    "avgCaps2": 75.74264705882354,
+    "avgCaps2Clamped": 76.03117647058825,
+    "avgNbCaps2Clamped": 74.53312500000001,
+    "numMoves": 34,
+    "counts": {
+      "book": 2,
+      "good": 8,
+      "excellent": 7,
+      "inaccuracy": 3,
+      "mistake": 6,
+      "best": 8
+    }
+  },
+  {
+    "gameId": "171608609212",
+    "color": "black",
+    "officialAcc": 86.3,
+    "ceeCaps": 87.24,
+    "avgCaps2": 87.245,
+    "avgCaps2Clamped": 87.245,
+    "avgNbCaps2Clamped": 86.4478125,
+    "numMoves": 34,
+    "counts": {
+      "book": 2,
+      "best": 13,
+      "excellent": 13,
+      "inaccuracy": 2,
+      "good": 2,
+      "miss": 1,
+      "greatfind": 1
+    }
+  },
+  {
+    "gameId": "114104460147",
+    "color": "white",
+    "officialAcc": 70.5,
+    "ceeCaps": 76.5,
+    "avgCaps2": 79.632,
+    "avgCaps2Clamped": 81.14066666666666,
+    "avgNbCaps2Clamped": 80.26348837209302,
+    "numMoves": 45,
+    "counts": {
+      "book": 2,
+      "excellent": 12,
+      "inaccuracy": 5,
+      "best": 9,
+      "good": 5,
+      "blunder": 1,
+      "mistake": 5,
+      "forced": 6
+    }
+  },
+  {
+    "gameId": "114104460147",
+    "color": "black",
+    "officialAcc": 74.5,
+    "ceeCaps": 80.1,
+    "avgCaps2": 80.10177777777778,
+    "avgCaps2Clamped": 82.32400000000001,
+    "avgNbCaps2Clamped": 81.92227272727273,
+    "numMoves": 45,
+    "counts": {
+      "book": 1,
+      "good": 6,
+      "excellent": 12,
+      "best": 18,
+      "inaccuracy": 3,
+      "greatfind": 1,
+      "mistake": 2,
+      "miss": 2
+    }
+  },
+  {
+    "gameId": "172014464516",
+    "color": "white",
+    "officialAcc": 87.1,
+    "ceeCaps": 90.57,
+    "avgCaps2": 90.56955555555555,
+    "avgCaps2Clamped": 91.53688888888888,
+    "avgNbCaps2Clamped": 90.93238095238095,
+    "numMoves": 45,
+    "counts": {
+      "book": 3,
+      "inaccuracy": 1,
+      "excellent": 15,
+      "best": 19,
+      "good": 3,
+      "blunder": 1,
+      "mistake": 1,
+      "greatfind": 2
+    }
+  },
+  {
+    "gameId": "172014464516",
+    "color": "black",
+    "officialAcc": 81.7,
+    "ceeCaps": 84.48,
+    "avgCaps2": 84.48181818181818,
+    "avgCaps2Clamped": 87.60068181818183,
+    "avgNbCaps2Clamped": 87.01023809523811,
+    "numMoves": 44,
+    "counts": {
+      "book": 2,
+      "good": 4,
+      "excellent": 20,
+      "best": 12,
+      "greatfind": 1,
+      "miss": 1,
+      "blunder": 1,
+      "inaccuracy": 1,
+      "mistake": 2
+    }
+  },
+  {
+    "gameId": "171853838612",
+    "color": "white",
+    "officialAcc": 83.9,
+    "ceeCaps": 86.86,
+    "avgCaps2": 86.86283018867925,
+    "avgCaps2Clamped": 88.27641509433963,
+    "avgNbCaps2Clamped": 87.573,
+    "numMoves": 53,
+    "counts": {
+      "book": 3,
+      "good": 5,
+      "best": 30,
+      "excellent": 10,
+      "miss": 1,
+      "inaccuracy": 3,
+      "blunder": 1
+    }
+  },
+  {
+    "gameId": "171853838612",
+    "color": "black",
+    "officialAcc": 76.5,
+    "ceeCaps": 79.69,
+    "avgCaps2": 80.08057692307693,
+    "avgCaps2Clamped": 81.4669230769231,
+    "avgNbCaps2Clamped": 80.3322448979592,
+    "numMoves": 52,
+    "counts": {
+      "book": 3,
+      "excellent": 18,
+      "good": 6,
+      "best": 14,
+      "mistake": 2,
+      "inaccuracy": 6,
+      "greatfind": 1,
+      "miss": 1,
+      "forced": 1
+    }
+  },
+  {
+    "gameId": "165803154362",
+    "color": "white",
+    "officialAcc": 66.2,
+    "ceeCaps": 68.06,
+    "avgCaps2": 71.1002380952381,
+    "avgCaps2Clamped": 73.0547619047619,
+    "avgNbCaps2Clamped": 72.39756097560975,
+    "numMoves": 42,
+    "counts": {
+      "book": 1,
+      "good": 8,
+      "mistake": 9,
+      "inaccuracy": 3,
+      "excellent": 7,
+      "best": 10,
+      "forced": 4
+    }
+  },
+  {
+    "gameId": "165803154362",
+    "color": "black",
+    "officialAcc": 75.3,
+    "ceeCaps": 76.39,
+    "avgCaps2": 76.38833333333335,
+    "avgCaps2Clamped": 76.38833333333335,
+    "avgNbCaps2Clamped": 75.81243902439024,
+    "numMoves": 42,
+    "counts": {
+      "book": 1,
+      "excellent": 12,
+      "good": 7,
+      "miss": 6,
+      "best": 11,
+      "inaccuracy": 5
+    }
+  },
+  {
+    "gameId": "184348301442",
+    "color": "white",
+    "officialAcc": 63,
+    "ceeCaps": 66.01,
+    "avgCaps2": 66.01,
+    "avgCaps2Clamped": 74.57038461538463,
+    "avgNbCaps2Clamped": 72.45125,
+    "numMoves": 26,
+    "counts": {
+      "book": 2,
+      "good": 5,
+      "excellent": 4,
+      "best": 7,
+      "inaccuracy": 3,
+      "mistake": 5
+    }
+  },
+  {
+    "gameId": "184348301442",
+    "color": "black",
+    "officialAcc": 75.3,
+    "ceeCaps": 85.06,
+    "avgCaps2": 85.06153846153846,
+    "avgCaps2Clamped": 88.9076923076923,
+    "avgNbCaps2Clamped": 87.98333333333333,
+    "numMoves": 26,
+    "counts": {
+      "book": 2,
+      "excellent": 5,
+      "best": 11,
+      "good": 5,
+      "miss": 1,
+      "inaccuracy": 1,
+      "greatfind": 1
+    }
+  },
+  {
+    "gameId": "184347995768",
+    "color": "white",
+    "officialAcc": 67.5,
+    "ceeCaps": 64.29,
+    "avgCaps2": 64.28999999999999,
+    "avgCaps2Clamped": 71.73916666666666,
+    "avgNbCaps2Clamped": 69.17,
+    "numMoves": 12,
+    "counts": {
+      "book": 1,
+      "excellent": 3,
+      "best": 2,
+      "good": 1,
+      "inaccuracy": 2,
+      "miss": 2,
+      "greatfind": 1
+    }
+  },
+  {
+    "gameId": "184347995768",
+    "color": "black",
+    "officialAcc": 53.7,
+    "ceeCaps": 48.89,
+    "avgCaps2": 48.889090909090896,
+    "avgCaps2Clamped": 62.400909090909074,
+    "avgNbCaps2Clamped": 62.400909090909074,
+    "numMoves": 11,
+    "counts": {
+      "excellent": 2,
+      "best": 3,
+      "good": 3,
+      "mistake": 1,
+      "miss": 1,
+      "blunder": 1
+    }
+  }
+]

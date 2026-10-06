@@ -1,0 +1,21 @@
+{
+  "id": "119904072233",
+  "tier": "Intermediate_1400_1800",
+  "url": "https://www.chess.com/game/live/119904072233",
+  "timeClass": "blitz",
+  "timeControl": "180+2",
+  "white": {
+    "username": "tareko88",
+    "rating": 1387,
+    "accuracy": 64.12,
+    "result": "resigned"
+  },
+  "black": {
+    "username": "3zylryb",
+    "rating": 1419,
+    "accuracy": 87.93,
+    "result": "win"
+  },
+  "eco": "Slav-Defense-3.Nc3-Nf6",
+  "pgn": "[Event \"Live Chess\"]\n[Site \"Chess.com\"]\n[Date \"2024.09.12\"]\n[Round \"-\"]\n[White \"tareko88\"]\n[Black \"3zylryb\"]\n[Result \"0-1\"]\n[CurrentPosition \"rn1qkb1r/pp2p2p/2p3b1/6p1/2PP4/8/PP2Q1PP/R3KB1R w KQkq -\"]\n[Timezone \"UTC\"]\n[ECO \"D10\"]\n[ECOUrl \"https://www.chess.com/openings/Slav-Defense-3.Nc3-Nf6\"]\n[UTCDate \"2024.09.12\"]\n[UTCTime \"18:20:42\"]\n[WhiteElo \"1387\"]\n[BlackElo \"1419\"]\n[TimeControl \"180+2\"]\n[Termination \"3zylryb won by resignation\"]\n[StartTime \"18:20:42\"]\n[EndDate \"2024.09.12\"]\n[EndTime \"18:22:02\"]\n[Link \"https://www.chess.com/game/live/119904072233\"]\n\n1. d4 {[%clk 0:03:02]} 1... d5 {[%clk 0:03:01.7]} 2. c4 {[%clk 0:03:03.4]} 2... c6 {[%clk 0:03:02.9]} 3. Nc3 {[%clk 0:03:03.9]} 3... Nf6 {[%clk 0:03:04.1]} 4. f3 {[%clk 0:03:04.5]} 4... Bf5 {[%clk 0:03:05.3]} 5. e4 {[%clk 0:03:03.8]} 5... dxe4 {[%clk 0:03:05.8]} 6. Bg5 {[%clk 0:02:59.1]} 6... exf3 {[%clk 0:03:03]} 7. Nxf3 {[%clk 0:03:00.2]} 7... Ne4 {[%clk 0:02:56.6]} 8. Nxe4 {[%clk 0:02:52.8]} 8... Bxe4 {[%clk 0:02:57.3]} 9. Ne5 {[%clk 0:02:53]} 9... f6 {[%clk 0:02:57.1]} 10. Qh5+ {[%clk 0:02:45.4]} 10... g6 {[%clk 0:02:52.4]} 11. Nxg6 {[%clk 0:02:45.9]} 11... Bxg6 {[%clk 0:02:52.8]} 12. Qe2 {[%clk 0:02:45.8]} 12... fxg5 {[%clk 0:02:52.9]} 0-1\n"
+}

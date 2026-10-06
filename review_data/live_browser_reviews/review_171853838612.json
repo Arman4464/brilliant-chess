@@ -1,0 +1,846 @@
+{
+  "gameId": "171853838612",
+  "totalMoves": 105,
+  "moves": [
+    {
+      "ply": 1,
+      "san": "e4",
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+      "classification": "book",
+      "score": "+0.32",
+      "comment": ""
+    },
+    {
+      "ply": 2,
+      "san": "e5",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+      "classification": "book",
+      "score": "+0.32",
+      "comment": ""
+    },
+    {
+      "ply": 3,
+      "san": "Nf3",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "classification": "book",
+      "score": "+0.32",
+      "comment": ""
+    },
+    {
+      "ply": 4,
+      "san": "Nc6",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+      "classification": "book",
+      "score": "+0.32",
+      "comment": ""
+    },
+    {
+      "ply": 5,
+      "san": "Bb5",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+      "classification": "book",
+      "score": "+0.32",
+      "comment": ""
+    },
+    {
+      "ply": 6,
+      "san": "Bc5",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/1Bb1p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "classification": "book",
+      "score": "+0.57",
+      "comment": ""
+    },
+    {
+      "ply": 7,
+      "san": "d3",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 4",
+      "classification": "good",
+      "score": "+0.09",
+      "comment": ""
+    },
+    {
+      "ply": 8,
+      "san": "a6",
+      "fen": "r1bqk1nr/1ppp1ppp/p1n5/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 0 5",
+      "classification": "excellent",
+      "score": "+0.19",
+      "comment": ""
+    },
+    {
+      "ply": 9,
+      "san": "Ba4",
+      "fen": "r1bqk1nr/1ppp1ppp/p1n5/2b1p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 1 5",
+      "classification": "excellent",
+      "score": "+0.13",
+      "comment": ""
+    },
+    {
+      "ply": 10,
+      "san": "d6",
+      "fen": "r1bqk1nr/1pp2ppp/p1np4/2b1p3/B3P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 0 6",
+      "classification": "excellent",
+      "score": "+0.20",
+      "comment": ""
+    },
+    {
+      "ply": 11,
+      "san": "Bd2",
+      "fen": "r1bqk1nr/1pp2ppp/p1np4/2b1p3/B3P3/3P1N2/PPPB1PPP/RN1QK2R b KQkq - 1 6",
+      "classification": "good",
+      "score": "-0.22",
+      "comment": ""
+    },
+    {
+      "ply": 12,
+      "san": "Bg4",
+      "fen": "r2qk1nr/1pp2ppp/p1np4/2b1p3/B3P1b1/3P1N2/PPPB1PPP/RN1QK2R w KQkq - 2 7",
+      "classification": "good",
+      "score": "+0.13",
+      "comment": ""
+    },
+    {
+      "ply": 13,
+      "san": "b4",
+      "fen": "r2qk1nr/1pp2ppp/p1np4/2b1p3/BP2P1b1/3P1N2/P1PB1PPP/RN1QK2R b KQkq b3 0 7",
+      "classification": "excellent",
+      "score": "-0.15",
+      "comment": ""
+    },
+    {
+      "ply": 14,
+      "san": "Bxf3",
+      "fen": "r2qk1nr/1pp2ppp/p1np4/2b1p3/BP2P3/3P1b2/P1PB1PPP/RN1QK2R w KQkq - 0 8",
+      "classification": "good",
+      "score": "+0.50",
+      "comment": ""
+    },
+    {
+      "ply": 15,
+      "san": "Qxf3",
+      "fen": "r2qk1nr/1pp2ppp/p1np4/2b1p3/BP2P3/3P1Q2/P1PB1PPP/RN2K2R b KQkq - 0 8",
+      "classification": "best",
+      "score": "+0.50",
+      "comment": ""
+    },
+    {
+      "ply": 16,
+      "san": "Bb6",
+      "fen": "r2qk1nr/1pp2ppp/pbnp4/4p3/BP2P3/3P1Q2/P1PB1PPP/RN2K2R w KQkq - 1 9",
+      "classification": "excellent",
+      "score": "+0.63",
+      "comment": ""
+    },
+    {
+      "ply": 17,
+      "san": "Bb3",
+      "fen": "r2qk1nr/1pp2ppp/pbnp4/4p3/1P2P3/1B1P1Q2/P1PB1PPP/RN2K2R b KQkq - 2 9",
+      "classification": "excellent",
+      "score": "+0.59",
+      "comment": ""
+    },
+    {
+      "ply": 18,
+      "san": "Nf6",
+      "fen": "r2qk2r/1pp2ppp/pbnp1n2/4p3/1P2P3/1B1P1Q2/P1PB1PPP/RN2K2R w KQkq - 3 10",
+      "classification": "best",
+      "score": "+0.59",
+      "comment": ""
+    },
+    {
+      "ply": 19,
+      "san": "Nc3",
+      "fen": "r2qk2r/1pp2ppp/pbnp1n2/4p3/1P2P3/1BNP1Q2/P1PB1PPP/R3K2R b KQkq - 4 10",
+      "classification": "good",
+      "score": "-0.18",
+      "comment": ""
+    },
+    {
+      "ply": 20,
+      "san": "Nd4",
+      "fen": "r2qk2r/1pp2ppp/pb1p1n2/4p3/1P1nP3/1BNP1Q2/P1PB1PPP/R3K2R w KQkq - 5 11",
+      "classification": "best",
+      "score": "-0.18",
+      "comment": ""
+    },
+    {
+      "ply": 21,
+      "san": "Qg3",
+      "fen": "r2qk2r/1pp2ppp/pb1p1n2/4p3/1P1nP3/1BNP2Q1/P1PB1PPP/R3K2R b KQkq - 6 11",
+      "classification": "excellent",
+      "score": "-0.19",
+      "comment": ""
+    },
+    {
+      "ply": 22,
+      "san": "Nxb3",
+      "fen": "r2qk2r/1pp2ppp/pb1p1n2/4p3/1P2P3/1nNP2Q1/P1PB1PPP/R3K2R w KQkq - 0 12",
+      "classification": "excellent",
+      "score": "-0.03",
+      "comment": ""
+    },
+    {
+      "ply": 23,
+      "san": "axb3",
+      "fen": "r2qk2r/1pp2ppp/pb1p1n2/4p3/1P2P3/1PNP2Q1/2PB1PPP/R3K2R b KQkq - 0 12",
+      "classification": "best",
+      "score": "-0.03",
+      "comment": ""
+    },
+    {
+      "ply": 24,
+      "san": "g6",
+      "fen": "r2qk2r/1pp2p1p/pb1p1np1/4p3/1P2P3/1PNP2Q1/2PB1PPP/R3K2R w KQkq - 0 13",
+      "classification": "good",
+      "score": "+0.49",
+      "comment": ""
+    },
+    {
+      "ply": 25,
+      "san": "O-O",
+      "fen": "r2qk2r/1pp2p1p/pb1p1np1/4p3/1P2P3/1PNP2Q1/2PB1PPP/R4RK1 b kq - 1 13",
+      "classification": "excellent",
+      "score": "+0.31",
+      "comment": ""
+    },
+    {
+      "ply": 26,
+      "san": "Bd4",
+      "fen": "r2qk2r/1pp2p1p/p2p1np1/4p3/1P1bP3/1PNP2Q1/2PB1PPP/R4RK1 w kq - 2 14",
+      "classification": "excellent",
+      "score": "+0.40",
+      "comment": ""
+    },
+    {
+      "ply": 27,
+      "san": "Qf3",
+      "fen": "r2qk2r/1pp2p1p/p2p1np1/4p3/1P1bP3/1PNP1Q2/2PB1PPP/R4RK1 b kq - 3 14",
+      "classification": "best",
+      "score": "+0.40",
+      "comment": ""
+    },
+    {
+      "ply": 28,
+      "san": "Qe7",
+      "fen": "r3k2r/1pp1qp1p/p2p1np1/4p3/1P1bP3/1PNP1Q2/2PB1PPP/R4RK1 w kq - 4 15",
+      "classification": "mistake",
+      "score": "+1.97",
+      "comment": ""
+    },
+    {
+      "ply": 29,
+      "san": "Rad1",
+      "fen": "r3k2r/1pp1qp1p/p2p1np1/4p3/1P1bP3/1PNP1Q2/2PB1PPP/3R1RK1 b kq - 5 15",
+      "classification": "incorrect",
+      "score": "+0.40",
+      "comment": ""
+    },
+    {
+      "ply": 30,
+      "san": "O-O-O",
+      "fen": "2kr3r/1pp1qp1p/p2p1np1/4p3/1P1bP3/1PNP1Q2/2PB1PPP/3R1RK1 w - - 6 16",
+      "classification": "inaccuracy",
+      "score": "+1.27",
+      "comment": ""
+    },
+    {
+      "ply": 31,
+      "san": "Bg5",
+      "fen": "2kr3r/1pp1qp1p/p2p1np1/4p1B1/1P1bP3/1PNP1Q2/2P2PPP/3R1RK1 b - - 7 16",
+      "classification": "best",
+      "score": "+1.27",
+      "comment": ""
+    },
+    {
+      "ply": 32,
+      "san": "Qe6",
+      "fen": "2kr3r/1pp2p1p/p2pqnp1/4p1B1/1P1bP3/1PNP1Q2/2P2PPP/3R1RK1 w - - 8 17",
+      "classification": "inaccuracy",
+      "score": "+2.58",
+      "comment": ""
+    },
+    {
+      "ply": 33,
+      "san": "Qxf6",
+      "fen": "2kr3r/1pp2p1p/p2pqQp1/4p1B1/1P1bP3/1PNP4/2P2PPP/3R1RK1 b - - 0 17",
+      "classification": "inaccuracy",
+      "score": "+1.71",
+      "comment": ""
+    },
+    {
+      "ply": 34,
+      "san": "Qxf6",
+      "fen": "2kr3r/1pp2p1p/p2p1qp1/4p1B1/1P1bP3/1PNP4/2P2PPP/3R1RK1 w - - 0 18",
+      "classification": "best",
+      "score": "+1.71",
+      "comment": ""
+    },
+    {
+      "ply": 35,
+      "san": "Bxf6",
+      "fen": "2kr3r/1pp2p1p/p2p1Bp1/4p3/1P1bP3/1PNP4/2P2PPP/3R1RK1 b - - 0 18",
+      "classification": "best",
+      "score": "+1.71",
+      "comment": ""
+    },
+    {
+      "ply": 36,
+      "san": "Bxc3",
+      "fen": "2kr3r/1pp2p1p/p2p1Bp1/4p3/1P2P3/1PbP4/2P2PPP/3R1RK1 w - - 0 19",
+      "classification": "great_find",
+      "score": "+1.71",
+      "comment": ""
+    },
+    {
+      "ply": 37,
+      "san": "Bxh8",
+      "fen": "2kr3B/1pp2p1p/p2p2p1/4p3/1P2P3/1PbP4/2P2PPP/3R1RK1 b - - 0 19",
+      "classification": "best",
+      "score": "+1.71",
+      "comment": ""
+    },
+    {
+      "ply": 38,
+      "san": "Rxh8",
+      "fen": "2k4r/1pp2p1p/p2p2p1/4p3/1P2P3/1PbP4/2P2PPP/3R1RK1 w - - 0 20",
+      "classification": "best",
+      "score": "+1.71",
+      "comment": ""
+    },
+    {
+      "ply": 39,
+      "san": "f4",
+      "fen": "2k4r/1pp2p1p/p2p2p1/4p3/1P2PP2/1PbP4/2P3PP/3R1RK1 b - f3 0 20",
+      "classification": "best",
+      "score": "+1.71",
+      "comment": ""
+    },
+    {
+      "ply": 40,
+      "san": "Bxb4",
+      "fen": "2k4r/1pp2p1p/p2p2p1/4p3/1b2PP2/1P1P4/2P3PP/3R1RK1 w - - 0 21",
+      "classification": "good",
+      "score": "+2.24",
+      "comment": ""
+    },
+    {
+      "ply": 41,
+      "san": "fxe5",
+      "fen": "2k4r/1pp2p1p/p2p2p1/4P3/1b2P3/1P1P4/2P3PP/3R1RK1 b - - 0 21",
+      "classification": "best",
+      "score": "+2.24",
+      "comment": ""
+    },
+    {
+      "ply": 42,
+      "san": "dxe5",
+      "fen": "2k4r/1pp2p1p/p5p1/4p3/1b2P3/1P1P4/2P3PP/3R1RK1 w - - 0 22",
+      "classification": "best",
+      "score": "+2.24",
+      "comment": ""
+    },
+    {
+      "ply": 43,
+      "san": "Rxf7",
+      "fen": "2k4r/1pp2R1p/p5p1/4p3/1b2P3/1P1P4/2P3PP/3R2K1 b - - 0 22",
+      "classification": "best",
+      "score": "+2.24",
+      "comment": ""
+    },
+    {
+      "ply": 44,
+      "san": "Kb8",
+      "fen": "1k5r/1pp2R1p/p5p1/4p3/1b2P3/1P1P4/2P3PP/3R2K1 w - - 1 23",
+      "classification": "good",
+      "score": "+2.91",
+      "comment": ""
+    },
+    {
+      "ply": 45,
+      "san": "d4",
+      "fen": "1k5r/1pp2R1p/p5p1/4p3/1b1PP3/1P6/2P3PP/3R2K1 b - - 0 23",
+      "classification": "excellent",
+      "score": "+2.71",
+      "comment": ""
+    },
+    {
+      "ply": 46,
+      "san": "exd4",
+      "fen": "1k5r/1pp2R1p/p5p1/8/1b1pP3/1P6/2P3PP/3R2K1 w - - 0 24",
+      "classification": "best",
+      "score": "+2.71",
+      "comment": ""
+    },
+    {
+      "ply": 47,
+      "san": "Rxd4",
+      "fen": "1k5r/1pp2R1p/p5p1/8/1b1RP3/1P6/2P3PP/6K1 b - - 0 24",
+      "classification": "blunder",
+      "score": "-0.31",
+      "comment": ""
+    },
+    {
+      "ply": 48,
+      "san": "Bc3",
+      "fen": "1k5r/1pp2R1p/p5p1/8/3RP3/1Pb5/2P3PP/6K1 w - - 1 25",
+      "classification": "incorrect",
+      "score": "+3.58",
+      "comment": ""
+    },
+    {
+      "ply": 49,
+      "san": "Rdd7",
+      "fen": "1k5r/1ppR1R1p/p5p1/8/4P3/1Pb5/2P3PP/6K1 b - - 2 25",
+      "classification": "best",
+      "score": "+3.58",
+      "comment": ""
+    },
+    {
+      "ply": 50,
+      "san": "h5",
+      "fen": "1k5r/1ppR1R2/p5p1/7p/4P3/1Pb5/2P3PP/6K1 w - h6 0 26",
+      "classification": "inaccuracy",
+      "score": "+5.11",
+      "comment": ""
+    },
+    {
+      "ply": 51,
+      "san": "Rxc7",
+      "fen": "1k5r/1pR2R2/p5p1/7p/4P3/1Pb5/2P3PP/6K1 b - - 0 26",
+      "classification": "best",
+      "score": "+5.11",
+      "comment": ""
+    },
+    {
+      "ply": 52,
+      "san": "Be5",
+      "fen": "1k5r/1pR2R2/p5p1/4b2p/4P3/1P6/2P3PP/6K1 w - - 1 27",
+      "classification": "good",
+      "score": "+5.81",
+      "comment": ""
+    },
+    {
+      "ply": 53,
+      "san": "Rxb7+",
+      "fen": "1k5r/1R3R2/p5p1/4b2p/4P3/1P6/2P3PP/6K1 b - - 0 27",
+      "classification": "best",
+      "score": "+5.81",
+      "comment": ""
+    },
+    {
+      "ply": 54,
+      "san": "Kc8",
+      "fen": "2k4r/1R3R2/p5p1/4b2p/4P3/1P6/2P3PP/6K1 w - - 1 28",
+      "classification": "best",
+      "score": "+5.81",
+      "comment": ""
+    },
+    {
+      "ply": 55,
+      "san": "Ra7",
+      "fen": "2k4r/R4R2/p5p1/4b2p/4P3/1P6/2P3PP/6K1 b - - 2 28",
+      "classification": "inaccuracy",
+      "score": "+4.33",
+      "comment": ""
+    },
+    {
+      "ply": 56,
+      "san": "Bd4+",
+      "fen": "2k4r/R4R2/p5p1/7p/3bP3/1P6/2P3PP/6K1 w - - 3 29",
+      "classification": "best",
+      "score": "+4.33",
+      "comment": ""
+    },
+    {
+      "ply": 57,
+      "san": "Kh1",
+      "fen": "2k4r/R4R2/p5p1/7p/3bP3/1P6/2P3PP/7K b - - 4 29",
+      "classification": "best",
+      "score": "+4.33",
+      "comment": ""
+    },
+    {
+      "ply": 58,
+      "san": "Bxa7",
+      "fen": "2k4r/b4R2/p5p1/7p/4P3/1P6/2P3PP/7K w - - 0 30",
+      "classification": "best",
+      "score": "+4.33",
+      "comment": ""
+    },
+    {
+      "ply": 59,
+      "san": "Rxa7",
+      "fen": "2k4r/R7/p5p1/7p/4P3/1P6/2P3PP/7K b - - 0 30",
+      "classification": "best",
+      "score": "+4.33",
+      "comment": ""
+    },
+    {
+      "ply": 60,
+      "san": "Rd8",
+      "fen": "2kr4/R7/p5p1/7p/4P3/1P6/2P3PP/7K w - - 1 31",
+      "classification": "excellent",
+      "score": "+4.75",
+      "comment": ""
+    },
+    {
+      "ply": 61,
+      "san": "h3",
+      "fen": "2kr4/R7/p5p1/7p/4P3/1P5P/2P3P1/7K b - - 0 31",
+      "classification": "inaccuracy",
+      "score": "+2.87",
+      "comment": ""
+    },
+    {
+      "ply": 62,
+      "san": "Rd2",
+      "fen": "2k5/R7/p5p1/7p/4P3/1P5P/2Pr2P1/7K w - - 1 32",
+      "classification": "inaccuracy",
+      "score": "+4.46",
+      "comment": ""
+    },
+    {
+      "ply": 63,
+      "san": "Rxa6",
+      "fen": "2k5/8/R5p1/7p/4P3/1P5P/2Pr2P1/7K b - - 0 32",
+      "classification": "best",
+      "score": "+4.46",
+      "comment": ""
+    },
+    {
+      "ply": 64,
+      "san": "Rxc2",
+      "fen": "2k5/8/R5p1/7p/4P3/1P5P/2r3P1/7K w - - 0 33",
+      "classification": "excellent",
+      "score": "+4.48",
+      "comment": ""
+    },
+    {
+      "ply": 65,
+      "san": "Rxg6",
+      "fen": "2k5/8/6R1/7p/4P3/1P5P/2r3P1/7K b - - 0 33",
+      "classification": "excellent",
+      "score": "+4.27",
+      "comment": ""
+    },
+    {
+      "ply": 66,
+      "san": "Rb2",
+      "fen": "2k5/8/6R1/7p/4P3/1P5P/1r4P1/7K w - - 1 34",
+      "classification": "good",
+      "score": "+4.74",
+      "comment": ""
+    },
+    {
+      "ply": 67,
+      "san": "Rh6",
+      "fen": "2k5/8/7R/7p/4P3/1P5P/1r4P1/7K b - - 2 34",
+      "classification": "best",
+      "score": "+4.74",
+      "comment": ""
+    },
+    {
+      "ply": 68,
+      "san": "Rxb3",
+      "fen": "2k5/8/7R/7p/4P3/1r5P/6P1/7K w - - 0 35",
+      "classification": "best",
+      "score": "+4.74",
+      "comment": ""
+    },
+    {
+      "ply": 69,
+      "san": "Rxh5",
+      "fen": "2k5/8/8/7R/4P3/1r5P/6P1/7K b - - 0 35",
+      "classification": "excellent",
+      "score": "+4.68",
+      "comment": ""
+    },
+    {
+      "ply": 70,
+      "san": "Rb4",
+      "fen": "2k5/8/8/7R/1r2P3/7P/6P1/7K w - - 1 36",
+      "classification": "excellent",
+      "score": "+4.86",
+      "comment": ""
+    },
+    {
+      "ply": 71,
+      "san": "e5",
+      "fen": "2k5/8/8/4P2R/1r6/7P/6P1/7K b - - 0 36",
+      "classification": "excellent",
+      "score": "+4.85",
+      "comment": ""
+    },
+    {
+      "ply": 72,
+      "san": "Kd7",
+      "fen": "8/3k4/8/4P2R/1r6/7P/6P1/7K w - - 1 37",
+      "classification": "excellent",
+      "score": "+4.86",
+      "comment": ""
+    },
+    {
+      "ply": 73,
+      "san": "g4",
+      "fen": "8/3k4/8/4P2R/1r4P1/7P/8/7K b - g3 0 37",
+      "classification": "good",
+      "score": "+4.36",
+      "comment": ""
+    },
+    {
+      "ply": 74,
+      "san": "Ke6",
+      "fen": "8/8/4k3/4P2R/1r4P1/7P/8/7K w - - 1 38",
+      "classification": "excellent",
+      "score": "+4.76",
+      "comment": ""
+    },
+    {
+      "ply": 75,
+      "san": "Kh2",
+      "fen": "8/8/4k3/4P2R/1r4P1/7P/7K/8 b - - 2 38",
+      "classification": "excellent",
+      "score": "+4.74",
+      "comment": ""
+    },
+    {
+      "ply": 76,
+      "san": "Re4",
+      "fen": "8/8/4k3/4P2R/4r1P1/7P/7K/8 w - - 3 39",
+      "classification": "excellent",
+      "score": "+5.08",
+      "comment": ""
+    },
+    {
+      "ply": 77,
+      "san": "Kg3",
+      "fen": "8/8/4k3/4P2R/4r1P1/6KP/8/8 b - - 4 39",
+      "classification": "excellent",
+      "score": "+4.78",
+      "comment": ""
+    },
+    {
+      "ply": 78,
+      "san": "Re3+",
+      "fen": "8/8/4k3/4P2R/6P1/4r1KP/8/8 w - - 5 40",
+      "classification": "excellent",
+      "score": "+5.00",
+      "comment": ""
+    },
+    {
+      "ply": 79,
+      "san": "Kf4",
+      "fen": "8/8/4k3/4P2R/5KP1/4r2P/8/8 b - - 6 40",
+      "classification": "best",
+      "score": "+5.00",
+      "comment": ""
+    },
+    {
+      "ply": 80,
+      "san": "Ra3",
+      "fen": "8/8/4k3/4P2R/5KP1/r6P/8/8 w - - 7 41",
+      "classification": "excellent",
+      "score": "+5.09",
+      "comment": ""
+    },
+    {
+      "ply": 81,
+      "san": "Rh6+",
+      "fen": "8/8/4k2R/4P3/5KP1/r6P/8/8 b - - 8 41",
+      "classification": "excellent",
+      "score": "+5.08",
+      "comment": ""
+    },
+    {
+      "ply": 82,
+      "san": "Kd5",
+      "fen": "8/8/7R/3kP3/5KP1/r6P/8/8 w - - 9 42",
+      "classification": "good",
+      "score": "+5.80",
+      "comment": ""
+    },
+    {
+      "ply": 83,
+      "san": "g5",
+      "fen": "8/8/7R/3kP1P1/5K2/r6P/8/8 b - - 0 42",
+      "classification": "excellent",
+      "score": "+5.51",
+      "comment": ""
+    },
+    {
+      "ply": 84,
+      "san": "Ra5",
+      "fen": "8/8/7R/r2kP1P1/5K2/7P/8/8 w - - 1 43",
+      "classification": "good",
+      "score": "+6.07",
+      "comment": ""
+    },
+    {
+      "ply": 85,
+      "san": "h4",
+      "fen": "8/8/7R/r2kP1P1/5K1P/8/8/8 b - - 0 43",
+      "classification": "best",
+      "score": "+6.07",
+      "comment": ""
+    },
+    {
+      "ply": 86,
+      "san": "Ra4+",
+      "fen": "8/8/7R/3kP1P1/r4K1P/8/8/8 w - - 1 44",
+      "classification": "excellent",
+      "score": "+6.11",
+      "comment": ""
+    },
+    {
+      "ply": 87,
+      "san": "Kf5",
+      "fen": "8/8/7R/3kPKP1/r6P/8/8/8 b - - 2 44",
+      "classification": "best",
+      "score": "+6.11",
+      "comment": ""
+    },
+    {
+      "ply": 88,
+      "san": "Ra8",
+      "fen": "r7/8/7R/3kPKP1/7P/8/8/8 w - - 3 45",
+      "classification": "excellent",
+      "score": "+6.29",
+      "comment": ""
+    },
+    {
+      "ply": 89,
+      "san": "h5",
+      "fen": "r7/8/7R/3kPKPP/8/8/8/8 b - - 0 45",
+      "classification": "excellent",
+      "score": "+6.03",
+      "comment": ""
+    },
+    {
+      "ply": 90,
+      "san": "Rf8+",
+      "fen": "5r2/8/7R/3kPKPP/8/8/8/8 w - - 1 46",
+      "classification": "best",
+      "score": "+6.03",
+      "comment": ""
+    },
+    {
+      "ply": 91,
+      "san": "Rf6",
+      "fen": "5r2/8/5R2/3kPKPP/8/8/8/8 b - - 2 46",
+      "classification": "best",
+      "score": "+6.03",
+      "comment": ""
+    },
+    {
+      "ply": 92,
+      "san": "Rh8",
+      "fen": "7r/8/5R2/3kPKPP/8/8/8/8 w - - 3 47",
+      "classification": "good",
+      "score": "+6.92",
+      "comment": ""
+    },
+    {
+      "ply": 93,
+      "san": "h6",
+      "fen": "7r/8/5R1P/3kPKP1/8/8/8/8 b - - 0 47",
+      "classification": "good",
+      "score": "+6.27",
+      "comment": ""
+    },
+    {
+      "ply": 94,
+      "san": "Rf8",
+      "fen": "5r2/8/5R1P/3kPKP1/8/8/8/8 w - - 1 48",
+      "classification": "mistake",
+      "score": "+13.4",
+      "comment": ""
+    },
+    {
+      "ply": 95,
+      "san": "Rxf8",
+      "fen": "5R2/8/7P/3kPKP1/8/8/8/8 b - - 0 48",
+      "classification": "great_find",
+      "score": "+13.4",
+      "comment": ""
+    },
+    {
+      "ply": 96,
+      "san": "Kc6",
+      "fen": "5R2/8/2k4P/4PKP1/8/8/8/8 w - - 1 49",
+      "classification": "good",
+      "score": "M11",
+      "comment": ""
+    },
+    {
+      "ply": 97,
+      "san": "h7",
+      "fen": "5R2/7P/2k5/4PKP1/8/8/8/8 b - - 0 49",
+      "classification": "good",
+      "score": "+16.4",
+      "comment": ""
+    },
+    {
+      "ply": 98,
+      "san": "Kd7",
+      "fen": "5R2/3k3P/8/4PKP1/8/8/8/8 w - - 1 50",
+      "classification": "good",
+      "score": "M4",
+      "comment": ""
+    },
+    {
+      "ply": 99,
+      "san": "h8=Q",
+      "fen": "5R1Q/3k4/8/4PKP1/8/8/8/8 b - - 0 50",
+      "classification": "excellent",
+      "score": "M4",
+      "comment": ""
+    },
+    {
+      "ply": 100,
+      "san": "Ke7",
+      "fen": "5R1Q/4k3/8/4PKP1/8/8/8/8 w - - 1 51",
+      "classification": "inaccuracy",
+      "score": "M1",
+      "comment": ""
+    },
+    {
+      "ply": 101,
+      "san": "Qf6+",
+      "fen": "5R2/4k3/5Q2/4PKP1/8/8/8/8 b - - 2 51",
+      "classification": "excellent",
+      "score": "M1",
+      "comment": ""
+    },
+    {
+      "ply": 102,
+      "san": "Kd7",
+      "fen": "5R2/3k4/5Q2/4PKP1/8/8/8/8 w - - 3 52",
+      "classification": "forced",
+      "score": "M1",
+      "comment": ""
+    },
+    {
+      "ply": 103,
+      "san": "Rf7+",
+      "fen": "8/3k1R2/5Q2/4PKP1/8/8/8/8 b - - 4 52",
+      "classification": "excellent",
+      "score": "M1",
+      "comment": ""
+    },
+    {
+      "ply": 104,
+      "san": "Ke8",
+      "fen": "4k3/5R2/5Q2/4PKP1/8/8/8/8 w - - 5 53",
+      "classification": "best",
+      "score": "M1",
+      "comment": ""
+    },
+    {
+      "ply": 105,
+      "san": "Qe7#",
+      "fen": "4k3/4QR2/8/4PKP1/8/8/8/8 b - - 6 53",
+      "classification": "best",
+      "score": "1-0",
+      "comment": ""
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "game": {
+    "id": "184251181094",
+    "indexInCollection": 60,
+    "url": "https://www.chess.com/game/live/184251181094",
+    "reviewUrl": "https://www.chess.com/analysis/game/live/184251181094/review",
+    "event": "Live Chess",
+    "date": "2026.09.23",
+    "timeControl": "600",
+    "timeClass": "rapid",
+    "eco": "Owens-Defense-2.d4-Bb7-3.Nc3-e6",
+    "result": "1-0",
+    "termination": "ikzirap won - game abandoned",
+    "rated": true
+  },
+  "players": {
+    "white": {
+      "username": "ikzirap",
+      "rating": 674,
+      "accuracy": 95.99,
+      "result": "win"
+    },
+    "black": {
+      "username": "Spy-deer-man",
+      "rating": 660,
+      "accuracy": 100,
+      "result": "abandoned"
+    }
+  },
+  "accuracies": {
+    "white": 95.99,
+    "black": 100
+  },
+  "tcn": "mCXPlB6Xbs0SCK",
+  "totalMoves": 7,
+  "moves": [
+    {
+      "ply": 1,
+      "moveNumber": 1,
+      "color": "white",
+      "san": "e4",
+      "from": "e2",
+      "to": "e4",
+      "piece": "p",
+      "captured": null,
+      "promotion": null,
+      "clock": null,
+      "fenBefore": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "fenAfter": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "ply": 2,
+      "moveNumber": 1,
+      "color": "black",
+      "san": "b6",
+      "from": "b7",
+      "to": "b6",
+      "piece": "p",
+      "captured": null,
+      "promotion": null,
+      "clock": null,
+      "fenBefore": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "fenAfter": "rnbqkbnr/p1pppppp/1p6/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "ply": 3,
+      "moveNumber": 2,
+      "color": "white",
+      "san": "d4",
+      "from": "d2",
+      "to": "d4",
+      "piece": "p",
+      "captured": null,
+      "promotion": null,
+      "clock": null,
+      "fenBefore": "rnbqkbnr/p1pppppp/1p6/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "fenAfter": "rnbqkbnr/p1pppppp/1p6/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2"
+    },
+    {
+      "ply": 4,
+      "moveNumber": 2,
+      "color": "black",
+      "san": "Bb7",
+      "from": "c8",
+      "to": "b7",
+      "piece": "b",
+      "captured": null,
+      "promotion": null,
+      "clock": null,
+      "fenBefore": "rnbqkbnr/p1pppppp/1p6/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2",
+      "fenAfter": "rn1qkbnr/pbpppppp/1p6/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 1 3"
+    },
+    {
+      "ply": 5,
+      "moveNumber": 3,
+      "color": "white",
+      "san": "Nc3",
+      "from": "b1",
+      "to": "c3",
+      "piece": "n",
+      "captured": null,
+      "promotion": null,
+      "clock": null,
+      "fenBefore": "rn1qkbnr/pbpppppp/1p6/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 1 3",
+      "fenAfter": "rn1qkbnr/pbpppppp/1p6/8/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 2 3"
+    },
+    {
+      "ply": 6,
+      "moveNumber": 3,
+      "color": "black",
+      "san": "e6",
+      "from": "e7",
+      "to": "e6",
+      "piece": "p",
+      "captured": null,
+      "promotion": null,
+      "clock": null,
+      "fenBefore": "rn1qkbnr/pbpppppp/1p6/8/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 2 3",
+      "fenAfter": "rn1qkbnr/pbpp1ppp/1p2p3/8/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 4"
+    },
+    {
+      "ply": 7,
+      "moveNumber": 4,
+      "color": "white",
+      "san": "e5",
+      "from": "e4",
+      "to": "e5",
+      "piece": "p",
+      "captured": null,
+      "promotion": null,
+      "clock": null,
+      "fenBefore": "rn1qkbnr/pbpp1ppp/1p2p3/8/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 4",
+      "fenAfter": "rn1qkbnr/pbpp1ppp/1p2p3/4P3/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 4"
+    }
+  ],
+  "pgn": "[Event \"Live Chess\"]\n[Site \"Chess.com\"]\n[Date \"2026.09.23\"]\n[Round \"-\"]\n[White \"ikzirap\"]\n[Black \"Spy-deer-man\"]\n[Result \"1-0\"]\n[CurrentPosition \"rn1qkbnr/pbpp1ppp/1p2p3/4P3/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 4\"]\n[Timezone \"UTC\"]\n[ECO \"B00\"]\n[ECOUrl \"https://www.chess.com/openings/Owens-Defense-2.d4-Bb7-3.Nc3-e6\"]\n[UTCDate \"2026.09.23\"]\n[UTCTime \"11:34:57\"]\n[WhiteElo \"674\"]\n[BlackElo \"660\"]\n[TimeControl \"600\"]\n[Termination \"ikzirap won - game abandoned\"]\n[StartTime \"11:34:57\"]\n[EndDate \"2026.09.23\"]\n[EndTime \"11:37:23\"]\n[Link \"https://www.chess.com/game/live/184251181094\"]\n\n1. e4 {[%clk 0:09:57.5]} 1... b6 {[%clk 0:09:59.5]} 2. d4 {[%clk 0:09:53.3]} 2... Bb7 {[%clk 0:09:58.4]} 3. Nc3 {[%clk 0:09:51.5]} 3... e6 {[%clk 0:09:57.7]} 4. e5 {[%clk 0:09:50.4]} 1-0\n"
+}

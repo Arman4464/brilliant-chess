@@ -1,0 +1,2081 @@
+[
+  {
+    "file": "review_184653017586.json",
+    "ply": 1,
+    "san": "e4",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 2,
+    "san": "e5",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 3,
+    "san": "Nf3",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 4,
+    "san": "Nc6",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 5,
+    "san": "Bc4",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0.06,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 6,
+    "san": "Bc5",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0.05,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 7,
+    "san": "d3",
+    "ceeClass": "last book",
+    "offClass": "last book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 8,
+    "san": "h6",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.03,
+    "caps2": 98.88
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 9,
+    "san": "Nc3",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.17,
+    "caps2": 93.93
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 10,
+    "san": "Nf6",
+    "ceeClass": "last book",
+    "offClass": "best",
+    "diff": 0.01,
+    "caps2": 99.64
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 11,
+    "san": "Nd5",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.16,
+    "caps2": 94.46
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 12,
+    "san": "O-O",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.28,
+    "caps2": 89.69
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 13,
+    "san": "Bxh6",
+    "ceeClass": "blunder",
+    "offClass": "blunder",
+    "diff": 4.41,
+    "caps2": -52.25
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 14,
+    "san": "gxh6",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 15,
+    "san": "d4",
+    "ceeClass": "inaccuracy",
+    "offClass": "good",
+    "diff": 1.22,
+    "caps2": 52.07
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 16,
+    "san": "exd4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.21,
+    "caps2": 88.47
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 17,
+    "san": "Nxd4",
+    "ceeClass": "mistake",
+    "offClass": "mistake",
+    "diff": 2.47,
+    "caps2": 30.95
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 18,
+    "san": "Bxd4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 19,
+    "san": "f3",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.98,
+    "caps2": 75.09
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 20,
+    "san": "Bxb2",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.52,
+    "caps2": 84.81
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 21,
+    "san": "Rb1",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.59,
+    "caps2": 85.03
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 22,
+    "san": "Bd4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.48,
+    "caps2": 86.35
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 23,
+    "san": "Bb5",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 1.52,
+    "caps2": 68.83
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 24,
+    "san": "Re8",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 1.08,
+    "caps2": 72.84
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 25,
+    "san": "Bxc6",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 26,
+    "san": "dxc6",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.01,
+    "caps2": 99.74
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 27,
+    "san": "Qxd4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 28,
+    "san": "Nxd5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 29,
+    "san": "O-O",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 30,
+    "san": "Nf4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 31,
+    "san": "Qe3",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 1.13,
+    "caps2": 77.45
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 32,
+    "san": "Nd5",
+    "ceeClass": "good",
+    "offClass": "inaccuracy",
+    "diff": 2.03,
+    "caps2": 43.33
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 33,
+    "san": "Qxh6",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.32,
+    "caps2": 90.56
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 34,
+    "san": "Nc3",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.89,
+    "caps2": 70.54
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 35,
+    "san": "Ra1",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.69,
+    "caps2": 78.88
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 36,
+    "san": "Nxe4",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 1.72,
+    "caps2": 40.58
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 37,
+    "san": "fxe4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 38,
+    "san": "Qd4+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 39,
+    "san": "Kh1",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 40,
+    "san": "Qxe4",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 1.94,
+    "caps2": 21.42
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 41,
+    "san": "h3",
+    "ceeClass": "inaccuracy",
+    "offClass": "mistake",
+    "diff": 2.41,
+    "caps2": 23.68
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 42,
+    "san": "Qxc2",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 1.61,
+    "caps2": 36.85
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 43,
+    "san": "Qh5",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 1.94,
+    "caps2": 39.78
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 44,
+    "san": "b6",
+    "ceeClass": "blunder",
+    "offClass": "blunder",
+    "diff": 926.92,
+    "caps2": -100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 45,
+    "san": "Qxf7+",
+    "ceeClass": "great",
+    "offClass": "great",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 46,
+    "san": "Kh8",
+    "ceeClass": "forced",
+    "offClass": "forced",
+    "diff": 0,
+    "caps2": null
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 47,
+    "san": "Qxe8+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 48,
+    "san": "Kg7",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 20,
+    "caps2": 80
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 49,
+    "san": "Rf7+",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 70,
+    "caps2": 70
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 50,
+    "san": "Kg6",
+    "ceeClass": "mistake",
+    "offClass": "best",
+    "diff": 30,
+    "caps2": 70
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 51,
+    "san": "Qg8+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 52,
+    "san": "Kh6",
+    "ceeClass": "excellent",
+    "offClass": "mistake",
+    "diff": 20,
+    "caps2": 80
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 53,
+    "san": "Rf6+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 54,
+    "san": "Kh5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 55,
+    "san": "Qg4+",
+    "ceeClass": "miss",
+    "offClass": "miss",
+    "diff": 988.26,
+    "caps2": -87.5
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 56,
+    "san": "Bxg4",
+    "ceeClass": "forced",
+    "offClass": "forced",
+    "diff": 0,
+    "caps2": null
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 57,
+    "san": "Raf1",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 1.18,
+    "caps2": 74.75
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 58,
+    "san": "Re8",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 1.48,
+    "caps2": 59.19
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 59,
+    "san": "hxg4+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 60,
+    "san": "Kxg4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 61,
+    "san": "R1f4+",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 1.28,
+    "caps2": 71.44
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 62,
+    "san": "Kg5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 63,
+    "san": "Rf1",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.32,
+    "caps2": 93.39
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 64,
+    "san": "Qh7+",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 65,
+    "san": "Kg1",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 66,
+    "san": "Qe7",
+    "ceeClass": "mistake",
+    "offClass": "mistake",
+    "diff": 9.56,
+    "caps2": -87.5
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 67,
+    "san": "R6f5+",
+    "ceeClass": "miss",
+    "offClass": "miss",
+    "diff": 8.66,
+    "caps2": -61.9
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 68,
+    "san": "Kg6",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 69,
+    "san": "R5f4",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.74,
+    "caps2": 84.16
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 70,
+    "san": "Qe3+",
+    "ceeClass": "best",
+    "offClass": "good",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 71,
+    "san": "Kh1",
+    "ceeClass": "mistake",
+    "offClass": "mistake",
+    "diff": 970.6,
+    "caps2": -71.09
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 72,
+    "san": "Rh8+",
+    "ceeClass": "great",
+    "offClass": "great",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 73,
+    "san": "Rh4",
+    "ceeClass": "forced",
+    "offClass": "forced",
+    "diff": 0,
+    "caps2": null
+  },
+  {
+    "file": "review_184653017586.json",
+    "ply": 74,
+    "san": "Rxh4#",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 1,
+    "san": "d4",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0.06,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 2,
+    "san": "d5",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0.03,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 3,
+    "san": "e3",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0.16,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 4,
+    "san": "e6",
+    "ceeClass": "last book",
+    "offClass": "last book",
+    "diff": 0.02,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 5,
+    "san": "a4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.32,
+    "caps2": 88.46
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 6,
+    "san": "Bd6",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 7,
+    "san": "c3",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.07,
+    "caps2": 97.43
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 8,
+    "san": "Ne7",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 0.37,
+    "caps2": 86.85
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 9,
+    "san": "b4",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.38,
+    "caps2": 86.04
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 10,
+    "san": "O-O",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.04,
+    "caps2": 98.54
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 11,
+    "san": "a5",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.24,
+    "caps2": 90.76
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 12,
+    "san": "Nbc6",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.13,
+    "caps2": 95.14
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 13,
+    "san": "Bb5",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.69,
+    "caps2": 68.37
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 14,
+    "san": "a6",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 15,
+    "san": "Bxc6",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.15,
+    "caps2": 93.23
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 16,
+    "san": "Nxc6",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 17,
+    "san": "Nd2",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 0.99,
+    "caps2": 51.85
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 18,
+    "san": "e5",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.86,
+    "caps2": 59.04
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 19,
+    "san": "dxe5",
+    "ceeClass": "good",
+    "offClass": "inaccuracy",
+    "diff": 0.7,
+    "caps2": 65.2
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 20,
+    "san": "Bxe5",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.29,
+    "caps2": 85.42
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 21,
+    "san": "Bb2",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.62,
+    "caps2": 68.37
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 22,
+    "san": "Ne7",
+    "ceeClass": "miss",
+    "offClass": "mistake",
+    "diff": 1.85,
+    "caps2": 15.74
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 23,
+    "san": "f4",
+    "ceeClass": "inaccuracy",
+    "offClass": "miss",
+    "diff": 1.48,
+    "caps2": 29.46
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 24,
+    "san": "Bf6",
+    "ceeClass": "best",
+    "offClass": "good",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 25,
+    "san": "g4",
+    "ceeClass": "mistake",
+    "offClass": "mistake",
+    "diff": 2.42,
+    "caps2": 7.31
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 26,
+    "san": "g6",
+    "ceeClass": "miss",
+    "offClass": "inaccuracy",
+    "diff": 2.16,
+    "caps2": 6.15
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 27,
+    "san": "g5",
+    "ceeClass": "good",
+    "offClass": "best",
+    "diff": 0.85,
+    "caps2": 58.46
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 28,
+    "san": "Bg7",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 29,
+    "san": "h4",
+    "ceeClass": "good",
+    "offClass": "inaccuracy",
+    "diff": 0.89,
+    "caps2": 58.51
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 30,
+    "san": "Nf5",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 31,
+    "san": "Ne2",
+    "ceeClass": "mistake",
+    "offClass": "inaccuracy",
+    "diff": 3.63,
+    "caps2": -1.26
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 32,
+    "san": "Nxe3",
+    "ceeClass": "great",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 33,
+    "san": "Qa4",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.85,
+    "caps2": 77.47
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 34,
+    "san": "Bd7",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.35,
+    "caps2": 89.8
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 35,
+    "san": "Nd4",
+    "ceeClass": "mistake",
+    "offClass": "mistake",
+    "diff": 2.01,
+    "caps2": 60.93
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 36,
+    "san": "Bxa4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 37,
+    "san": "Rxa4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.94,
+    "caps2": 85.91
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 38,
+    "san": "Ng2+",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 1.14,
+    "caps2": 78
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 39,
+    "san": "Kd1",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 40,
+    "san": "Bxd4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.01,
+    "caps2": 99.81
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 41,
+    "san": "cxd4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 42,
+    "san": "Re8",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.3,
+    "caps2": 93.85
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 43,
+    "san": "Bc3",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.75,
+    "caps2": 86.97
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 44,
+    "san": "Qd7",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.17,
+    "caps2": 96.94
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 45,
+    "san": "Kc2",
+    "ceeClass": "mistake",
+    "offClass": "mistake",
+    "diff": 3.58,
+    "caps2": 59.55
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 46,
+    "san": "Qxa4+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 47,
+    "san": "Nb3",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 916.25,
+    "caps2": 30
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 48,
+    "san": "Re2+",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 20,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 49,
+    "san": "Bd2",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 50,
+    "san": "Rxd2+",
+    "ceeClass": "brilliant",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 51,
+    "san": "Kxd2",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 52,
+    "san": "Qxb3",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 53,
+    "san": "Rh2",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 54,
+    "san": "Nxf4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 55,
+    "san": "Re2",
+    "ceeClass": "mistake",
+    "offClass": "mistake",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 56,
+    "san": "Qxb4+",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 20,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 57,
+    "san": "Ke3",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 58,
+    "san": "Nxe2",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 59,
+    "san": "Kxe2",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 60,
+    "san": "Re8+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 61,
+    "san": "Kd3",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 62,
+    "san": "c5",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 63,
+    "san": "dxc5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 64,
+    "san": "Qxc5",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 65,
+    "san": "Kd2",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 66,
+    "san": "d4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 67,
+    "san": "Kd3",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 10,
+    "caps2": 80
+  },
+  {
+    "file": "review_171608609212.json",
+    "ply": 68,
+    "san": "Qc3#",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 1,
+    "san": "e4",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0.03,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 2,
+    "san": "d5",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0.47,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 3,
+    "san": "exd5",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 4,
+    "san": "Qxd5",
+    "ceeClass": "book",
+    "offClass": "book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 5,
+    "san": "Nc3",
+    "ceeClass": "last book",
+    "offClass": "book",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 6,
+    "san": "Qe6+",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.55,
+    "caps2": 74.55
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 7,
+    "san": "Qe2",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 1.03,
+    "caps2": 54.55
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 8,
+    "san": "Qxe2+",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.16,
+    "caps2": 94.01
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 9,
+    "san": "Bxe2",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 10,
+    "san": "Nf6",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.01,
+    "caps2": 99.62
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 11,
+    "san": "d3",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.14,
+    "caps2": 94.92
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 12,
+    "san": "e5",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.28,
+    "caps2": 89.14
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 13,
+    "san": "Nf3",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.26,
+    "caps2": 90.52
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 14,
+    "san": "Nc6",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 15,
+    "san": "Bg5",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.26,
+    "caps2": 90.95
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 16,
+    "san": "Bb4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.22,
+    "caps2": 92.05
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 17,
+    "san": "Bd2",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.18,
+    "caps2": 93.77
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 18,
+    "san": "Bg4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.12,
+    "caps2": 95.72
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 19,
+    "san": "h3",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 20,
+    "san": "Bxf3",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 21,
+    "san": "Bxf3",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 22,
+    "san": "O-O-O",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.32,
+    "caps2": 87.71
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 23,
+    "san": "Bxc6",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 24,
+    "san": "bxc6",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 25,
+    "san": "O-O-O",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 26,
+    "san": "Bxc3",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 0.36,
+    "caps2": 84.98
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 27,
+    "san": "Bxc3",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 28,
+    "san": "Rhe8",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.02,
+    "caps2": 99.16
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 29,
+    "san": "Rhe1",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.02,
+    "caps2": 99.17
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 30,
+    "san": "Nd7",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 31,
+    "san": "Kb1",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.34,
+    "caps2": 86.88
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 32,
+    "san": "f6",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.05,
+    "caps2": 98.05
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 33,
+    "san": "g4",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.47,
+    "caps2": 83.57
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 34,
+    "san": "h6",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.28,
+    "caps2": 89.54
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 35,
+    "san": "h4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.28,
+    "caps2": 90.21
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 36,
+    "san": "g5",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.56,
+    "caps2": 76.98
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 37,
+    "san": "hxg5",
+    "ceeClass": "good",
+    "offClass": "good",
+    "diff": 0.54,
+    "caps2": 81.03
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 38,
+    "san": "hxg5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 39,
+    "san": "f3",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.13,
+    "caps2": 95.44
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 40,
+    "san": "Rh8",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.12,
+    "caps2": 95.8
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 41,
+    "san": "a3",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.06,
+    "caps2": 97.93
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 42,
+    "san": "Rh3",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 43,
+    "san": "Rf1",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.22,
+    "caps2": 91.99
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 44,
+    "san": "Nb6",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.2,
+    "caps2": 93.06
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 45,
+    "san": "d4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 46,
+    "san": "Nd5",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.02,
+    "caps2": 99.31
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 47,
+    "san": "Bb4",
+    "ceeClass": "blunder",
+    "offClass": "mistake",
+    "diff": 3.97,
+    "caps2": -45
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 48,
+    "san": "Ne3",
+    "ceeClass": "great",
+    "offClass": "great",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 49,
+    "san": "dxe5",
+    "ceeClass": "mistake",
+    "offClass": "inaccuracy",
+    "diff": 3.5,
+    "caps2": 1.09
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 50,
+    "san": "Nxd1",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 1.13,
+    "caps2": 59.77
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 51,
+    "san": "exf6",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.12,
+    "caps2": 94.87
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 52,
+    "san": "Ne3",
+    "ceeClass": "great",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 53,
+    "san": "Re1",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 54,
+    "san": "Rd1+",
+    "ceeClass": "miss",
+    "offClass": "miss",
+    "diff": 6.68,
+    "caps2": -84.65
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 55,
+    "san": "Rxd1",
+    "ceeClass": "great",
+    "offClass": "great",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 56,
+    "san": "Nxd1",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 57,
+    "san": "f7",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 58,
+    "san": "Rh8",
+    "ceeClass": "blunder",
+    "offClass": "blunder",
+    "diff": 5.66,
+    "caps2": -56.19
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 59,
+    "san": "f8=Q+",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 60,
+    "san": "Rxf8",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 61,
+    "san": "Bxf8",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 62,
+    "san": "Kd7",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 1.64,
+    "caps2": 52.22
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 63,
+    "san": "Bc5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 64,
+    "san": "a6",
+    "ceeClass": "excellent",
+    "offClass": "mistake",
+    "diff": 0.13,
+    "caps2": 95.79
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 65,
+    "san": "Kc1",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 66,
+    "san": "Nxb2",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 0.14,
+    "caps2": 95.62
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 67,
+    "san": "Kxb2",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 68,
+    "san": "Ke6",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 69,
+    "san": "Kc3",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 70,
+    "san": "Ke5",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.49,
+    "caps2": 86.36
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 71,
+    "san": "Kd3",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.41,
+    "caps2": 87.41
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 72,
+    "san": "Kf4",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 73,
+    "san": "Ke2",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 74,
+    "san": "a5",
+    "ceeClass": "best",
+    "offClass": "good",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 75,
+    "san": "a4",
+    "ceeClass": "excellent",
+    "offClass": "best",
+    "diff": 0.01,
+    "caps2": 99.69
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 76,
+    "san": "Ke5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 77,
+    "san": "Be3",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 78,
+    "san": "Kd5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 79,
+    "san": "f4",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.46,
+    "caps2": 84.19
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 80,
+    "san": "gxf4",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 81,
+    "san": "Bxf4",
+    "ceeClass": "excellent",
+    "offClass": "good",
+    "diff": 0.14,
+    "caps2": 95.02
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 82,
+    "san": "Ke6",
+    "ceeClass": "good",
+    "offClass": "inaccuracy",
+    "diff": 0.93,
+    "caps2": 74.33
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 83,
+    "san": "Bxc7",
+    "ceeClass": "best",
+    "offClass": "excellent",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 84,
+    "san": "Kf6",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 1.74,
+    "caps2": 65.47
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 85,
+    "san": "Bxa5",
+    "ceeClass": "best",
+    "offClass": "best",
+    "diff": 0,
+    "caps2": 100
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 86,
+    "san": "Kg5",
+    "ceeClass": "inaccuracy",
+    "offClass": "good",
+    "diff": 80.87,
+    "caps2": -50
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 87,
+    "san": "Kf3",
+    "ceeClass": "good",
+    "offClass": "excellent",
+    "diff": 76.09,
+    "caps2": 80
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 88,
+    "san": "c5",
+    "ceeClass": "inaccuracy",
+    "offClass": "inaccuracy",
+    "diff": 845.29,
+    "caps2": 30
+  },
+  {
+    "file": "review_172014464516.json",
+    "ply": 89,
+    "san": "c4",
+    "ceeClass": "excellent",
+    "offClass": "excellent",
+    "diff": 10,
+    "caps2": 80
+  }
+]

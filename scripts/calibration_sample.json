@@ -1,0 +1,110 @@
+[
+  {
+    "id": "166359560184",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\LittleNear\\review_166359560184.json",
+    "whiteRating": 402,
+    "blackRating": 353,
+    "whiteAcc": 69.93,
+    "blackAcc": 59.09,
+    "movesCount": 65
+  },
+  {
+    "id": "170546643526",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\LittleNear\\review_170546643526.json",
+    "whiteRating": 421,
+    "blackRating": 420,
+    "whiteAcc": 71.15,
+    "blackAcc": 60.41,
+    "movesCount": 65
+  },
+  {
+    "id": "172390879234",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\LittleNear\\review_172390879234.json",
+    "whiteRating": 467,
+    "blackRating": 472,
+    "whiteAcc": 45.86,
+    "blackAcc": 65.69,
+    "movesCount": 32
+  },
+  {
+    "id": "166270295540",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\911Samsung\\review_166270295540.json",
+    "whiteRating": 388,
+    "blackRating": 421,
+    "whiteAcc": 58.15,
+    "blackAcc": 64.01,
+    "movesCount": 49
+  },
+  {
+    "id": "167767690820",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\911Samsung\\review_167767690820.json",
+    "whiteRating": 505,
+    "blackRating": 466,
+    "whiteAcc": 68.86,
+    "blackAcc": 62.38,
+    "movesCount": 129
+  },
+  {
+    "id": "173067503832",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\LittleNear\\review_173067503832.json",
+    "whiteRating": 517,
+    "blackRating": 556,
+    "whiteAcc": 72.51,
+    "blackAcc": 75.47,
+    "movesCount": 150
+  },
+  {
+    "id": "184552708942",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\LittleNear\\review_184552708942.json",
+    "whiteRating": 587,
+    "blackRating": 611,
+    "whiteAcc": 64.39,
+    "blackAcc": 77.43,
+    "movesCount": 52
+  },
+  {
+    "id": "170356424526",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\911Samsung\\review_170356424526.json",
+    "whiteRating": 548,
+    "blackRating": 471,
+    "whiteAcc": 72.15,
+    "blackAcc": 54.57,
+    "movesCount": 33
+  },
+  {
+    "id": "168585821738",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\Spy-deer-man\\review_168585821738.json",
+    "whiteRating": 546,
+    "blackRating": 582,
+    "whiteAcc": 66.79,
+    "blackAcc": 73.69,
+    "movesCount": 114
+  },
+  {
+    "id": "169203108116",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\Spy-deer-man\\review_169203108116.json",
+    "whiteRating": 599,
+    "blackRating": 598,
+    "whiteAcc": 70.1,
+    "blackAcc": 63.87,
+    "movesCount": 101
+  },
+  {
+    "id": "114104460147",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\911Samsung\\review_114104460147.json",
+    "whiteRating": 800,
+    "blackRating": 1271,
+    "whiteAcc": 70.2,
+    "blackAcc": 74.86,
+    "movesCount": 90
+  },
+  {
+    "id": "172051799672",
+    "file": "C:\\Users\\rango\\Files\\chessmate\\review_data\\Spy-deer-man\\review_172051799672.json",
+    "whiteRating": 952,
+    "blackRating": 759,
+    "whiteAcc": 94.02,
+    "blackAcc": 70.06,
+    "movesCount": 41
+  }
+]

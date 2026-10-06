@@ -1,0 +1,21 @@
+{
+  "id": "119822972069",
+  "tier": "Casual_1000_1400",
+  "url": "https://www.chess.com/game/live/119822972069",
+  "timeClass": "rapid",
+  "timeControl": "900+10",
+  "white": {
+    "username": "alyssahn",
+    "rating": 1052,
+    "accuracy": 64.99,
+    "result": "checkmated"
+  },
+  "black": {
+    "username": "aylm84",
+    "rating": 990,
+    "accuracy": 83.03,
+    "result": "win"
+  },
+  "eco": "Giuoco-Piano-Game-Giuoco-Pianissimo-Variation-4...Nf6",
+  "pgn": "[Event \"Live Chess\"]\n[Site \"Chess.com\"]\n[Date \"2024.09.11\"]\n[Round \"-\"]\n[White \"alyssahn\"]\n[Black \"aylm84\"]\n[Result \"0-1\"]\n[CurrentPosition \"r5k1/1bp5/1p3p1Q/p1b1n3/4P2R/2P5/PP4PP/RN1q3K w - -\"]\n[Timezone \"UTC\"]\n[ECO \"C50\"]\n[ECOUrl \"https://www.chess.com/openings/Giuoco-Piano-Game-Giuoco-Pianissimo-Variation-4...Nf6\"]\n[UTCDate \"2024.09.11\"]\n[UTCTime \"19:43:13\"]\n[WhiteElo \"1052\"]\n[BlackElo \"990\"]\n[TimeControl \"900+10\"]\n[Termination \"aylm84 won by checkmate\"]\n[StartTime \"19:43:13\"]\n[EndDate \"2024.09.11\"]\n[EndTime \"19:53:06\"]\n[Link \"https://www.chess.com/game/live/119822972069\"]\n\n1. e4 {[%clk 0:15:10]} 1... e5 {[%clk 0:15:06.9]} 2. Nf3 {[%clk 0:15:18.7]} 2... Nc6 {[%clk 0:15:13.6]} 3. Bc4 {[%clk 0:15:27.1]} 3... Bc5 {[%clk 0:15:11.8]} 4. d3 {[%clk 0:15:35.7]} 4... Nf6 {[%clk 0:15:13.9]} 5. Ng5 {[%clk 0:15:44.6]} 5... O-O {[%clk 0:15:17.2]} 6. Nxf7 {[%clk 0:15:52.8]} 6... Rxf7 {[%clk 0:15:25.3]} 7. Bxf7+ {[%clk 0:16:01.6]} 7... Kxf7 {[%clk 0:15:33.8]} 8. O-O {[%clk 0:16:10.9]} 8... d6 {[%clk 0:15:35.7]} 9. c3 {[%clk 0:16:18.6]} 9... a5 {[%clk 0:14:54.7]} 10. Bg5 {[%clk 0:16:14.9]} 10... b6 {[%clk 0:14:50]} 11. Qf3 {[%clk 0:16:22.3]} 11... Bb7 {[%clk 0:13:54.1]} 12. Bxf6 {[%clk 0:16:19.3]} 12... gxf6 {[%clk 0:14:01.4]} 13. Qh5+ {[%clk 0:16:26.9]} 13... Kg8 {[%clk 0:14:03.3]} 14. Kh1 {[%clk 0:16:15.8]} 14... d5 {[%clk 0:13:40.7]} 15. f4 {[%clk 0:16:08.5]} 15... dxe4 {[%clk 0:13:35.8]} 16. dxe4 {[%clk 0:16:07]} 16... exf4 {[%clk 0:13:32.2]} 17. Rxf4 {[%clk 0:16:15.7]} 17... Ne5 {[%clk 0:13:09.1]} 18. Rh4 {[%clk 0:15:20.1]} 18... h6 {[%clk 0:11:40]} 19. Qxh6 {[%clk 0:15:01.5]} 19... Qd1# {[%clk 0:11:45.3]} 0-1\n"
+}
