@@ -7,7 +7,6 @@ import PlayersAccuracy, { accuracyPhases, avg } from "./playersAccuracy"
 import GameRating from "./gameRating"
 import { move } from "@/engine/stockfish"
 import GameChart from "../gameChart"
-import Coach from "@/components/svg/coach"
 
 export default function Summary(props: {
     moves: move[]
@@ -47,11 +46,15 @@ export default function Summary(props: {
 
     return (
         <div className="flex flex-col items-center w-full pb-4 overflow-y-auto select-none">
-            {/* Coach Summary Speech Bubble */}
-            <div className="w-full px-4 pt-3 pb-2 flex items-start gap-3">
-                <Coach size={44} />
-                <div className="flex-1 bg-white text-[#211f1c] rounded-2xl p-3.5 shadow-md relative speech-bubble-left">
-                    <p className="text-xs md:text-sm font-semibold text-neutral-800 leading-snug">
+            {/* Game Review Summary Verdict Banner */}
+            <div className="w-full px-4 pt-3 pb-2">
+                <div className="w-full bg-[#262421] border border-white/10 rounded-xl p-3.5 shadow-md flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#81b64c]/20 border border-[#81b64c]/30 flex items-center justify-center shrink-0">
+                        <svg className="w-4 h-4 text-[#81b64c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <p className="text-xs md:text-sm font-semibold text-neutral-200 leading-snug">
                         {coachVerdict}
                     </p>
                 </div>

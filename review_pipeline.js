@@ -87,7 +87,7 @@ function parseUciLine(line) {
 }
 
 class ChessReviewEngine {
-    constructor(numWorkers = 4) {
+    constructor(numWorkers = 2) {
         this.sfPath = path.join(__dirname, 'stockfish', 'stockfish-windows-x86-64-universal.exe');
         this.wasmPath = path.join(__dirname, 'explanation-engine.wasm');
         this.numWorkers = numWorkers;
@@ -228,7 +228,16 @@ class ChessReviewEngine {
             workers.forEach(w => assignNext(w));
         });
 
-        workers.forEach(w => w.proc.stdin.write('quit\n'));
+        workers.forEach(w => {
+            try {
+                w.proc.stdin.write('quit\n');
+                setTimeout(() => {
+                    if (!w.proc.killed) w.proc.kill();
+                }, 300);
+            } catch {
+                if (!w.proc.killed) w.proc.kill();
+            }
+        });
         return results;
     }
 
@@ -543,7 +552,7 @@ class ChessReviewEngine {
             const difference = pos.difference || 0;
             const caps2 = pos.caps2 !== undefined ? pos.caps2 : 100;
             const speech = pos.playedMove?.speech?.personal || pos.playedMove?.speech?.impersonal || '';
-            const bestMoveLan = pos.bestMove?.moveLan || allEvals[i]?.[0]?.pv?.[0] || ply.lan;
+            const bestMoveLan = allEvals[i]?.[0]?.pv?.[0] || pos.bestMove?.moveLan || ply.lan;
 
             classifiedMoves.push({
                 ply: ply.ply,

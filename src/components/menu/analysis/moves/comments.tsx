@@ -1,7 +1,6 @@
 "use client"
 
 import RatingSVG from "@/components/svg/rating"
-import Coach from "@/components/svg/coach"
 import { moveRating } from "@/engine/stockfish"
 
 const RATING_TITLES: Record<moveRating, string> = {
@@ -99,11 +98,10 @@ export default function Comments(props: {
 
     if (!rating || !moveSan) {
         return (
-            <div className="w-full px-4 pt-3 pb-2 flex items-start gap-3">
-                <Coach size={44} />
-                <div className="flex-1 bg-white text-[#211f1c] rounded-2xl p-3.5 shadow-md relative speech-bubble-left">
-                    <p className="text-sm font-semibold text-neutral-600">
-                        Navigate the move list to explore position analysis and coach feedback.
+            <div className="w-full px-4 pt-3 pb-2 select-none">
+                <div className="w-full bg-[#2b2825] border border-white/10 text-neutral-300 rounded-xl p-3.5 shadow-md flex items-center gap-3">
+                    <p className="text-sm font-medium text-neutral-400">
+                        Select a move to view detailed positional analysis and tactical breakdown.
                     </p>
                 </div>
             </div>
@@ -116,12 +114,9 @@ export default function Comments(props: {
     const explanation = comment || RATING_DEFAULT_EXPLANATIONS[rating] || ''
 
     return (
-        <div className="w-full px-4 pt-3 pb-2 flex items-start gap-3 select-none">
-            {/* Coach Avatar */}
-            <Coach size={44} />
-
-            {/* Speech Bubble */}
-            <div className="flex-1 bg-white text-[#211f1c] rounded-2xl p-3.5 shadow-lg relative speech-bubble-left flex flex-col gap-2">
+        <div className="w-full px-4 pt-3 pb-2 select-none">
+            {/* Analysis Insight Card */}
+            <div className="w-full bg-white text-[#211f1c] rounded-xl p-3.5 shadow-lg flex flex-col gap-2 border border-black/5">
                 {/* Header: Badge & Move SAN on left, Score Pill on right */}
                 <div className="flex items-center justify-between gap-2 border-b border-neutral-100 pb-2">
                     <div className="flex items-center gap-2">
@@ -136,7 +131,7 @@ export default function Comments(props: {
                     <FormatEval evaluation={evaluation} white={white} />
                 </div>
 
-                {/* Explanation text */}
+                {/* Analysis explanation */}
                 <p className="text-xs md:text-sm text-neutral-700 leading-snug font-medium">
                     {explanation}
                 </p>

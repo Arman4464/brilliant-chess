@@ -652,7 +652,7 @@ export default function Board(props: { cleanArrows: () => void, sacrifice?: bool
     const adaptedCoronationSquare = coronation.movement[0] ? adaptSquare(coronation.movement[0]) : null
 
     return (
-        <div ref={boardRef} onContextMenu={e => e.preventDefault()} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} className="grid w-fit h-fit relative" style={{ gridTemplateColumns: `repeat(8, ${squareSize}px)`, pointerEvents: drag.is ? 'none' : 'unset' }}>
+        <div ref={boardRef} onContextMenu={e => e.preventDefault()} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} className="grid w-fit h-fit relative rounded-lg overflow-hidden shadow-2xl border border-white/5" style={{ gridTemplateColumns: `repeat(8, ${squareSize}px)`, pointerEvents: drag.is ? 'none' : 'unset' }}>
             {
                 (() => {
                     const squares: JSX.Element[] = []
@@ -683,10 +683,24 @@ export default function Board(props: { cleanArrows: () => void, sacrifice?: bool
 
                             let squareNumGuide, squareLetterGuide
                             if (rowNumber === (white ? 7 : 0)) {
-                                squareLetterGuide = <span style={{ right: rightSize, color: guideColor }} className={`absolute bottom-0`}>{squareId[0]}</span>
+                                squareLetterGuide = (
+                                    <span
+                                        style={{ color: guideColor }}
+                                        className="absolute bottom-1 right-1 text-[11px] md:text-xs font-extrabold leading-none select-none pointer-events-none"
+                                    >
+                                        {squareId[0]}
+                                    </span>
+                                )
                             }
                             if (columnNumber === (white ? 0 : 7)) {
-                                squareNumGuide = <span style={{ left: leftSize, color: guideColor }} className={`absolute top-0`}>{squareId[1]}</span>
+                                squareNumGuide = (
+                                    <span
+                                        style={{ color: guideColor }}
+                                        className="absolute top-1 left-1 text-[11px] md:text-xs font-extrabold leading-none select-none pointer-events-none"
+                                    >
+                                        {squareId[1]}
+                                    </span>
+                                )
                             }
 
                             let rounded: string = ''

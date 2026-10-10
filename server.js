@@ -209,7 +209,7 @@ const server = http.createServer((req, res) => {
     fs.createReadStream(filePath).pipe(res);
 });
 
-// Setup WebSocket bridge for Native Stockfish 19 executable
+// Setup WebSocket bridge for Native Stockfish 19 executable (Memory Optimized & Idle Management)
 const wss = new WebSocketServer({ server, path: '/engine/native' });
 
 wss.on('connection', (ws) => {
@@ -222,37 +222,77 @@ wss.on('connection', (ws) => {
         return;
     }
 
-    console.log(`[Native Stockfish Bridge] Spawning ${STOCKFISH_EXE}`);
-    const sf = spawn(STOCKFISH_EXE, [], { windowsHide: true });
-    sf.stdin.write('setoption name Threads value 4\nsetoption name Hash value 128\n');
+    let sf = null;
+    let rl = null;
+    let idleTimer = null;
 
-    const rl = readline.createInterface({ input: sf.stdout });
-    rl.on('line', (line) => {
-        if (ws.readyState === ws.OPEN) {
-            ws.send(line);
+    function resetIdleTimer() {
+        if (idleTimer) clearTimeout(idleTimer);
+        // If idle for 45 seconds with no UCI commands, terminate Stockfish to release RAM
+        idleTimer = setTimeout(() => {
+            if (sf && !sf.killed) {
+                console.log('[Native Stockfish Bridge] Idle timeout reached (45s) - hibernating Stockfish to free RAM');
+                try {
+                    sf.stdin.write('quit\n');
+                    setTimeout(() => { if (sf && !sf.killed) sf.kill(); }, 300);
+                } catch {
+                    if (sf) sf.kill();
+                }
+                sf = null;
+                rl = null;
+            }
+        }, 45000);
+    }
+
+    function ensureEngine() {
+        if (sf && !sf.killed) {
+            resetIdleTimer();
+            return sf;
         }
-    });
 
-    sf.stderr.on('data', (data) => {
-        console.error('[Native Stockfish STDERR]', data.toString().trim());
-    });
+        console.log(`[Native Stockfish Bridge] Spawning ${STOCKFISH_EXE} (Threads: 2, Hash: 32MB)`);
+        sf = spawn(STOCKFISH_EXE, [], { windowsHide: true });
+        sf.stdin.write('uci\n');
+        sf.stdin.write('setoption name Threads value 2\n');
+        sf.stdin.write('setoption name Hash value 32\n');
 
-    sf.on('error', (err) => {
-        console.error('[Native Stockfish Error]', err);
-        if (ws.readyState === ws.OPEN) {
-            ws.send('info string Native engine error: ' + err.message);
-        }
-    });
+        rl = readline.createInterface({ input: sf.stdout });
+        rl.on('line', (line) => {
+            if (ws.readyState === ws.OPEN) {
+                ws.send(line);
+            }
+        });
 
-    sf.on('close', (code) => {
-        console.log('[Native Stockfish] Process exited with code', code);
-    });
+        sf.stderr.on('data', (data) => {
+            console.error('[Native Stockfish STDERR]', data.toString().trim());
+        });
+
+        sf.on('error', (err) => {
+            console.error('[Native Stockfish Error]', err);
+            if (ws.readyState === ws.OPEN) {
+                ws.send('info string Native engine error: ' + err.message);
+            }
+        });
+
+        sf.on('close', (code) => {
+            console.log('[Native Stockfish] Process exited with code', code);
+            sf = null;
+            rl = null;
+        });
+
+        resetIdleTimer();
+        return sf;
+    }
+
+    // Initialize engine on initial client connect
+    ensureEngine();
 
     ws.on('message', (message) => {
         const cmd = message.toString().trim();
         if (cmd) {
             try {
-                sf.stdin.write(cmd + '\n');
+                const engine = ensureEngine();
+                engine.stdin.write(cmd + '\n');
             } catch (e) {
                 console.error('[Native Stockfish Stdin Error]', e);
             }
@@ -261,13 +301,17 @@ wss.on('connection', (ws) => {
 
     ws.on('close', () => {
         console.log('[Native Stockfish Bridge] Client disconnected, terminating engine');
-        try {
-            sf.stdin.write('quit\n');
-            setTimeout(() => {
-                if (!sf.killed) sf.kill();
-            }, 500);
-        } catch {
-            sf.kill();
+        if (idleTimer) clearTimeout(idleTimer);
+        if (sf) {
+            try {
+                sf.stdin.write('quit\n');
+                setTimeout(() => {
+                    if (sf && !sf.killed) sf.kill();
+                }, 300);
+            } catch {
+                if (sf) sf.kill();
+            }
+            sf = null;
         }
     });
 });

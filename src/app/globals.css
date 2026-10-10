@@ -116,18 +116,7 @@ body {
   scrollbar-color: var(--scrollbarColor) transparent;
 }
 
-/* Chess.com Coach Speech Bubble Triangle Pointer */
-.speech-bubble-left::after {
-  content: "";
-  position: absolute;
-  top: 18px;
-  left: -8px;
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 8px solid #ffffff;
-}
+
 
 /* Tabular digits for numbers */
 .num-tabular {
