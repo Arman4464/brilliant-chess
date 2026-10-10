@@ -1,5 +1,6 @@
 const fs = require('fs');
-const moves = JSON.parse(fs.readFileSync('all_585_live_moves.json'));
+const path = require('path');
+const moves = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'all_585_live_moves.json')));
 
 const classes = ['book', 'last book', 'forced', 'brilliant', 'great', 'best', 'excellent', 'good', 'inaccuracy', 'mistake', 'miss', 'blunder'];
 const classToIdx = Object.fromEntries(classes.map((c, i) => [c, i]));
