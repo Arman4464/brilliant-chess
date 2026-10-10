@@ -576,7 +576,7 @@ export function isSacrifice(move: Move) {
                 sacrifying.push(square)
                 continue
             }
-            if ((square.type === KNIGHT || square.type === BISHOP) && !move.captured && attackers.pieces.findIndex(piece => piece?.type === PAWN) !== -1) {
+            if ((square.type === KNIGHT || square.type === BISHOP) && (!move.captured || move.captured === PAWN) && attackers.pieces.findIndex(piece => piece?.type === PAWN) !== -1) {
                 sacrifying.push(square)
                 continue
             }
@@ -913,6 +913,7 @@ export function parsePGN(
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     pgn,
+                    moves: history.map(h => ({ san: h.san, lan: h.from + h.to + (h.promotion || ''), color: h.color === 'w' ? 'white' : 'black' })),
                     whiteElo,
                     blackElo,
                     depth: 18,
@@ -922,6 +923,7 @@ export function parsePGN(
             });
             if (apiRes.ok) {
                 const reviewData = await apiRes.json();
+                console.log('[Stockfish Engine] Authenticated CEE Review Data received:', reviewData);
                 if (reviewData.success && reviewData.moves && reviewData.moves.length === totalMoves) {
                     const firstMove = history[0];
                     const startFen = firstMove ? firstMove.before : 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';

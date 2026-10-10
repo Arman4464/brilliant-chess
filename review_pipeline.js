@@ -238,10 +238,37 @@ class ChessReviewEngine {
         // 1. Reconstruct positions and moves
         const chess = new Chess(startFen);
         if (pgn) {
+            let cleanPgn = pgn.replace(/\r\n/g, '\n').trim();
+            const lastTag = cleanPgn.lastIndexOf(']');
+            if (lastTag !== -1 && lastTag < cleanPgn.length - 1) {
+                const hdrs = cleanPgn.slice(0, lastTag + 1);
+                const body = cleanPgn.slice(lastTag + 1).trim();
+                cleanPgn = hdrs + '\n\n' + body;
+            }
             try {
-                chess.loadPgn(pgn);
+                chess.loadPgn(cleanPgn);
             } catch (e) {
-                console.warn('loadPgn failed, loading moves sequentially:', e.message);
+                try {
+                    const stripped = cleanPgn.replace(/\{[^}]*\}/g, ' ').replace(/\([^)]*\)/g, ' ').replace(/\$\d+/g, ' ');
+                    chess.loadPgn(stripped);
+                } catch (e2) {
+                    const moveText = cleanPgn.replace(/\[[^\]]*\]/g, ' ').replace(/\{[^}]*\}/g, ' ').replace(/\([^)]*\)/g, ' ');
+                    const tokens = moveText.split(/\s+/).filter(t => t && !/^\d+\.?$/.test(t) && !/^(1-0|0-1|1\/2-1\/2|\*)$/.test(t));
+                    const replay = new Chess(startFen);
+                    for (const tok of tokens) {
+                        try {
+                            const res = replay.move(tok);
+                            if (!res) break;
+                        } catch {
+                            break;
+                        }
+                    }
+                    if (replay.history().length > 0) {
+                        chess.loadPgn(replay.pgn());
+                    } else {
+                        console.warn('loadPgn failed and fallback exhausted:', e.message);
+                    }
+                }
             }
         }
 
@@ -459,6 +486,8 @@ class ChessReviewEngine {
                 classification = 'forced';
             } else if (ply.isBook) {
                 classification = 'book';
+            } else if (raw === 'brilliant') {
+                classification = 'brilliant';
             } else if (classificationModel) {
                 const rawIdx = classToIdx[raw] ?? 5;
                 const san = ply.san || '';
@@ -505,6 +534,7 @@ class ChessReviewEngine {
                 const predIdx = predictTree(classificationModel.tree, features);
                 classification = classificationModel.classes[predIdx] || raw || 'best';
             }
+
 
             prevEval = pos.playedMove?.score !== undefined ? pos.playedMove.score : 0;
             prevSan = ply.san || '';
