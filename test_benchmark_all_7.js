@@ -61,12 +61,12 @@ async function main() {
             }
             if (official === 'great_find' || official === 'great find') official = 'great';
             if (official === 'incorrect') official = 'miss';
-            if (official === 'last book') official = 'book';
+            if (official === 'last book' || official === 'the last book') official = 'book';
 
             let calc = (m.classification || '').toLowerCase();
             if (calc === 'great_find' || calc === 'great find') calc = 'great';
             if (calc === 'incorrect') calc = 'miss';
-            if (calc === 'last book') calc = 'book';
+            if (calc === 'last book' || calc === 'the last book') calc = 'book';
 
             if (calc === official) {
                 matches++;

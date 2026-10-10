@@ -9,7 +9,7 @@
       "mist": 1,
       "blund": 1,
       "miss": 3,
-      "inacc": 8,
+      "inacc": 7,
       "great": 1
     }
   },
@@ -32,12 +32,12 @@
     "color": "white",
     "target": 900,
     "f": {
-      "acc": 72.6,
+      "acc": 73.1,
       "elo": 575,
-      "mist": 5,
+      "mist": 4,
       "blund": 0,
       "miss": 0,
-      "inacc": 1,
+      "inacc": 3,
       "great": 0
     }
   },
@@ -51,7 +51,7 @@
       "mist": 1,
       "blund": 0,
       "miss": 0,
-      "inacc": 1,
+      "inacc": 0,
       "great": 2
     }
   },
@@ -60,9 +60,9 @@
     "color": "white",
     "target": 600,
     "f": {
-      "acc": 73.8,
+      "acc": 73.5,
       "elo": 800,
-      "mist": 5,
+      "mist": 6,
       "blund": 1,
       "miss": 0,
       "inacc": 6,
@@ -74,9 +74,9 @@
     "color": "black",
     "target": 1300,
     "f": {
-      "acc": 77.4,
+      "acc": 77,
       "elo": 1271,
-      "mist": 3,
+      "mist": 4,
       "blund": 0,
       "miss": 2,
       "inacc": 4,
@@ -94,7 +94,7 @@
       "blund": 0,
       "miss": 0,
       "inacc": 2,
-      "great": 2
+      "great": 1
     }
   },
   {
@@ -107,7 +107,7 @@
       "mist": 1,
       "blund": 1,
       "miss": 1,
-      "inacc": 4,
+      "inacc": 3,
       "great": 1
     }
   },
@@ -116,12 +116,12 @@
     "color": "white",
     "target": 1300,
     "f": {
-      "acc": 83.6,
+      "acc": 83.9,
       "elo": 612,
-      "mist": 1,
+      "mist": 0,
       "blund": 1,
       "miss": 1,
-      "inacc": 2,
+      "inacc": 3,
       "great": 1
     }
   },
@@ -136,7 +136,7 @@
       "blund": 0,
       "miss": 1,
       "inacc": 5,
-      "great": 0
+      "great": 1
     }
   },
   {
@@ -144,12 +144,12 @@
     "color": "white",
     "target": 100,
     "f": {
-      "acc": 65.1,
+      "acc": 64.7,
       "elo": 248,
-      "mist": 10,
-      "blund": 1,
+      "mist": 11,
+      "blund": 0,
       "miss": 0,
-      "inacc": 2,
+      "inacc": 3,
       "great": 0
     }
   },
@@ -158,12 +158,12 @@
     "color": "black",
     "target": 900,
     "f": {
-      "acc": 75.4,
+      "acc": 75,
       "elo": 281,
-      "mist": 0,
+      "mist": 1,
       "blund": 0,
       "miss": 5,
-      "inacc": 4,
+      "inacc": 5,
       "great": 1
     }
   },

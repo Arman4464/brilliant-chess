@@ -10,7 +10,7 @@
   ],
   "tree": {
     "feature": "acc",
-    "threshold": 76.4,
+    "threshold": 76,
     "left": {
       "feature": "elo",
       "threshold": 264.5,
@@ -29,7 +29,7 @@
         },
         "right": {
           "feature": "inacc",
-          "threshold": 5,
+          "threshold": 5.5,
           "left": {
             "feature": "blund",
             "threshold": 1.5,
@@ -43,7 +43,7 @@
               },
               "right": {
                 "feature": "acc",
-                "threshold": 71.69999999999999,
+                "threshold": 71.94999999999999,
                 "left": {
                   "isLeaf": true,
                   "value": 950,
@@ -67,7 +67,7 @@
           },
           "right": {
             "feature": "acc",
-            "threshold": 70.1,
+            "threshold": 69.95,
             "left": {
               "isLeaf": true,
               "value": 550,
@@ -88,29 +88,39 @@
     },
     "right": {
       "feature": "acc",
-      "threshold": 85.1,
+      "threshold": 85.2,
       "left": {
-        "feature": "mist",
-        "threshold": 0.5,
+        "feature": "acc",
+        "threshold": 83.05000000000001,
         "left": {
-          "isLeaf": true,
-          "value": 1200,
-          "count": 1
-        },
-        "right": {
-          "feature": "inacc",
-          "threshold": 4.5,
+          "feature": "acc",
+          "threshold": 82,
           "left": {
-            "isLeaf": true,
-            "value": 1300,
-            "count": 4
+            "feature": "elo",
+            "threshold": 627.5,
+            "left": {
+              "isLeaf": true,
+              "value": 1250,
+              "count": 1
+            },
+            "right": {
+              "isLeaf": true,
+              "value": 1300,
+              "count": 2
+            },
+            "value": 1300
           },
           "right": {
             "isLeaf": true,
-            "value": 1250,
+            "value": 1200,
             "count": 1
           },
-          "value": 1300
+          "value": 1250
+        },
+        "right": {
+          "isLeaf": true,
+          "value": 1300,
+          "count": 2
         },
         "value": 1300
       },
