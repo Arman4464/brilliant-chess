@@ -9,46 +9,54 @@
 }
 
 :root {
-  --background: #302E2B;
+  --background: #312E2B;
   --foreground: #dedede;
 
   --foregroundHighlighted: #ffffff;
-  --foregroundGrey: #939291;
-  --foregroundBlack: #505050;
-  --foregroundBlackDark: #363636;
+  --foregroundGrey: #9e9d9c;
+  --foregroundBlack: #272522;
+  --foregroundBlackDark: #1a1917;
 
-  --placeholder: #9e9d9c;
+  --placeholder: #82807e;
 
-  --backgroundBox: #00000033;
-  --backgroundBoxDarker: #121212;
-  --backgroundBoxHover: #00000024;
-  --backgroundBoxBox: #ffffff1a;
-  --backgroundBoxBoxDisabled: #00000024;
-  --backgroundBoxBoxHover: #ffffff29;
+  /* Chess.com Authentic Panel & Card Tokens */
+  --surface-panel: #262421;
+  --surface-panel-header: rgba(0, 0, 0, 0.18);
+  --surface-card: #2b2825;
+  --surface-card-hover: #36322e;
+  --surface-elevated: #312e2b;
+
+  --backgroundBox: rgba(0, 0, 0, 0.22);
+  --backgroundBoxDarker: #1e1d1a;
+  --backgroundBoxHover: rgba(255, 255, 255, 0.06);
+  --backgroundBoxBox: rgba(255, 255, 255, 0.08);
+  --backgroundBoxBoxDisabled: rgba(0, 0, 0, 0.18);
+  --backgroundBoxBoxHover: rgba(255, 255, 255, 0.12);
   --backgroundBoxBoxHighlighted: #81b64c;
   --backgroundBoxBoxHighlightedHover: #8bc550;
-  --backgroundWhiteClock: #f6f6f6;
-  --backgroundBlackClock: #1e1d1c;
+  --backgroundWhiteClock: #ffffff;
+  --backgroundBlackClock: #211f1c;
 
   --foregroundProfileWhite: #ffffff;
-  --foregroundProfileBlack: #1d1c1a;
+  --foregroundProfileBlack: #211f1c;
   --backgroundProfileWhite: #dbd9d6;
-  --backgroundProfileBlack: #474542;
+  --backgroundProfileBlack: #45423e;
 
   --evaluationBarWhite: #ffffff;
-  --evaluationBarBlack: #403d39;
+  --evaluationBarBlack: #262421;
 
-  --border: #5d5d5d;
-  --borderHighlighted: #949494;
+  --border: rgba(255, 255, 255, 0.1);
+  --borderHighlighted: rgba(255, 255, 255, 0.2);
 
   --blackBoard: #779556;
   --whiteBoard: #ebecd0;
 
+  /* Move Classification Colors (Chess.com Verified) */
   --highlightBrilliant: #26c2a3;
-  --highlightGreat: #749bbf;
+  --highlightGreat: #5c8bb0;
   --highlightBest: #81b64c;
-  --highlightExcellent: #81b64c;
-  --highlightGood: #95b776;
+  --highlightExcellent: #96bc4b;
+  --highlightGood: #a3b18a;
   --highlightBook: #d5a47d;
   --highlightInaccuracy: #f7c631;
   --highlightMistake: #ffa459;
@@ -62,25 +70,66 @@
   --winGreen: #81b64c;
   --lossRed: #fa412d;
 
-  --scrollbarColor: #494949;
+  --scrollbarColor: #4a4744;
+  --scrollbarTrack: #262421;
 
   --error: #fa412d;
-  --warning: #b8860b;
+  --warning: #f7c631;
 
-  --shadowBoxBoxHighlighted: 0 0 8px;
+  --shadowBoxBoxHighlighted: 0 0 10px;
 
-  --borderRoundness: .25rem;
-  --borderExtraRoundness: .5rem;
+  --borderRoundness: 0.5rem;
+  --borderExtraRoundness: 0.75rem;
 
-  --scrollbarSize: 8px;
+  --scrollbarSize: 6px;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern clean scrollbars */
+::-webkit-scrollbar {
+  width: var(--scrollbarSize);
+  height: var(--scrollbarSize);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbarColor);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #625e5a;
 }
 
 * {
-  scrollbar-width: var(--scrollbarSize);
+  scrollbar-width: thin;
   scrollbar-color: var(--scrollbarColor) transparent;
+}
+
+/* Chess.com Coach Speech Bubble Triangle Pointer */
+.speech-bubble-left::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #ffffff;
+}
+
+/* Tabular digits for numbers */
+.num-tabular {
+  font-variant-numeric: tabular-nums;
 }

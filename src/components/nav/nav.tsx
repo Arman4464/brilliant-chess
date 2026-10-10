@@ -16,35 +16,11 @@ export default function Nav() {
     const [openedMenu, setOpenedMenu] = configContext.openedMenu
     const boardMenuSettingsRef = configContext.boardMenuSettingsRef
 
-    const topLinksRef = useRef<HTMLDivElement>(null)
+    const navRef = useRef<HTMLElement>(null)
     const menuRef = useRef<HTMLDivElement>(null)
 
-    interface TopLink {
-        label: string,
-        click?: () => void,
-        hover?: () => void,
-        unHover?: () => void,
-        icon: string,
-        role: "button"|"link",
-    }
-
-    const topLinks: TopLink[] = [
-        { label: "Settings", hover: openSettings, icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/setting.svg`, role: "button" },
-    ]
-
-    interface BotLinks {
-        label: string,
-        href: string,
-        icon: (props: {className: string}) => React.ReactNode,
-    }
-
-    const botLinks: BotLinks[] = [
-        { label: "Source Code", href: "https://github.com/wdeloo/Brilliant-Chess", icon: (props: {className: string}) => <GitHub class={props.className} /> },
-        { label: "Attributions", href: "/attributions", icon: (props: {className: string}) => <Licenses class={props.className} /> },
-    ]
-
     function openSettings() {
-        setOpenedMenu("settings")
+        setOpenedMenu(prev => prev === "settings" ? null : "settings")
     }
 
     function closeMenu() {
@@ -54,52 +30,109 @@ export default function Nav() {
     useEffect(() => {
         function handleClick(e: MouseEvent) {
             if (
-                !menuRef.current?.contains(e.target as Node)
-                &&
-                !topLinksRef.current?.contains(e.target as Node)
-                &&
-                !boardMenuSettingsRef.current?.contains(e.target as Node)
+                menuRef.current &&
+                !menuRef.current.contains(e.target as Node) &&
+                !boardMenuSettingsRef.current?.contains(e.target as Node) &&
+                !(e.target as HTMLElement).closest('[data-settings-btn]')
             ) {
                 closeMenu()
             }
         }
 
         document.addEventListener('mousedown', handleClick)
-
         return () => document.removeEventListener('mousedown', handleClick)
     }, [])
 
     return (
-        <nav className="flex flex-col navTop:h-screen navTop:w-max w-screen relative">
-            <div className="navTop:pt-1 navTop:pb-6 navTop:h-full w-full overflow-y-auto bg-backgroundBox flex navTop:flex-col flex-row justify-between select-none navTop:items-start items-stretch">
-                <div ref={topLinksRef} className="flex navTop:flex-col flex-row">
-                    <Link draggable={false} onMouseEnter={() => setOpenedMenu(null)} href="/" className="flex flex-row gap-1 font-extrabold text-xl navTop:p-3 p-1.5 transition-colors hover:bg-backgroundBoxHover hover:text-foregroundHighlighted">
-                        <Image draggable={false} height={30} width={30} alt="logo" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo.svg`} className="navTop:mt-[-2px]" />
-                        <div className="h-fit w-fit reduceNav:block hidden">Brilliant<span className="text-sm font-light">Chess</span></div>
+        <nav ref={navRef} className="flex md:flex-col flex-row md:w-36 w-full md:h-screen h-14 bg-[#262421] border-r md:border-r-white/5 border-b md:border-b-0 border-white/5 select-none relative z-40 flex-shrink-0">
+            {/* Top Brand Logo */}
+            <div className="flex md:flex-col flex-row md:justify-between justify-between items-center w-full h-full md:p-3 px-3 py-2">
+                <div className="flex md:flex-col flex-row items-center md:items-start md:gap-4 gap-2 w-full">
+                    <Link
+                        href="/"
+                        className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-white/5 transition-all text-white font-extrabold text-base md:text-lg group"
+                    >
+                        <div className="relative w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                            <Image
+                                priority
+                                height={28}
+                                width={28}
+                                alt="Brilliant Chess"
+                                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/logo.svg`}
+                                className="transition-transform group-hover:scale-105"
+                            />
+                        </div>
+                        <div className="flex flex-col leading-tight">
+                            <span className="tracking-tight text-white font-black text-sm md:text-base">Brilliant<span className="text-[#81b64c]">Chess</span></span>
+                            <span className="text-[10px] text-neutral-400 font-semibold tracking-wider hidden md:block">CEE REVIEW</span>
+                        </div>
                     </Link>
-                    {topLinks.map((link, i) => {
-                        return (
-                            <button onClick={link?.click} onMouseEnter={link?.hover} onMouseLeave={link?.unHover} type="button" key={i} className="text-lg outline-none font-bold navTop:px-3 navTop:py-2 p-1.5 hover:bg-backgroundBoxHover hover:text-foregroundHighlighted transition-colors flex flex-row gap-2">
-                                <Image draggable={false} height={30} width={30} alt={link.label} src={link.icon} className="transition-colors" />
-                                <div className="h-fit w-fit reduceNav:block hidden">{link.label}</div>
-                            </button>
-                        )
-                    })}
+
+                    {/* Navigation Actions */}
+                    <div className="flex md:flex-col flex-row md:gap-1 gap-1 md:w-full">
+                        <Link
+                            href="/"
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-[#81b64c]/15 text-[#81b64c] font-bold text-xs md:text-sm transition-all md:w-full"
+                        >
+                            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 14H7v-4h4v4zm0-6H7V7h4v4zm6 6h-4v-4h4v4zm0-6h-4V7h4v4z"/>
+                            </svg>
+                            <span className="hidden md:inline">Review</span>
+                        </Link>
+
+                        <button
+                            data-settings-btn="true"
+                            onClick={openSettings}
+                            type="button"
+                            className={`flex items-center gap-2.5 px-3 py-2 rounded-lg font-bold text-xs md:text-sm transition-all md:w-full text-left ${openedMenu === 'settings' ? 'bg-white/10 text-white' : 'text-neutral-400 hover:text-white hover:bg-white/5'}`}
+                        >
+                            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                            </svg>
+                            <span className="hidden md:inline">Settings</span>
+                        </button>
+                    </div>
                 </div>
-                <div className="flex navTop:flex-col flex-row text-sm font-bold navTop:w-full navTop:h-fit">
-                    {botLinks.map((link, i) => {
-                        return (
-                            <Link draggable={false} key={i} target="_blank" href={link.href} className="flex flex-row gap-2 h-full navTop:h-fit reduceNav:px-3 reduceNav:justify-start justify-center items-center navTop:py-2 p-2 group hover:bg-backgroundBoxHover text-foregroundGrey hover:text-foregroundHighlighted transition-colors">
-                                <link.icon className="fill-foregroundGrey transition-colors group-hover:fill-foregroundHighlighted" />
-                                <span className="reduceNav:block hidden">{link.label}</span>
-                            </Link>
-                        )
-                    })}
+
+                {/* Bottom External Links & Status */}
+                <div className="flex md:flex-col flex-row items-center md:items-start md:gap-1 gap-1 md:w-full md:border-t md:border-white/5 md:pt-3">
+                    <Link
+                        target="_blank"
+                        href="https://github.com/wdeloo/Brilliant-Chess"
+                        className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-all text-xs font-semibold md:w-full"
+                    >
+                        <GitHub class="w-4 h-4 fill-current" />
+                        <span className="hidden md:inline">GitHub</span>
+                    </Link>
+
+                    <Link
+                        href="/attributions"
+                        className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/5 transition-all text-xs font-semibold md:w-full"
+                    >
+                        <Licenses class="w-4 h-4 fill-current" />
+                        <span className="hidden md:inline">Credits</span>
+                    </Link>
                 </div>
             </div>
-            <div ref={menuRef} style={{display: openedMenu ? '' : 'none'}} className="navTop:h-full h-fit max-h-[calc(100vh-42px)] navTop:max-h-full z-[500] p-2 bg-backgroundBoxDarker absolute navTop:left-full top-full navTop:top-0 select-none navTop:w-fit w-fit min-w-[300px] overflow-y-auto">
-                <Settings hidden={openedMenu !== 'settings'} />
-            </div>
+
+            {/* Settings Flyout / Popover */}
+            {openedMenu === 'settings' && (
+                <div
+                    ref={menuRef}
+                    className="absolute md:left-full md:top-3 top-14 left-2 z-50 p-3 bg-[#262421] border border-white/10 rounded-2xl shadow-2xl min-w-[320px] max-w-[360px] max-h-[85vh] overflow-y-auto backdrop-blur-md"
+                >
+                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+                        <span className="font-bold text-white text-sm">Settings</span>
+                        <button
+                            onClick={closeMenu}
+                            className="text-neutral-400 hover:text-white text-xs px-2 py-1 rounded bg-white/5 hover:bg-white/10 transition-colors"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                    <Settings hidden={false} />
+                </div>
+            )}
         </nav>
     )
 }

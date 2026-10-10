@@ -79,6 +79,11 @@ export default {
       },
     },
     screens: {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px",
       "navTop": `${navTop}px`,
       "vertical": `${maxVertical}px`,
       "reduceNav": "1280px",

@@ -1,5 +1,7 @@
-export default function Evaluation(props: { size: number, white: boolean, advantage: string[], whiteMoving: boolean, navTop: boolean }) {
-    const { size, white, advantage, whiteMoving, navTop } = props
+"use client"
+
+export default function Evaluation(props: { size: number, white: boolean, advantage: string[], whiteMoving: boolean, navTop?: boolean }) {
+    const { size, white, advantage, whiteMoving } = props
 
     const OLD_PERCENTS = [-400, 400]
     const NEW_PERCENTS = [5, 95]
@@ -7,7 +9,7 @@ export default function Evaluation(props: { size: number, white: boolean, advant
     const advantageAmount = Number(advantage[1]) * (whiteMoving ? 1 : -1)
 
     const rawPercent = ((advantageAmount - OLD_PERCENTS[0]) * (NEW_PERCENTS[1] - NEW_PERCENTS[0])) / (OLD_PERCENTS[1] - OLD_PERCENTS[0]) + NEW_PERCENTS[0]
-    let percent
+    let percent = 50
     if (advantage[0] === 'mate') {
         if (advantage[1]) {
             percent = advantageAmount >= 0 ? 100 : 0
@@ -18,23 +20,49 @@ export default function Evaluation(props: { size: number, white: boolean, advant
         percent = Math.min(Math.max(rawPercent, NEW_PERCENTS[0]), NEW_PERCENTS[1])
     }
 
-    const winning = white ? percent >= 50 : percent <= 50
+    const whiteWinning = advantageAmount >= 0
+    const absScore = Math.abs(advantageAmount) / 100
 
-    let displayAdvantage
+    let displayAdvantage = '0.0'
     if (advantage[0] === 'mate') {
-        displayAdvantage = advantage[1] ?
-            'M' + Math.abs(advantageAmount) :
-            whiteMoving ? '0-1' : '1-0'
+        displayAdvantage = advantage[1] ? 'M' + Math.abs(advantageAmount) : (whiteMoving ? '0-1' : '1-0')
     } else {
-        displayAdvantage = (Math.abs(advantageAmount) / 100).toFixed(1)
+        displayAdvantage = absScore.toFixed(1)
     }
 
+    // Determine the height of the white bar
+    // If the board is flipped (white === false), White is at the top, Black is at the bottom.
+    const whiteBarHeight = white ? percent : (100 - percent)
+
     return (
-        <div style={{ [navTop ? "width" : "height"]: size }} className={`vertical:w-9 navTop:w-7 h-7 bg-evaluationBarBlack overflow-hidden flex navTop:flex-col flex-row relative ${white ? "navTop:justify-end justify-start" : "navTop:justify-start justify-end"}`}>
-            <div style={{ [navTop ? "width" : "height"]: `${percent}%`, transition: 'height 1.5s', willChange: 'height' }} className="w-full bg-evaluationBarWhite" />
-            <div className="absolute h-full flex navTop:flex-col flex-row-reverse items-center justify-between w-full vertical:py-2 navTop:py-1 navTop:px-0 px-1 vertical:text-xs navTop:text-[9px] text-[11px] font-bold">
-                <div style={{ opacity: !winning ? 100 : 0 }} className={`${white ? "text-foreground" : "text-background"}`}>{displayAdvantage}</div>
-                <div style={{ opacity: winning ? 100 : 0 }} className={`${!white ? "text-foreground" : "text-background"}`}>{displayAdvantage}</div>
+        <div
+            style={{ height: size }}
+            className="w-7 bg-[#262421] rounded-lg overflow-hidden flex flex-col justify-end relative shadow-inner select-none flex-shrink-0 border border-white/5"
+        >
+            {/* White evaluation fill */}
+            <div
+                style={{
+                    height: `${whiteBarHeight}%`,
+                    transition: 'height 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                }}
+                className="w-full bg-white relative"
+            />
+
+            {/* Score label anchored cleanly */}
+            <div className="absolute inset-0 flex flex-col justify-between items-center py-2 px-0.5 pointer-events-none">
+                {/* Top score label (for whoever is leading on top) */}
+                <div
+                    className={`text-[10px] font-extrabold tracking-tight transition-opacity duration-200 ${(white ? !whiteWinning : whiteWinning) && absScore > 0 ? 'opacity-100 text-[#262421]' : 'opacity-0 text-white'}`}
+                >
+                    {displayAdvantage}
+                </div>
+
+                {/* Bottom score label (for whoever is leading on bottom) */}
+                <div
+                    className={`text-[10px] font-extrabold tracking-tight transition-opacity duration-200 ${(white ? whiteWinning : !whiteWinning) || absScore === 0 ? 'opacity-100 text-[#262421]' : 'opacity-0 text-white'}`}
+                >
+                    {displayAdvantage}
+                </div>
             </div>
         </div>
     )

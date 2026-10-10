@@ -944,12 +944,18 @@ export function parsePGN(
                         const mTo = formatSquare(hMove.to);
                         const bestLan = sMove?.bestMoveLan || (hMove.from + hMove.to);
                         const bestSquare = [bestLan.slice(0, 2), bestLan.slice(2, 4)].map(formatSquare);
+                        let bestSan = bestLan;
+                        try {
+                            const tempChess = new Chess(hMove.before);
+                            const m = tempChess.move({ from: bestLan.slice(0, 2) as any, to: bestLan.slice(2, 4) as any, promotion: (bestLan[4] || 'q') as any });
+                            if (m) bestSan = m.san;
+                        } catch {}
 
                         moves.push({
                             fen: hMove.after,
                             movement: [mFrom, mTo],
                             bestMove: bestSquare,
-                            bestMoveSan: bestLan,
+                            bestMoveSan: bestSan,
                             moveRating: (sMove?.classification || 'best') as moveRating,
                             comment: sMove?.comment || '',
                             color: invertColor(hMove.color),

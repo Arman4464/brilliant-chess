@@ -1,15 +1,15 @@
+"use client"
+
 import { moveRating } from "@/engine/stockfish"
 import { avg } from "./playersAccuracy"
-import RatingBox from "./ratingBox"
 import RatingSVG from "@/components/svg/rating"
 import { players } from "@/context/analyze"
 
 function topElo(elo: number) {
     const MAX_ELO = 3000
-
     if (elo > MAX_ELO) return `${MAX_ELO}+`
     if (elo < 200) return '200'
-    else return String(elo)
+    return String(elo)
 }
 
 export function getPerformanceRating(accuracy: number, playerElo?: string | number): number {
@@ -19,8 +19,6 @@ export function getPerformanceRating(accuracy: number, playerElo?: string | numb
     const hasValidElo = !isNaN(parsedElo) && parsedElo > 100 && parsedElo < 3500
 
     if (hasValidElo) {
-        // Calibrated Chess.com Performance Rating Model:
-        // Blends player's baseline rating with accuracy-based performance bracket
         const eloWeight = 0.25
         const accuracyPerformance = 800 + (accuracy - 65) * 40
         const rawPerf = eloWeight * parsedElo + (1 - eloWeight) * accuracyPerformance
@@ -28,7 +26,6 @@ export function getPerformanceRating(accuracy: number, playerElo?: string | numb
         return Math.max(100, Math.min(3200, rounded))
     }
 
-    // Fallback when Elo is not known (graduated scale matching Chess.com)
     let rating = 300
     if (accuracy >= 98) rating = 2800
     else if (accuracy >= 95) rating = 2400
@@ -47,69 +44,95 @@ export function getPerformanceRating(accuracy: number, playerElo?: string | numb
 
 function getRatingPhase(accuracy: number[]) {
     const avgAccuracy = avg(accuracy)
-
     if (accuracy.length < 3) return { rating: null, accuracy: null }
 
     let rating: moveRating
-    if (avgAccuracy >= 95) {
-        rating = 'great'
-    } else if (avgAccuracy >= 90) {
-        rating = 'best'
-    } else if (avgAccuracy >= 80) {
-        rating = 'excellent'
-    } else if (avgAccuracy >= 60) {
-        rating = 'good'
-    } else if (avgAccuracy >= 40) {
-        rating = 'inaccuracy'
-    } else if (avgAccuracy >= 20) {
-        rating = 'mistake'
-    } else {
-        rating = 'blunder'
-    }
+    if (avgAccuracy >= 95) rating = 'great'
+    else if (avgAccuracy >= 90) rating = 'best'
+    else if (avgAccuracy >= 80) rating = 'excellent'
+    else if (avgAccuracy >= 60) rating = 'good'
+    else if (avgAccuracy >= 40) rating = 'inaccuracy'
+    else if (avgAccuracy >= 20) rating = 'mistake'
+    else rating = 'blunder'
 
     return { rating, accuracy: avgAccuracy.toFixed(1) }
 }
 
-function RatingIcon(props: { ratingPhase: {rating: moveRating|null, accuracy: string|null}, titleText: string }) {
+function RatingIcon(props: { ratingPhase: { rating: moveRating | null, accuracy: string | null }, titleText: string }) {
     const { titleText, ratingPhase } = props
     const { rating, accuracy } = ratingPhase
 
-    if (!rating || !accuracy) return <span className="text-xl" title="Not enough moves to evaluate this phase.">-</span>
+    if (!rating || !accuracy) return <span className="text-neutral-500 font-bold text-sm">—</span>
 
-    return <RatingSVG draggable rating={rating} size={30} title={titleText + ': ' + accuracy} />
+    return <RatingSVG draggable rating={rating} size={22} title={titleText + ': ' + accuracy} />
 }
 
-export default function GameRating(props: { reducedSummary: boolean, players?: players, accuracy: { w: number, b: number }, accuracyPhases: { opening: { w: number[], b: number[] }, middlegame: { w: number[], b: number[] }, endgame: { w: number[], b: number[] } } }) {
-    const { accuracy, accuracyPhases, reducedSummary, players } = props
+export default function GameRating(props: {
+    reducedSummary?: boolean
+    players?: players
+    accuracy: { w: number, b: number }
+    accuracyPhases: {
+        opening: { w: number[], b: number[] }
+        middlegame: { w: number[], b: number[] }
+        endgame: { w: number[], b: number[] }
+    }
+}) {
+    const { accuracy, accuracyPhases, players } = props
+
+    const whiteRating = topElo(players?.[0]?.performanceRating ?? getPerformanceRating(accuracy.w, players?.[0]?.elo))
+    const blackRating = topElo(players?.[1]?.performanceRating ?? getPerformanceRating(accuracy.b, players?.[1]?.elo))
 
     return (
-        <div className="w-[85%] flex flex-col items-end gap-3">
-            <div className="flex flex-row w-full justify-between items-center">
-                <span className="font-semibold text-white/80 text-[14px]">Game Rating</span>
-                <div className="flex flex-row reduceSummary:w-[262px] reduceSummary:min-w-[262px] min-w-[160px] w-[160px] justify-between">
-                    <RatingBox fontSize={reducedSummary ? 18 : undefined} width={reducedSummary ? 64 : undefined} paddingY={reducedSummary ? 4 : undefined} white>{topElo(players?.[0]?.performanceRating ?? getPerformanceRating(accuracy.w, players?.[0]?.elo))}</RatingBox>
-                    <RatingBox fontSize={reducedSummary ? 18 : undefined} width={reducedSummary ? 64 : undefined} paddingY={reducedSummary ? 4 : undefined}>{topElo(players?.[1]?.performanceRating ?? getPerformanceRating(accuracy.b, players?.[1]?.elo))}</RatingBox>
+        <div className="w-full px-4 py-2 flex flex-col gap-2.5 select-none">
+            {/* Performance Rating Row */}
+            <div className="grid grid-cols-[80px_1fr_1fr] items-center gap-2">
+                <span className="text-xs font-bold text-neutral-400">Game Rating</span>
+
+                {/* White Rating */}
+                <div className="flex justify-center">
+                    <div className="w-20 py-1.5 bg-white text-[#211f1c] font-black text-base md:text-lg rounded-xl text-center shadow-sm tabular-nums">
+                        {whiteRating}
+                    </div>
+                </div>
+
+                {/* Black Rating */}
+                <div className="flex justify-center">
+                    <div className="w-20 py-1.5 bg-[#1e1d1a] text-white border border-white/10 font-black text-base md:text-lg rounded-xl text-center shadow-sm tabular-nums">
+                        {blackRating}
+                    </div>
                 </div>
             </div>
-            <div className="flex flex-row w-full justify-between items-center">
-                <span className="font-bold text-foregroundGrey reduceSummary:text-lg text-base">Opening</span>
-                <div className="flex flex-row reduceSummary:w-[262px] w-[160px] justify-between">
-                    <div className="reduceSummary:w-20 w-16 flex items-center justify-center select-none"><RatingIcon ratingPhase={getRatingPhase(accuracyPhases.opening.w)} titleText="Opening Accuracy" /></div>
-                    <div className="reduceSummary:w-20 w-16 flex items-center justify-center select-none"><RatingIcon ratingPhase={getRatingPhase(accuracyPhases.opening.b)} titleText="Opening Accuracy" /></div>
+
+            {/* Opening Phase */}
+            <div className="grid grid-cols-[80px_1fr_1fr] items-center py-1">
+                <span className="text-xs font-bold text-neutral-300">Opening</span>
+                <div className="flex justify-center">
+                    <RatingIcon ratingPhase={getRatingPhase(accuracyPhases.opening.w)} titleText="White Opening" />
+                </div>
+                <div className="flex justify-center">
+                    <RatingIcon ratingPhase={getRatingPhase(accuracyPhases.opening.b)} titleText="Black Opening" />
                 </div>
             </div>
-            <div className="flex flex-row w-full justify-between items-center">
-                <span className="font-bold text-foregroundGrey reduceSummary:text-lg text-base">Midgame</span>
-                <div className="flex flex-row reduceSummary:w-[262px] w-[160px] justify-between">
-                    <div className="reduceSummary:w-20 w-16 flex items-center justify-center select-none"><RatingIcon ratingPhase={getRatingPhase(accuracyPhases.middlegame.w)} titleText="Middlegame Accuracy" /></div>
-                    <div className="reduceSummary:w-20 w-16 flex items-center justify-center select-none"><RatingIcon ratingPhase={getRatingPhase(accuracyPhases.middlegame.b)} titleText="Middlegame Accuracy" /></div>
+
+            {/* Midgame Phase */}
+            <div className="grid grid-cols-[80px_1fr_1fr] items-center py-1">
+                <span className="text-xs font-bold text-neutral-300">Middlegame</span>
+                <div className="flex justify-center">
+                    <RatingIcon ratingPhase={getRatingPhase(accuracyPhases.middlegame.w)} titleText="White Middlegame" />
+                </div>
+                <div className="flex justify-center">
+                    <RatingIcon ratingPhase={getRatingPhase(accuracyPhases.middlegame.b)} titleText="Black Middlegame" />
                 </div>
             </div>
-            <div className="flex flex-row w-full justify-between items-center">
-                <span className="font-bold text-foregroundGrey reduceSummary:text-lg text-base">Endgame</span>
-                <div className="flex flex-row reduceSummary:w-[262px] w-[160px] justify-between">
-                    <div className="reduceSummary:w-20 w-16 flex items-center justify-center select-none"><RatingIcon ratingPhase={getRatingPhase(accuracyPhases.endgame.w)} titleText="Endgame Accuracy" /></div>
-                    <div className="reduceSummary:w-20 w-16 flex items-center justify-center select-none"><RatingIcon ratingPhase={getRatingPhase(accuracyPhases.endgame.b)} titleText="Endgame Accuracy" /></div>
+
+            {/* Endgame Phase */}
+            <div className="grid grid-cols-[80px_1fr_1fr] items-center py-1">
+                <span className="text-xs font-bold text-neutral-300">Endgame</span>
+                <div className="flex justify-center">
+                    <RatingIcon ratingPhase={getRatingPhase(accuracyPhases.endgame.w)} titleText="White Endgame" />
+                </div>
+                <div className="flex justify-center">
+                    <RatingIcon ratingPhase={getRatingPhase(accuracyPhases.endgame.b)} titleText="Black Endgame" />
                 </div>
             </div>
         </div>

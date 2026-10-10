@@ -1,35 +1,46 @@
 import { PieceSymbol } from "chess.js"
 import Profile from "../svg/profile"
 import CapturedPieces from "./capturedPieces"
-import { maxVertical } from "../../../tailwind.config"
-import { useEffect, useState } from "react"
 
 export default function Name(props: { white: boolean, children: React.ReactNode, captured: PieceSymbol[], materialAdvantage: number }) {
-    const [profileSize, setProfileSize] = useState(40)
-
     const { white, captured, materialAdvantage } = props
-    const name = props.children
+    const rawName = String(props.children || '')
 
-    useEffect(() => {
-        function resizeProfile() {
-            setProfileSize(window.innerWidth < maxVertical ? 24 : 40)
-        }
-
-        resizeProfile()
-
-        window.addEventListener('resize', resizeProfile)
-
-        return () => window.removeEventListener('resize', resizeProfile)
-    }, [])
+    // Parse username and rating if formatted like "Player (1234)"
+    const match = rawName.match(/^(.*?)\s*(\(\d+\)|\(NOELO\))?$/)
+    const displayName = match && match[1] ? match[1].trim() : rawName
+    const eloBadge = match && match[2] && match[2] !== '(NOELO)' ? match[2] : null
 
     return (
-        <div className="flex flex-row items-start vertical:text-sm text-[10px] font-bold text-foregroundHighlighted vertical:gap-2 gap-[6px] flex-grow overflow-x-auto overflow-y-hidden">
-            <div className={`vertical:h-11 vertical:w-11 h-7 w-7 flex flex-row justify-center items-end ${white ? "bg-backgroundProfileWhite" : "bg-backgroundProfileBlack"}`}>
-                <Profile width={profileSize} height={profileSize} class={`${white ? "fill-foregroundProfileWhite" : "fill-foregroundProfileBlack"}`} />
+        <div className="flex items-center gap-2.5 flex-grow min-w-0 select-none">
+            {/* Player Avatar */}
+            <div
+                className={`w-9 h-9 rounded-md overflow-hidden flex items-end justify-center flex-shrink-0 shadow-sm ${
+                    white ? 'bg-[#dbd9d6]' : 'bg-[#45423e]'
+                }`}
+            >
+                <Profile
+                    width={34}
+                    height={34}
+                    class={white ? 'fill-[#ffffff]' : 'fill-[#211f1c]'}
+                />
             </div>
-            <div className="flex flex-col justify-between h-7 vertical:h-11">
-                <span className="h-fit vertical:pb-[1px] vertical:pt-[2px] select-text text-nowrap">{name}</span>
-                <CapturedPieces advantage={materialAdvantage} white={white} pieces={captured} />
+
+            {/* Name + Rating + Captured pieces */}
+            <div className="flex flex-col justify-center min-w-0">
+                <div className="flex items-center gap-1.5 truncate">
+                    <span className="font-bold text-white text-sm md:text-[15px] truncate max-w-[180px] md:max-w-[260px]">
+                        {displayName || 'Player'}
+                    </span>
+                    {eloBadge && (
+                        <span className="text-neutral-400 font-semibold text-xs tabular-nums">
+                            {eloBadge}
+                        </span>
+                    )}
+                </div>
+                <div className="mt-0.5">
+                    <CapturedPieces advantage={materialAdvantage} white={white} pieces={captured} />
+                </div>
             </div>
         </div>
     )

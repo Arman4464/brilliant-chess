@@ -1,3 +1,5 @@
+"use client"
+
 import { useContext, useEffect, useRef, useState } from "react"
 import Arrow from "../../svg/arrow"
 import Image from "next/image"
@@ -17,20 +19,25 @@ function extractGameId(input: string): string | null {
 type format = [string, string, string]
 
 export const FORMATS: format[] = [
-    ["Chess.com", `${process.env.NEXT_PUBLIC_BASE_PATH}/images/chesscom.svg`, "platform"],
-    ["PGN", `${process.env.NEXT_PUBLIC_BASE_PATH}/images/pgn.svg`, "format"],
-    ["FEN", `${process.env.NEXT_PUBLIC_BASE_PATH}/images/json.svg`, "format"],
+    ["Chess.com", `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/chesscom.svg`, "platform"],
+    ["PGN", `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/pgn.svg`, "format"],
+    ["FEN", `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/json.svg`, "format"],
 ]
 
 type type = [string, string, number]
 
 export const TYPES: type[] = [
-    ["Fast", `${process.env.NEXT_PUBLIC_BASE_PATH}/images/quick.svg`, 18],
-    ["Standard", `${process.env.NEXT_PUBLIC_BASE_PATH}/images/standard.svg`, 22],
-    ["Deep", `${process.env.NEXT_PUBLIC_BASE_PATH}/images/deep.svg`, 26],
+    ["Fast", `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/quick.svg`, 18],
+    ["Standard", `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/standard.svg`, 22],
+    ["Deep", `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/deep.svg`, 26],
 ]
 
-export default function Form(props: { setData: (data: Data) => void, selectGame: (username: string, platform: platform ) => void, depth: [number, (depth: number) => void], selected: [number, (selected: number) => void] }) {
+export default function Form(props: {
+    setData: (data: Data) => void
+    selectGame: (username: string, platform: platform) => void
+    depth: [number, (depth: number) => void]
+    selected: [number, (selected: number) => void]
+}) {
     const { setData, selectGame } = props
 
     const [isSelecting, setSelecting] = useState(false)
@@ -44,7 +51,6 @@ export default function Form(props: { setData: (data: Data) => void, selectGame:
 
     const formRef = useRef<HTMLFormElement>(null)
     const inputRef = useRef<HTMLTextAreaElement>(null)
-
     const shiftPressed = useRef(false)
 
     useEffect(() => {
@@ -52,7 +58,6 @@ export default function Form(props: { setData: (data: Data) => void, selectGame:
         if (!previousDepth) return
 
         const previousDepthNumber = Number(previousDepth)
-
         if (TYPES.some(type => type[2] === previousDepthNumber)) {
             setDepth(previousDepthNumber)
         } else {
@@ -66,7 +71,6 @@ export default function Form(props: { setData: (data: Data) => void, selectGame:
         if (!previousSelected) return
 
         const previousSelectedNumber = Number(previousSelected)
-
         if (FORMATS[previousSelectedNumber] != null) {
             select(previousSelectedNumber)
         } else {
@@ -74,7 +78,7 @@ export default function Form(props: { setData: (data: Data) => void, selectGame:
             localStorage.setItem('format', String(0))
         }
     }, [])
-    
+
     useEffect(() => {
         setValue("")
         setSelecting(false)
@@ -98,38 +102,36 @@ export default function Form(props: { setData: (data: Data) => void, selectGame:
             case "Chess.com":
                 const gameId = extractGameId(value)
                 if (gameId) {
+                    setLoadingGame(true)
                     try {
-                        setLoadingGame(true)
-                        const res = await fetch(`/api/game?id=${gameId}`)
-                        if (!res.ok) throw new Error(String(res.status))
-                        const json = await res.json()
-                        if (json.pgn) {
-                            setData({
-                                format: "pgn",
-                                string: json.pgn,
-                                performanceRatings: {
-                                    white: json.white?.performanceRating,
-                                    black: json.black?.performanceRating,
-                                },
-                                accuracies: json.accuracies || (json.white?.accuracy ? { white: json.white.accuracy, black: json.black?.accuracy } : undefined)
-                            })
-                            return
+                        const response = await fetch(`/api/game?id=${gameId}`)
+                        if (!response.ok) {
+                            throw new Error(`Failed to load game ${gameId}`)
                         }
-                        throw new Error("Game PGN not available")
-                    } catch {
-                        await pushPageError(setErrors, `Could not load Game #${gameId}`, "Check the Game ID or your internet connection.")
+                        const resData = await response.json()
+                        const pgn = resData.pgn
+                        if (!pgn) {
+                            throw new Error("No PGN found for this game")
+                        }
+                        setData({ format: "pgn", string: pgn })
+                    } catch (err: any) {
+                        pushPageError(setErrors, ["Failed to load game", err.message || "Please check the game ID/URL"])
                     } finally {
                         setLoadingGame(false)
                     }
                     return
                 }
-                localStorage.setItem("chesscom", value)
-                selectGame(value, "chessCom")
+
+                if (!value.trim()) return
+                selectGame(value.trim(), "chessCom")
+                localStorage.setItem('chesscom', value.trim())
                 break
             case "PGN":
+                if (!value.trim()) return
                 setData({ format: "pgn", string: value })
                 break
             case "FEN":
+                if (!value.trim()) return
                 setData({ format: "fen", string: value })
                 break
         }
@@ -138,16 +140,12 @@ export default function Form(props: { setData: (data: Data) => void, selectGame:
     function changeSelected(i: number) {
         select(i)
         setSelecting(false)
-
         localStorage.setItem('format', String(i))
-
-        const input = inputRef.current
-        input?.focus()
+        inputRef.current?.focus()
     }
 
     function changeDepth(depth: number) {
         setDepth(depth)
-
         localStorage.setItem('depth', String(depth))
     }
 
@@ -175,54 +173,106 @@ export default function Form(props: { setData: (data: Data) => void, selectGame:
     const isPlatform = isAPlatform(selected)
 
     const inputPlaceholder = isPlatform ?
-        "Enter Chess.com user or Game ID / URL" :
-        `Paste your ${FORMATS[selected][0]} code here`
+        "Enter Chess.com username or Game URL / ID" :
+        `Paste your ${FORMATS[selected][0]} notation here...`
 
     const analyzeValue = loadingGame ?
         "Loading Game..." :
         isPlatform ?
-            (detectedGameId ? "Load Game" : "List games") :
+            (detectedGameId ? "Load Game" : "List Games") :
             "Analyze"
 
     return (
-        <form ref={formRef} onSubmit={analyze} className="flex flex-col items-center gap-4">
-            <textarea spellCheck={false} rows={1} value={value} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setValue(e?.currentTarget.value)} ref={inputRef} placeholder={inputPlaceholder} className="w-[85%] px-2 py-[13px] flex items-center transition-colors text-xl font-bold rounded-borderRoundness border-border hover:border-borderHighlighted focus:border-borderHighlighted border-solid border-[1px] bg-backgroundBoxBox outline-none placeholder:text-placeholder placeholder:font-normal resize-none" />
-            <div className="w-[85%] flex flex-col gap-2">
-                <button type="button" className="flex flex-row gap-1 items-center justify-center w-full h-14 rounded-borderRoundness text-xl bg-backgroundBoxBox hover:bg-backgroundBoxBoxHover hover:text-foregroundHighlighted transition-colors font-bold relative" onClick={e => { e.preventDefault(); setSelecting(isSelecting => !isSelecting) }}>
-                    <Image draggable={false} alt="icon" src={FORMATS[selected][1]} width={28} height={28} />
-                    {FORMATS[selected][0]}
-                    <div className={`absolute h-full right-6 top-0 flex flex-row items-center ${isSelecting ? "" : "rotate-180"}`}><Arrow class="fill-foregroundGrey" /></div>
+        <form ref={formRef} onSubmit={analyze} className="flex flex-col items-center gap-4 w-full px-5 py-6 select-none">
+            {/* Input textarea */}
+            <div className="w-full relative">
+                <textarea
+                    spellCheck={false}
+                    rows={isPlatform ? 2 : 4}
+                    value={value}
+                    onKeyDown={handleKeyDown}
+                    onKeyUp={handleKeyUp}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setValue(e.currentTarget.value)}
+                    ref={inputRef}
+                    placeholder={inputPlaceholder}
+                    className="w-full px-3.5 py-3 text-sm md:text-base font-semibold rounded-xl border border-white/10 bg-[#1e1d1a] text-white placeholder-neutral-500 focus:outline-none focus:border-[#81b64c] transition-colors resize-none shadow-inner"
+                />
+            </div>
+
+            {/* Platform & Depth Settings Toggle */}
+            <div className="w-full flex flex-col gap-2">
+                <button
+                    type="button"
+                    onClick={e => {
+                        e.preventDefault()
+                        setSelecting(prev => !prev)
+                    }}
+                    className="w-full h-12 px-4 rounded-xl bg-[#1e1d1a] hover:bg-white/5 border border-white/10 text-white font-bold text-sm md:text-base flex items-center justify-between transition-colors shadow-sm"
+                >
+                    <div className="flex items-center gap-2.5">
+                        <Image draggable={false} alt="icon" src={FORMATS[selected][1]} width={22} height={22} />
+                        <span>{FORMATS[selected][0]}</span>
+                    </div>
+                    <div className={`transition-transform duration-200 ${isSelecting ? "rotate-180" : ""}`}>
+                        <Arrow class="fill-neutral-400" />
+                    </div>
                 </button>
-                <div className="flex flex-col gap-2" style={{ display: isSelecting ? "" : "none" }}>
-                    <h6 className="mt-2 font-bold flex flex-row gap-1"><Image alt="formats" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/formats.svg`} width={18} height={18} />Game Formats</h6>
-                    <ul className="grid grid-cols-3 gap-2">
-                        {FORMATS.map((format, i) => {
-                            return (
-                                <li key={i}>
-                                    <button type="button" onClick={() => changeSelected(i)} className={`flex flex-row items-center justify-center gap-1.5 h-11 w-full hover:text-foregroundHighlighted rounded-borderRoundness text-sm bg-backgroundBoxBox hover:bg-backgroundBoxBoxHover transition-colors font-bold border-backgroundBoxBoxHighlighted ${selected === i ? "border-[2px]" : ""}`}>
-                                        <Image draggable={false} alt="format" src={format[1]} width={20} height={20} className="h-5 w-auto" priority />
+
+                {isSelecting && (
+                    <div className="flex flex-col gap-3 p-3 bg-black/25 rounded-xl border border-white/5 mt-1 animate-fadeIn">
+                        <div>
+                            <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider block mb-2">Input Source</span>
+                            <div className="grid grid-cols-3 gap-2">
+                                {FORMATS.map((format, i) => (
+                                    <button
+                                        key={i}
+                                        type="button"
+                                        onClick={() => changeSelected(i)}
+                                        className={`flex items-center justify-center gap-1.5 h-10 rounded-lg text-xs font-bold transition-all ${
+                                            selected === i
+                                                ? 'bg-[#81b64c] text-white shadow-md'
+                                                : 'bg-[#1e1d1a] text-neutral-300 hover:text-white hover:bg-white/10 border border-white/5'
+                                        }`}
+                                    >
+                                        <Image draggable={false} alt="format" src={format[1]} width={16} height={16} />
                                         <span>{format[0]}</span>
                                     </button>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                    <h6 className="mt-2 font-bold flex flex-row gap-2"><Image priority alt="depth" src={`${process.env.NEXT_PUBLIC_BASE_PATH}/images/type.svg`} width={20} height={20} />Analysis Type</h6>
-                    <ul className="grid grid-cols-3 gap-2">
-                        {TYPES.map((type, i) => {
-                            return (
-                                <li key={i}>
-                                    <button title={`Depth: ${type[2]}`} type="button" onClick={() => changeDepth(type[2])} className={`flex flex-row items-center justify-center gap-1.5 h-11 w-full hover:text-foregroundHighlighted rounded-borderRoundness text-sm bg-backgroundBoxBox hover:bg-backgroundBoxBoxHover transition-colors font-bold border-backgroundBoxBoxHighlighted ${depth === type[2] ? "border-[2px]" : ""}`}>
-                                        <Image draggable={false} alt="format" src={type[1]} width={20} height={20} className="h-5 w-auto" priority />
-                                        <span>{type[0]}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div>
+                            <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider block mb-2">Engine Depth</span>
+                            <div className="grid grid-cols-3 gap-2">
+                                {TYPES.map((type, i) => (
+                                    <button
+                                        key={i}
+                                        type="button"
+                                        onClick={() => changeDepth(type[2])}
+                                        className={`flex items-center justify-center gap-1.5 h-10 rounded-lg text-xs font-bold transition-all ${
+                                            depth === type[2]
+                                                ? 'bg-[#81b64c] text-white shadow-md'
+                                                : 'bg-[#1e1d1a] text-neutral-300 hover:text-white hover:bg-white/10 border border-white/5'
+                                        }`}
+                                    >
+                                        <Image draggable={false} alt="type" src={type[1]} width={16} height={16} />
+                                        <span>{type[0]} ({type[2]})</span>
                                     </button>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
-            <input type="submit" className="w-[85%] h-16 cursor-pointer rounded-borderExtraRoundness text-2xl bg-backgroundBoxBoxHighlighted hover:bg-backgroundBoxBoxHighlightedHover transition-all font-extrabold hover:shadow-shadowBoxBoxHighlighted" value={analyzeValue} />
+
+            {/* Big Green CTA button */}
+            <button
+                type="submit"
+                disabled={loadingGame}
+                className="w-full h-14 mt-2 bg-[#81b64c] hover:bg-[#8cc352] active:scale-[0.98] text-white font-black text-lg rounded-xl shadow-lg transition-all flex items-center justify-center cursor-pointer select-none disabled:opacity-50"
+            >
+                {analyzeValue}
+            </button>
         </form>
     )
 }
