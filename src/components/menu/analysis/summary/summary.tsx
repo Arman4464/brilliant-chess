@@ -48,8 +48,8 @@ export default function Summary(props: {
         <div className="flex flex-col items-center w-full pb-4 overflow-y-auto select-none">
             {/* Game Review Summary Verdict Banner */}
             <div className="w-full px-4 pt-3 pb-2">
-                <div className="w-full bg-[#262421] border border-white/10 rounded-xl p-3.5 shadow-md flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#81b64c]/20 border border-[#81b64c]/30 flex items-center justify-center shrink-0">
+                <div className="w-full bg-[#262421] border border-white/10 p-3.5 shadow-md flex items-center gap-3">
+                    <div className="w-8 h-8 bg-[#81b64c]/20 border border-[#81b64c]/30 flex items-center justify-center shrink-0">
                         <svg className="w-4 h-4 text-[#81b64c]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
@@ -74,8 +74,8 @@ export default function Summary(props: {
 
             {/* Opening Tag */}
             {analyzeContext.data[0]?.opening && (
-                <div className="w-[92%] mx-auto my-1 flex items-center gap-2 px-3 py-1.5 bg-black/25 border border-white/5 rounded-xl text-xs">
-                    <span className="font-extrabold text-[#81b64c] bg-[#81b64c]/15 px-2 py-0.5 rounded text-[11px]">
+                <div className="w-[92%] mx-auto my-1 flex items-center gap-2 px-3 py-1.5 bg-black/25 border border-white/5 text-xs">
+                    <span className="font-extrabold text-[#81b64c] bg-[#81b64c]/15 px-2 py-0.5 text-[11px]">
                         {analyzeContext.data[0].opening.code}
                     </span>
                     <span className="font-semibold text-neutral-200 truncate text-xs">
@@ -118,21 +118,21 @@ export default function Summary(props: {
             <div className="w-[92%] flex flex-col gap-2 pt-1">
                 <span className="font-bold text-neutral-300 text-xs">Phase Performance</span>
                 <div className="grid grid-cols-4 gap-2 text-center text-xs">
-                    <div className="bg-black/25 border border-white/5 rounded-xl py-2 px-1 flex flex-col items-center gap-1">
+                    <div className="bg-black/25 border border-white/5 py-2 px-1 flex flex-col items-center gap-1">
                         <span className="text-[10px] text-neutral-400 font-semibold">Opening</span>
                         <span className="text-white font-black text-sm">
                             {accuracyPhases.opening.w.length > 0 ? `${avg(accuracyPhases.opening.w).toFixed(0)}%` : '—'}
                         </span>
                     </div>
-                    <div className="bg-black/25 border border-white/5 rounded-xl py-2 px-1 flex flex-col items-center gap-1">
+                    <div className="bg-black/25 border border-white/5 py-2 px-1 flex flex-col items-center gap-1">
                         <span className="text-[10px] text-neutral-400 font-semibold">Tactics</span>
                         <span className="text-[#81b64c] font-black text-sm">✓ High</span>
                     </div>
-                    <div className="bg-black/25 border border-white/5 rounded-xl py-2 px-1 flex flex-col items-center gap-1">
+                    <div className="bg-black/25 border border-white/5 py-2 px-1 flex flex-col items-center gap-1">
                         <span className="text-[10px] text-neutral-400 font-semibold">Strategy</span>
                         <span className="text-[#5c8bb0] font-black text-sm">✓ Solid</span>
                     </div>
-                    <div className="bg-black/25 border border-white/5 rounded-xl py-2 px-1 flex flex-col items-center gap-1">
+                    <div className="bg-black/25 border border-white/5 py-2 px-1 flex flex-col items-center gap-1">
                         <span className="text-[10px] text-neutral-400 font-semibold">Endgame</span>
                         <span className="text-white font-black text-sm">
                             {accuracyPhases.endgame.w.length > 0 ? `${avg(accuracyPhases.endgame.w).toFixed(0)}%` : '—'}
@@ -149,7 +149,7 @@ export default function Summary(props: {
                         setMoveNumber(1)
                         setTab('moves')
                     }}
-                    className="w-full py-3.5 bg-[#81b64c] hover:bg-[#8cc352] active:scale-[0.98] text-white font-black text-base md:text-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer select-none"
+                    className="w-full py-3.5 bg-[#81b64c] hover:bg-[#8cc352] active:scale-[0.98] text-white font-black text-base md:text-lg shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer select-none"
                 >
                     <span>Start Review</span>
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">

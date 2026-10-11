@@ -37,7 +37,7 @@ export default function Evaluation(props: { size: number, white: boolean, advant
     return (
         <div
             style={{ height: size }}
-            className="w-7 bg-[#262421] rounded-lg overflow-hidden flex flex-col justify-end relative shadow-inner select-none flex-shrink-0 border border-white/5"
+            className="w-7 bg-[#262421] overflow-hidden flex flex-col justify-end relative shadow-inner select-none flex-shrink-0 border border-white/5"
         >
             {/* White evaluation fill */}
             <div

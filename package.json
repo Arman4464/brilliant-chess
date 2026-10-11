@@ -1,8 +1,8 @@
 {
-  "name": "brilliant-chess",
+  "name": "chessmate",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wdeloo.github.io/Brilliant-Chess/",
+  "homepage": "https://github.com/Arman4464/brilliant-chess",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

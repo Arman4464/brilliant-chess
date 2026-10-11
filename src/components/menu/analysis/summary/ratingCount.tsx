@@ -75,7 +75,7 @@ export default function RatingCount(props: { moves: move[] }) {
                 return (
                     <div
                         key={rating}
-                        className={`grid grid-cols-[80px_1fr_1fr] items-center py-1 rounded hover:bg-white/5 transition-colors ${
+                        className={`grid grid-cols-[80px_1fr_1fr] items-center py-1 hover:bg-white/5 transition-colors ${
                             hasMoves ? 'opacity-100' : 'opacity-40'
                         }`}
                     >

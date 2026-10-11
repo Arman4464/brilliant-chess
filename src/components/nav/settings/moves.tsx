@@ -100,13 +100,13 @@ export default function Moves() {
                                         <PieceSVG className="absolute z-10 top-0 left-0" piece={BISHOP} size={20} color={WHITE} />
                                         <div className="w-full h-full opacity-50 absolute top-0 left-0" style={{ backgroundColor: boardThemes[boardTheme].highlight }} />
                                     </> : null}
-                                    {i === 1 && showLegalMoves ? <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center pointer-events-auto"><div className="bg-black opacity-[25%] w-[30%] h-[30%] rounded-full" /></div> : null }
+                                    {i === 1 && showLegalMoves ? <div className="absolute w-full h-full top-0 left-0 flex justify-center items-center pointer-events-auto"><div className="bg-black opacity-[25%] w-[30%] h-[30%]" /></div> : null }
                                 </div>
                             )
                         })}
                     </div>
                     <span className="font-bold text-lg">Show legal moves</span>
-                    <div style={{backgroundColor: "var(--foreground)", display: showLegalMoves ? '' : 'none'}} className="w-3 h-3 rounded-full absolute right-3" />
+                    <div style={{backgroundColor: "var(--foreground)", display: showLegalMoves ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
                 </button>
                 <button onClick={toggleAnimateMoves} type="button" className="flex flex-row gap-2 items-center hover:text-foregroundHighlighted hover:bg-black transition-colors w-full relative p-2">
                     <div className="grid grid-cols-2 w-fit">
@@ -128,7 +128,7 @@ export default function Moves() {
                         })}
                     </div>
                     <span className="font-bold text-lg">Animate moves</span>
-                    <div style={{backgroundColor: "var(--foreground)", display: animateMoves ? '' : 'none'}} className="w-3 h-3 rounded-full absolute right-3" />
+                    <div style={{backgroundColor: "var(--foreground)", display: animateMoves ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
                 </button>
                 <button onClick={toggleBoardSounds} type="button" className="flex flex-row gap-2 items-center hover:text-foregroundHighlighted hover:bg-black transition-colors w-full relative p-2">
                     <div className="w-[40px] h-[40px] flex justify-center items-center">
@@ -136,7 +136,7 @@ export default function Moves() {
                         <SoundMute display={!boardSounds} size={35} />
                     </div>
                     <span className="font-bold text-lg">Board sounds</span>
-                    <div style={{backgroundColor: "var(--foreground)", display: boardSounds ? '' : 'none'}} className="w-3 h-3 rounded-full absolute right-3" />
+                    <div style={{backgroundColor: "var(--foreground)", display: boardSounds ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
                 </button>
             </section>
         </div>

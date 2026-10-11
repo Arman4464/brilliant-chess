@@ -122,7 +122,7 @@ export default function Menu() {
     return (
         <div
             ref={menuRef}
-            className="w-full lg:w-[420px] xl:w-[440px] h-[calc(100vh-28px)] max-h-[820px] bg-[#262421] border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden select-none flex-shrink-0"
+            className="w-full lg:w-[420px] xl:w-[440px] h-[calc(100vh-28px)] max-h-[820px] bg-[#262421] border border-white/10 shadow-2xl flex flex-col overflow-hidden select-none flex-shrink-0"
         >
             {/* Top Review Header Tabs */}
             <menu className="flex items-center bg-black/20 border-b border-white/10 px-1 select-none flex-shrink-0">

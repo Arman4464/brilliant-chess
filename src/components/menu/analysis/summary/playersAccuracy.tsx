@@ -156,10 +156,10 @@ export default function PlayersAccuracy(props: {
                     <span className="font-extrabold text-white text-sm truncate max-w-[120px]" title={players[0]?.name}>
                         {players[0]?.name || 'White'}
                     </span>
-                    <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-[#dbd9d6] flex items-end justify-center shadow-md border-2 border-transparent">
+                    <div className="relative w-14 h-14 overflow-hidden bg-[#dbd9d6] flex items-end justify-center shadow-md border-2 border-transparent">
                         <Profile width={50} height={50} class="fill-white" />
                         {isWhiteWinner && (
-                            <span className="absolute -top-1 -right-1 bg-[#e6912c] text-white p-1 rounded-full shadow-lg" title="Winner">
+                            <span className="absolute -top-1 -right-1 bg-[#e6912c] text-white p-1 shadow-lg" title="Winner">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
                                 </svg>
@@ -173,10 +173,10 @@ export default function PlayersAccuracy(props: {
                     <span className="font-extrabold text-white text-sm truncate max-w-[120px]" title={players[1]?.name}>
                         {players[1]?.name || 'Black'}
                     </span>
-                    <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-[#45423e] flex items-end justify-center shadow-md border-2 border-transparent">
+                    <div className="relative w-14 h-14 overflow-hidden bg-[#45423e] flex items-end justify-center shadow-md border-2 border-transparent">
                         <Profile width={50} height={50} class="fill-[#211f1c]" />
                         {isBlackWinner && (
-                            <span className="absolute -top-1 -right-1 bg-[#e6912c] text-white p-1 rounded-full shadow-lg" title="Winner">
+                            <span className="absolute -top-1 -right-1 bg-[#e6912c] text-white p-1 shadow-lg" title="Winner">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
                                 </svg>
@@ -192,14 +192,14 @@ export default function PlayersAccuracy(props: {
 
                 {/* White Accuracy */}
                 <div className="flex justify-center">
-                    <div className="w-20 py-1.5 bg-white text-[#211f1c] font-black text-base md:text-lg rounded-xl text-center shadow-sm tabular-nums">
+                    <div className="w-20 py-1.5 bg-white text-[#211f1c] font-black text-base md:text-lg text-center shadow-sm tabular-nums">
                         {isNaN(accuracy.w) ? '—' : accuracy.w.toFixed(1)}%
                     </div>
                 </div>
 
                 {/* Black Accuracy */}
                 <div className="flex justify-center">
-                    <div className="w-20 py-1.5 bg-[#1e1d1a] text-white border border-white/10 font-black text-base md:text-lg rounded-xl text-center shadow-sm tabular-nums">
+                    <div className="w-20 py-1.5 bg-[#1e1d1a] text-white border border-white/10 font-black text-base md:text-lg text-center shadow-sm tabular-nums">
                         {isNaN(accuracy.b) ? '—' : accuracy.b.toFixed(1)}%
                     </div>
                 </div>

@@ -318,7 +318,7 @@ wss.on('connection', (ws) => {
 
 server.listen(PORT, () => {
     const nativeFound = fs.existsSync(STOCKFISH_EXE);
-    console.log(`✓ Brilliant Chess server running at http://localhost:${PORT}`);
+    console.log(`✓ Chessmate server running at http://localhost:${PORT}`);
     if (nativeFound) {
         console.log(`✓ Native Stockfish bridge active: ${STOCKFISH_EXE}`);
     } else {

@@ -51,7 +51,7 @@ export default function GameButtons() {
                 type="button"
                 onClick={() => gameController.first()}
                 title="First Move (Home)"
-                className="w-10 h-10 rounded-lg bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
+                className="w-10 h-10 bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
             >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
@@ -63,7 +63,7 @@ export default function GameButtons() {
                 type="button"
                 onClick={() => gameController.back()}
                 title="Previous Move (Left Arrow)"
-                className="w-12 h-10 rounded-lg bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
+                className="w-12 h-10 bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
             >
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
@@ -75,7 +75,7 @@ export default function GameButtons() {
                 type="button"
                 onClick={() => playing ? gameController.pause() : gameController.play()}
                 title={playing ? "Pause (Space)" : "Auto-Play (Space)"}
-                className="w-14 h-10 rounded-lg bg-[#81b64c] hover:bg-[#8cc352] text-white flex items-center justify-center active:scale-95 transition-all shadow-md font-bold"
+                className="w-14 h-10 bg-[#81b64c] hover:bg-[#8cc352] text-white flex items-center justify-center active:scale-95 transition-all shadow-md font-bold"
             >
                 {playing ? (
                     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -93,7 +93,7 @@ export default function GameButtons() {
                 type="button"
                 onClick={() => gameController.forward()}
                 title="Next Move (Right Arrow)"
-                className="w-12 h-10 rounded-lg bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
+                className="w-12 h-10 bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
             >
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
@@ -105,7 +105,7 @@ export default function GameButtons() {
                 type="button"
                 onClick={() => gameController.last()}
                 title="Last Move (End)"
-                className="w-10 h-10 rounded-lg bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
+                className="w-10 h-10 bg-[#312e2b] hover:bg-[#3d3a36] text-neutral-300 hover:text-white flex items-center justify-center active:scale-95 transition-all shadow-sm"
             >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>

@@ -67,7 +67,7 @@ export function FormatEval(props: { evaluation: string[], white: boolean, smalle
 
     return (
         <span
-            className={`font-extrabold rounded-md tabular-nums select-none tracking-tight inline-flex items-center justify-center ${
+            className={`font-extrabold tabular-nums select-none tracking-tight inline-flex items-center justify-center ${
                 smaller ? 'px-2 py-0.5 text-xs' : 'px-2.5 py-1 text-xs md:text-sm'
             } ${
                 isBlackLeading ? 'bg-[#262421] text-white border border-white/10' : 'bg-neutral-100 text-[#211f1c] shadow-sm'
@@ -99,7 +99,7 @@ export default function Comments(props: {
     if (!rating || !moveSan) {
         return (
             <div className="w-full px-4 pt-3 pb-2 select-none">
-                <div className="w-full bg-[#2b2825] border border-white/10 text-neutral-300 rounded-xl p-3.5 shadow-md flex items-center gap-3">
+                <div className="w-full bg-[#2b2825] border border-white/10 text-neutral-300 p-3.5 shadow-md flex items-center gap-3">
                     <p className="text-sm font-medium text-neutral-400">
                         Select a move to view detailed positional analysis and tactical breakdown.
                     </p>
@@ -116,7 +116,7 @@ export default function Comments(props: {
     return (
         <div className="w-full px-4 pt-3 pb-2 select-none">
             {/* Analysis Insight Card */}
-            <div className="w-full bg-white text-[#211f1c] rounded-xl p-3.5 shadow-lg flex flex-col gap-2 border border-black/5">
+            <div className="w-full bg-white text-[#211f1c] p-3.5 shadow-lg flex flex-col gap-2 border border-black/5">
                 {/* Header: Badge & Move SAN on left, Score Pill on right */}
                 <div className="flex items-center justify-between gap-2 border-b border-neutral-100 pb-2">
                     <div className="flex items-center gap-2">
@@ -138,7 +138,7 @@ export default function Comments(props: {
 
                 {/* Best move suggestion if sub-optimal */}
                 {showBestMove && (
-                    <div className="mt-0.5 flex items-center gap-1.5 bg-neutral-100 rounded-lg px-2.5 py-1 text-xs font-semibold text-neutral-600 w-fit">
+                    <div className="mt-0.5 flex items-center gap-1.5 bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600 w-fit">
                         <span>Best was</span>
                         <span className="font-extrabold text-[#81b64c]">{formatBestMove(bestMoveSan)}</span>
                     </div>

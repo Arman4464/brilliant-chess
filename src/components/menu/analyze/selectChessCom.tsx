@@ -94,7 +94,7 @@ export function Loading(props: {whatIsLoading: string, abort: () => void}) {
     return (
                 <div className="flex flex-col flex-grow">
                     <div className="flex-grow flex flex-col justify-center items-center">
-                        <div className="w-[70%] bg-backgroundBox relative overflow-hidden rounded-borderExtraRoundness text-lg text-foregroundGrey flex flex-col gap-14 pb-4 pt-14 items-center">
+                        <div className="w-[70%] bg-backgroundBox relative overflow-hidden text-lg text-foregroundGrey flex flex-col gap-14 pb-4 pt-14 items-center">
                             <div className="w-40 flex flex-col items-center gap-4">
                                 <Files className="animate-[pulse_1.25s_cubic-bezier(0.4,_0,_0.6,_1)_infinite;] scale-x-[-1]" size={60} />
                                 <span className="text-xl text-foreground font-bold">{props.whatIsLoading}</span>
@@ -180,13 +180,13 @@ export function GamesUI(props: { gamesInfo: gameInfo[], loading: boolean, userna
                             return (
                                 <tr title={`Time Class: ${capitalizeFirst(timeClass)}`} onClick={() => setData({format: 'pgn', string: pgn, accuracies: gameInfo.accuracies })} className="border-b-[1px] cursor-pointer select-none border-border transition-colors hover:bg-backgroundBoxHover" key={i}>
                                     <td className="text-base flex flex-col py-4 w-60 overflow-hidden pl-8">
-                                        <div className="flex flex-row items-center gap-2"><div className={`h-4 min-h-4 w-4 min-w-4 bg-evaluationBarWhite rounded-borderRoundness ${whiteWon ? 'border-[3px] border-winGreen' : ''}`} />{whiteName} ({whiteElo})</div>
-                                        <div className="flex flex-row items-center gap-2"><div className={`h-4 w-4 bg-evaluationBarBlack rounded-borderRoundness ${blackWon ? 'border-[3px] border-winGreen' : ''}`} />{blackName} ({blackElo})</div>
+                                        <div className="flex flex-row items-center gap-2"><div className={`h-4 min-h-4 w-4 min-w-4 bg-evaluationBarWhite ${whiteWon ? 'border-[3px] border-winGreen' : ''}`} />{whiteName} ({whiteElo})</div>
+                                        <div className="flex flex-row items-center gap-2"><div className={`h-4 w-4 bg-evaluationBarBlack ${blackWon ? 'border-[3px] border-winGreen' : ''}`} />{blackName} ({blackElo})</div>
                                     </td>
                                     <td className="py-2 pl-3 pr-4">
                                         <div className="flex flex-row items-center gap-2">
                                             <div className="flex w-4 flex-col text-foregroundGrey font-bold text-base"><span>{whiteWon ? 1 : blackWon ? 0 : <>&#189;</>}</span><span>{blackWon ? 1 : whiteWon ? 0 : <>&#189;</>}</span></div>
-                                            <div style={{ mixBlendMode: 'screen' }} className={`h-4 w-4 rounded-borderRoundness text-lg font-extrabold flex justify-center items-center text-black ${isWin ? 'bg-winGreen' : isLoss ? 'bg-lossRed' : 'bg-foregroundGrey'}`}><div className="w-fit h-fit ml-px">{isWin ? '+' : isLoss ? '-' : '='}</div></div>
+                                            <div style={{ mixBlendMode: 'screen' }} className={`h-4 w-4 text-lg font-extrabold flex justify-center items-center text-black ${isWin ? 'bg-winGreen' : isLoss ? 'bg-lossRed' : 'bg-foregroundGrey'}`}><div className="w-fit h-fit ml-px">{isWin ? '+' : isLoss ? '-' : '='}</div></div>
                                         </div>
                                     </td>
                                     <td className="py-4 pr-4 notFullDate:pr-8 text-nowrap text-sm">

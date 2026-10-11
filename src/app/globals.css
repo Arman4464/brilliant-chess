@@ -6,6 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border-radius: 0 !important;
 }
 
 :root {
@@ -78,8 +79,8 @@
 
   --shadowBoxBoxHighlighted: 0 0 10px;
 
-  --borderRoundness: 0.5rem;
-  --borderExtraRoundness: 0.75rem;
+  --borderRoundness: 0px;
+  --borderExtraRoundness: 0px;
 
   --scrollbarSize: 6px;
 }

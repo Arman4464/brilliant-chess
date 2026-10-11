@@ -115,7 +115,7 @@ export default function Form(props: {
                         }
                         setData({ format: "pgn", string: pgn })
                     } catch (err: any) {
-                        pushPageError(setErrors, ["Failed to load game", err.message || "Please check the game ID/URL"])
+                        pushPageError(setErrors, "Failed to load game", err.message || "Please check the game ID/URL")
                     } finally {
                         setLoadingGame(false)
                     }
@@ -195,7 +195,7 @@ export default function Form(props: {
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setValue(e.currentTarget.value)}
                     ref={inputRef}
                     placeholder={inputPlaceholder}
-                    className="w-full px-3.5 py-3 text-sm md:text-base font-semibold rounded-xl border border-white/10 bg-[#1e1d1a] text-white placeholder-neutral-500 focus:outline-none focus:border-[#81b64c] transition-colors resize-none shadow-inner"
+                    className="w-full px-3.5 py-3 text-sm md:text-base font-semibold border border-white/10 bg-[#1e1d1a] text-white placeholder-neutral-500 focus:outline-none focus:border-[#81b64c] transition-colors resize-none shadow-inner"
                 />
             </div>
 
@@ -207,7 +207,7 @@ export default function Form(props: {
                         e.preventDefault()
                         setSelecting(prev => !prev)
                     }}
-                    className="w-full h-12 px-4 rounded-xl bg-[#1e1d1a] hover:bg-white/5 border border-white/10 text-white font-bold text-sm md:text-base flex items-center justify-between transition-colors shadow-sm"
+                    className="w-full h-12 px-4 bg-[#1e1d1a] hover:bg-white/5 border border-white/10 text-white font-bold text-sm md:text-base flex items-center justify-between transition-colors shadow-sm"
                 >
                     <div className="flex items-center gap-2.5">
                         <Image draggable={false} alt="icon" src={FORMATS[selected][1]} width={22} height={22} />
@@ -219,7 +219,7 @@ export default function Form(props: {
                 </button>
 
                 {isSelecting && (
-                    <div className="flex flex-col gap-3 p-3 bg-black/25 rounded-xl border border-white/5 mt-1 animate-fadeIn">
+                    <div className="flex flex-col gap-3 p-3 bg-black/25 border border-white/5 mt-1 animate-fadeIn">
                         <div>
                             <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider block mb-2">Input Source</span>
                             <div className="grid grid-cols-3 gap-2">
@@ -228,7 +228,7 @@ export default function Form(props: {
                                         key={i}
                                         type="button"
                                         onClick={() => changeSelected(i)}
-                                        className={`flex items-center justify-center gap-1.5 h-10 rounded-lg text-xs font-bold transition-all ${
+                                        className={`flex items-center justify-center gap-1.5 h-10 text-xs font-bold transition-all ${
                                             selected === i
                                                 ? 'bg-[#81b64c] text-white shadow-md'
                                                 : 'bg-[#1e1d1a] text-neutral-300 hover:text-white hover:bg-white/10 border border-white/5'
@@ -249,7 +249,7 @@ export default function Form(props: {
                                         key={i}
                                         type="button"
                                         onClick={() => changeDepth(type[2])}
-                                        className={`flex items-center justify-center gap-1.5 h-10 rounded-lg text-xs font-bold transition-all ${
+                                        className={`flex items-center justify-center gap-1.5 h-10 text-xs font-bold transition-all ${
                                             depth === type[2]
                                                 ? 'bg-[#81b64c] text-white shadow-md'
                                                 : 'bg-[#1e1d1a] text-neutral-300 hover:text-white hover:bg-white/10 border border-white/5'
@@ -269,7 +269,7 @@ export default function Form(props: {
             <button
                 type="submit"
                 disabled={loadingGame}
-                className="w-full h-14 mt-2 bg-[#81b64c] hover:bg-[#8cc352] active:scale-[0.98] text-white font-black text-lg rounded-xl shadow-lg transition-all flex items-center justify-center cursor-pointer select-none disabled:opacity-50"
+                className="w-full h-14 mt-2 bg-[#81b64c] hover:bg-[#8cc352] active:scale-[0.98] text-white font-black text-lg shadow-lg transition-all flex items-center justify-center cursor-pointer select-none disabled:opacity-50"
             >
                 {analyzeValue}
             </button>

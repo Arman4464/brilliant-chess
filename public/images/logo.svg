@@ -1,97 +1,44 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="cmBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8cc352" />
+      <stop offset="100%" stop-color="#69923e" />
+    </linearGradient>
+    <linearGradient id="cmBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#81b64c" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#81b64c" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
 
-<svg
-   width="120"
-   height="120"
-   viewBox="0 0 120 120"
-   version="1.1"
-   id="svg5"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs2" />
-  <g
-     id="layer1">
-    <ellipse
-       style="fill:#04b8ad;fill-opacity:1;stroke:none;stroke-width:0.999462"
-       id="path111"
-       cx="60"
-       cy="59.773922"
-       rx="60"
-       ry="59.773922" />
-  </g>
-  <g
-     id="layer3"
-     transform="matrix(1.0629456,0,0,1,-2.2030973,-5)">
-    <g
-       id="layer4">
-      <g
-         id="g13717"
-         style="fill:#000000;fill-opacity:0.4"
-         transform="translate(0,3)">
-        <rect
-           style="fill:#000000;fill-opacity:0.4;stroke:none"
-           id="rect5486"
-           width="15"
-           height="15"
-           x="36"
-           y="82.5"
-           rx="1.5"
-           ry="1.5" />
-        <path
-           style="fill:#000000;fill-opacity:0.4;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
-           d="m 37.467037,75 h 12 a 1.5337037,1.5337037 135.63652 0 0 1.533325,-1.49963 l 0.93335,-42.00074 A 1.467037,1.467037 45.636515 0 0 50.467037,30 h -14 a 1.467037,1.467037 134.36348 0 0 -1.466675,1.49963 l 0.93335,42.00074 A 1.5337037,1.5337037 44.363485 0 0 37.467037,75 Z"
-           id="path10068" />
-      </g>
-      <rect
-         style="fill:#ffffff;fill-opacity:1;stroke:none"
-         id="rect13713"
-         width="15"
-         height="15"
-         x="36"
-         y="82.5"
-         rx="1.5"
-         ry="1.5" />
-      <path
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
-         d="m 37.467037,75 h 12 a 1.5337037,1.5337037 135.63652 0 0 1.533325,-1.49963 l 0.93335,-42.00074 A 1.467037,1.467037 45.636515 0 0 50.467037,30 h -14 a 1.467037,1.467037 134.36348 0 0 -1.466675,1.49963 l 0.93335,42.00074 A 1.5337037,1.5337037 44.363485 0 0 37.467037,75 Z"
-         id="path13715" />
-    </g>
-    <g
-       id="g17427"
-       transform="translate(30.105023)">
-      <g
-         id="g17421"
-         style="fill:#000000;fill-opacity:0.4"
-         transform="translate(0,3)">
-        <rect
-           style="fill:#000000;fill-opacity:0.4;stroke:none"
-           id="rect17417"
-           width="15"
-           height="15"
-           x="36"
-           y="82.5"
-           rx="1.5"
-           ry="1.5" />
-        <path
-           style="fill:#000000;fill-opacity:0.4;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
-           d="m 37.467037,75 h 12 a 1.5337037,1.5337037 135.63652 0 0 1.533325,-1.49963 l 0.93335,-42.00074 A 1.467037,1.467037 45.636515 0 0 50.467037,30 h -14 a 1.467037,1.467037 134.36348 0 0 -1.466675,1.49963 l 0.93335,42.00074 A 1.5337037,1.5337037 44.363485 0 0 37.467037,75 Z"
-           id="path17419" />
-      </g>
-      <rect
-         style="fill:#ffffff;fill-opacity:1;stroke:none"
-         id="rect17423"
-         width="15"
-         height="15"
-         x="36"
-         y="82.5"
-         rx="1.5"
-         ry="1.5" />
-      <path
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
-         d="m 37.467037,75 h 12 a 1.5337037,1.5337037 135.63652 0 0 1.533325,-1.49963 l 0.93335,-42.00074 A 1.467037,1.467037 45.636515 0 0 50.467037,30 h -14 a 1.467037,1.467037 134.36348 0 0 -1.466675,1.49963 l 0.93335,42.00074 A 1.5337037,1.5337037 44.363485 0 0 37.467037,75 Z"
-         id="path17425" />
-    </g>
-  </g>
+  <!-- Sharp Background Container -->
+  <rect width="120" height="120" fill="#1e1d1a" />
+  <rect x="4" y="4" width="112" height="112" fill="none" stroke="url(#cmBorder)" stroke-width="2" />
+
+  <!-- Base Plinth (Sharp 90 deg corners) -->
+  <polygon points="26,98 94,98 94,106 26,106" fill="url(#cmBase)" />
+  <polygon points="32,92 88,92 94,98 26,98" fill="#587d32" />
+
+  <!-- Lower Neck & Back Facets -->
+  <polygon points="48,72 38,92 58,92 54,70" fill="#4a6a2a" />
+  <polygon points="54,70 64,46 68,76 58,92" fill="#587d32" />
+  <polygon points="68,76 76,84 88,92 58,92" fill="#3f5a23" />
+
+  <!-- Mane Spikes (Sharp Angular Geometry) -->
+  <polygon points="48,16 60,26 52,30 46,42" fill="#a4df5e" />
+  <polygon points="60,26 76,34 66,44 52,30" fill="#81b64c" />
+  <polygon points="66,44 82,54 72,64 64,46" fill="#69923e" />
+  <polygon points="72,64 86,76 76,84 68,76" fill="#587d32" />
+
+  <!-- Face & Snout Facets -->
+  <polygon points="48,16 46,42 24,52" fill="#8cc352" />
+  <polygon points="46,42 24,52 38,62" fill="#81b64c" />
+  <polygon points="24,52 24,62 38,62" fill="#69923e" />
+  <polygon points="38,62 48,72 54,70" fill="#587d32" />
+  <polygon points="46,42 64,46 54,70 38,62" fill="#75a643" />
+
+  <!-- Sharp Eye Slit (Crisp White Accent) -->
+  <polygon points="39,49 46,45 42,52 37,51" fill="#ffffff" />
+
+  <!-- Modern Accent Mark / Geometric Spark at Muzzle -->
+  <polygon points="18,52 21,50 20,54" fill="#a4df5e" opacity="0.9" />
 </svg>

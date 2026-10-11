@@ -135,7 +135,7 @@ export default function Moves(props: {
                 className="flex-1 min-h-0 overflow-y-auto px-4 py-1.5 space-y-1 w-full"
             >
                 {getTurns().map((turn, i) => (
-                    <li key={i} className="flex items-center text-sm py-0.5 rounded hover:bg-white/5 transition-colors">
+                    <li key={i} className="flex items-center text-sm py-0.5 hover:bg-white/5 transition-colors">
                         <span className="w-8 font-bold text-neutral-400 text-xs tabular-nums select-none pl-1">
                             {turn[0]}.
                         </span>
@@ -155,7 +155,7 @@ export default function Moves(props: {
                                     <div
                                         key={`${i}-${j}`}
                                         data-active-move={isSelected ? "true" : "false"}
-                                        className={`w-1/2 flex items-center justify-between px-2 py-1 rounded-md cursor-pointer transition-all ${
+                                        className={`w-1/2 flex items-center justify-between px-2 py-1 cursor-pointer transition-all ${
                                             isSelected
                                                 ? 'bg-[#81b64c]/20 text-[#81b64c] font-black ring-1 ring-[#81b64c]/30'
                                                 : 'hover:bg-white/5 text-neutral-200 font-bold'

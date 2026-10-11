@@ -48,7 +48,7 @@ function PageError(props: { title: string, description?: string, errorKey: numbe
     }, [newErrorKey])
 
     return (
-        <div ref={errorRef} data-errorkey={errorKey} style={{opacity: hided ? 0 : 100, backgroundColor: type === 'error' ? 'var(--error)' : type === 'warning' ? 'var(--warning)' : ''}} className="p-3 text-xl select-text z-[999] text-foregroundHighlighted font-bold rounded-borderRoundness hover:scale-105 will-change-transform transition-all max-w-96">
+        <div ref={errorRef} data-errorkey={errorKey} style={{opacity: hided ? 0 : 100, backgroundColor: type === 'error' ? 'var(--error)' : type === 'warning' ? 'var(--warning)' : ''}} className="p-3 text-xl select-text z-[999] text-foregroundHighlighted font-bold hover:scale-105 will-change-transform transition-all max-w-96">
             { title }
             <div style={{display: description ? '' : 'none'}} className="text-base opacity-85 mt-2">
                 { description }

@@ -90,14 +90,14 @@ export default function GameRating(props: {
 
                 {/* White Rating */}
                 <div className="flex justify-center">
-                    <div className="w-20 py-1.5 bg-white text-[#211f1c] font-black text-base md:text-lg rounded-xl text-center shadow-sm tabular-nums">
+                    <div className="w-20 py-1.5 bg-white text-[#211f1c] font-black text-base md:text-lg text-center shadow-sm tabular-nums">
                         {whiteRating}
                     </div>
                 </div>
 
                 {/* Black Rating */}
                 <div className="flex justify-center">
-                    <div className="w-20 py-1.5 bg-[#1e1d1a] text-white border border-white/10 font-black text-base md:text-lg rounded-xl text-center shadow-sm tabular-nums">
+                    <div className="w-20 py-1.5 bg-[#1e1d1a] text-white border border-white/10 font-black text-base md:text-lg text-center shadow-sm tabular-nums">
                         {blackRating}
                     </div>
                 </div>

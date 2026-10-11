@@ -48,7 +48,7 @@ export default function Loading(props: { format: string, analyzeController?: Abo
             <div className="text-lg font-bold text-foregroundGrey px-5 pb-5 w-full">Analyzing{ellipsis}</div>
             <hr className="border-neutral-600" />
             <div className="flex-grow flex flex-col justify-center items-center relative">
-                <div className="w-[70%] bg-backgroundBox relative overflow-hidden rounded-borderExtraRoundness text-lg text-foregroundGrey flex flex-col gap-14 pb-4 pt-14 items-center">
+                <div className="w-[70%] bg-backgroundBox relative overflow-hidden text-lg text-foregroundGrey flex flex-col gap-14 pb-4 pt-14 items-center">
                     <div className="w-36 flex flex-col items-center gap-4">
                         <Lens class="animate-[pulse_1.25s_cubic-bezier(0.4,_0,_0.6,_1)_infinite;] scale-x-[-1] fill-backgroundBoxBoxHighlighted" size={60} />
                         <span className="text-xl text-foreground font-bold">{format.toUpperCase()}</span>

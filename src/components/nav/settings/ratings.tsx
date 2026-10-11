@@ -108,7 +108,7 @@ export default function Ratings() {
                     })}
                 </div>
                 <span className="font-bold text-lg">Highlight by rating</span>
-                <div style={{backgroundColor: "var(--foreground)", display: highlightByRating ? '' : 'none'}} className="w-3 h-3 rounded-full absolute right-3" />
+                <div style={{backgroundColor: "var(--foreground)", display: highlightByRating ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
             </button>
             {ratings.map((rating, i) => {
                 const color = rating === 'forced' ? 'var(--highlightGood)' : `var(--highlight${capitalizeFirst(rating)})`
@@ -126,7 +126,7 @@ export default function Ratings() {
                     <button onClick={toggleRating} type="button" key={i} className="flex flex-row gap-2 items-center hover:text-foregroundHighlighted hover:bg-black transition-colors w-full relative p-2">
                         <RatingSVG rating={rating} size={35} className="w-[40px] h-[40px] flex justify-center items-center" />
                         <span className="font-bold text-lg">{capitalizeFirst(rating)}</span>
-                        <div style={{backgroundColor: color, display: usedRatings[rating as keyof typeof usedRatings] ? '' : 'none'}} className="w-3 h-3 rounded-full absolute right-3" />
+                        <div style={{backgroundColor: color, display: usedRatings[rating as keyof typeof usedRatings] ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
                     </button>
                 )
             })}

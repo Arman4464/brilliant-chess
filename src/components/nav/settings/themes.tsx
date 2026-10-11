@@ -57,7 +57,7 @@ export default function Themes() {
                             })}
                         </div>
                         <span className="font-bold text-lg">{theme.label}</span>
-                        <div style={{backgroundColor: theme.black, display: boardTheme === i ? '' : 'none'}} className="w-3 h-3 rounded-full absolute right-3" />
+                        <div style={{backgroundColor: theme.black, display: boardTheme === i ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
                     </button>
                 )
             })}

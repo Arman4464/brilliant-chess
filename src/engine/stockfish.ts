@@ -183,7 +183,7 @@ function getRandomNumber(number: number) {
     return Math.floor(Math.random() * number)
 }
 
-function getPlayers(headers: Record<string, string>) {
+function getPlayers(headers: Record<string, string>): players {
     const NO_NAME = 'Unknown'
     const NO_ELO = 'NOELO'
 

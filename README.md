@@ -1,4 +1,4 @@
-# Chess Review Engine (Brilliant Chess)
+# Chessmate - Professional Chess Game Review
 
 An advanced, open-source chess analysis platform and Game Review engine designed to replicate and match **Chess.com Game Review** (Classification V2, CAPS2 accuracy scoring, performance ratings, and brilliant move sacrifice detection) with **100% free, unlimited, native or browser-based analysis**.
 
@@ -35,7 +35,7 @@ An advanced, open-source chess analysis platform and Game Review engine designed
 ```
 chessmate/
 ├── src/                          # Next.js 15 application source
-│   ├── app/                      # App router routes (/, /attributions)
+│   ├── app/                      # App router routes (/)
 │   ├── components/               # React UI components
 │   │   ├── game/                 # Chessboard, clocks, evaluations, piece renderers
 │   │   ├── menu/                 # Analysis panels, move lists, summary cards

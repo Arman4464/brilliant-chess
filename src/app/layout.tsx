@@ -9,11 +9,11 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Brilliant Chess - Free Chess Analyzer",
-  description: "Analyze your chess games and improve your skills completely free with 100% Chess.com parity.",
-  keywords: ["chess", "chess analysis", "free chess analyzer", "free chess.com analyzer", "analyze chess for free", "analyze chess games", "brilliant move chess", "brilliant chess", "brilliant-chess"],
-  authors: [{ name: 'Delo', url: "https://github.com/wdeloo" }],
-  applicationName: "Brilliant Chess",
+  title: "Chessmate - Professional Chess Game Review",
+  description: "Analyze your chess games with 100% Chess.com Game Review parity, CAPS2 accuracy scoring, and native Stockfish analysis.",
+  keywords: ["chess", "chess analysis", "chessmate", "game review", "free chess analysis", "brilliant move chess", "stockfish"],
+  authors: [{ name: 'Arman', url: "https://github.com/Arman4464/brilliant-chess" }],
+  applicationName: "Chessmate",
 
   icons: {
     icon: "favicon.ico"

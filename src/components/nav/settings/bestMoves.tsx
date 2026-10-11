@@ -72,7 +72,7 @@ export default function BestMoves() {
                     {showArrows ? <Arrow move={[{ col: 0, row: 1 }, { col: 1, row: 1 }]} squareSize={20} white class="fill-bestArrow stroke-bestArrow" /> : null}
                 </div>
                 <span className="font-bold text-lg">Show arrows</span>
-                <div style={{ backgroundColor: "var(--foreground)", display: showArrows ? '' : 'none' }} className="w-3 h-3 rounded-full absolute right-3" />
+                <div style={{ backgroundColor: "var(--foreground)", display: showArrows ? '' : 'none' }} className="w-3 h-3 absolute right-3" />
             </button>
             <button onClick={toggleArrowAfterMove} type="button" className="flex flex-row gap-2 items-center hover:text-foregroundHighlighted hover:bg-black transition-colors w-full relative p-2">
                 <div className="grid grid-cols-2 w-fit relative">
@@ -93,7 +93,7 @@ export default function BestMoves() {
                     <Arrow move={[{ col: 0, row: 1 }, { col: 1, row: 1 }]} squareSize={20} white class="fill-bestArrow stroke-bestArrow" />
                 </div>
                 <span className="font-bold text-lg">Arrow after move</span>
-                <div style={{ backgroundColor: "var(--foreground)", display: arrowAfterMove ? '' : 'none'}} className="w-3 h-3 rounded-full absolute right-3" />
+                <div style={{ backgroundColor: "var(--foreground)", display: arrowAfterMove ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
             </button>
         </section>
     )

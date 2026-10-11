@@ -15,7 +15,7 @@ export default function Name(props: { white: boolean, children: React.ReactNode,
         <div className="flex items-center gap-2.5 flex-grow min-w-0 select-none">
             {/* Player Avatar */}
             <div
-                className={`w-9 h-9 rounded-md overflow-hidden flex items-end justify-center flex-shrink-0 shadow-sm ${
+                className={`w-9 h-9 overflow-hidden flex items-end justify-center flex-shrink-0 shadow-sm ${
                     white ? 'bg-[#dbd9d6]' : 'bg-[#45423e]'
                 }`}
             >

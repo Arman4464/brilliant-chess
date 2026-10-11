@@ -71,8 +71,17 @@ export default {
         warning: "var(--warning)",
       },
       borderRadius: {
-        borderRoundness: "var(--borderRoundness)",
-        borderExtraRoundness: "var(--borderExtraRoundness)",
+        none: "0px",
+        sm: "0px",
+        DEFAULT: "0px",
+        md: "0px",
+        lg: "0px",
+        xl: "0px",
+        "2xl": "0px",
+        "3xl": "0px",
+        full: "0px",
+        borderRoundness: "0px",
+        borderExtraRoundness: "0px",
       },
       boxShadow: {
         shadowBoxBoxHighlighted: "var(--shadowBoxBoxHighlighted) var(--backgroundBoxBoxHighlightedHover)",
@@ -89,9 +98,6 @@ export default {
       "reduceNav": "1280px",
       "notFullDate": "1468px",
       "reduceSummary": `${reduceSummary}px`,
-
-      "attributionsTwoColumns": "1000px",
-      "attributionsOneColumn": "700px",
     }
   },
   plugins: [],
