@@ -2,7 +2,7 @@
   "name": "chessmate",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Arman4464/brilliant-chess",
+  "homepage": "https://github.com/Arman4464/chessmate",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

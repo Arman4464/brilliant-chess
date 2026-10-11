@@ -31,9 +31,9 @@ $$\text{Game Accuracy} = 0.75 \cdot M_p + 0.25 \cdot M_{arithmetic}$$
 
 | Script | Command | Purpose |
 |---|---|---|
-| `benchmark_calibrated.js` | `npm run benchmark` | Benchmarks calibrated formulas across 33 games (66 players) and reports MAE and parity. |
+| `test_ground_truth_benchmark.js` | `npm run benchmark` | Benchmarks calibrated formulas across ground truth games and reports MAE and parity. |
 | `train_and_calibrate.js` | `npm run calibrate` | Grid-search optimizer across cached games to determine optimal curve parameters. |
-| `test_calibrated_rules.js` | `npm run test:parity` | Evaluates predicted move classifications against Chess.com ground truth (85.1%+ exact agreement). |
+| `test_calibrated_rules.js` | `node scripts/test_calibrated_rules.js` | Evaluates predicted move classifications against Chess.com ground truth. |
 | `evaluate_dataset.js` | `node scripts/evaluate_dataset.js` | High-performance batch game evaluator with position caching. |
 | `cache_more_games.js` | `node scripts/cache_more_games.js` | Evaluates and caches additional games from `review_data/`. |
 | `extract_official_reviews.js` | `node scripts/extract_official_reviews.js` | Extracts official Chess.com review data and accuracies from PGN collections and API archives. |

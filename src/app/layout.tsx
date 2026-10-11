@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Chessmate - Professional Chess Game Review",
   description: "Analyze your chess games with 100% Chess.com Game Review parity, CAPS2 accuracy scoring, and native Stockfish analysis.",
   keywords: ["chess", "chess analysis", "chessmate", "game review", "free chess analysis", "brilliant move chess", "stockfish"],
-  authors: [{ name: 'Arman', url: "https://github.com/Arman4464/brilliant-chess" }],
+  authors: [{ name: 'Arman', url: "https://github.com/Arman4464/chessmate" }],
   applicationName: "Chessmate",
 
   icons: {

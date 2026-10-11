@@ -97,7 +97,7 @@ export default function Nav() {
                 <div className="flex md:flex-col flex-row items-center md:items-start md:gap-1 gap-1 md:w-full md:border-t md:border-white/5 md:pt-3">
                     <Link
                         target="_blank"
-                        href="https://github.com/Arman4464/brilliant-chess"
+                        href="https://github.com/Arman4464/chessmate"
                         className="flex items-center gap-2.5 px-3 py-1.5 text-neutral-400 hover:text-white hover:bg-white/5 transition-all text-xs font-semibold md:w-full"
                     >
                         <GitHub class="w-4 h-4 fill-current" />

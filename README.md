@@ -58,7 +58,7 @@ chessmate/
 │   └── test_sf_speed.js              # Native engine throughput test
 ├── extension/                    # Manifest V3 Chrome Extension for Chess.com review extraction
 ├── review_data/                  # 67 real Chess.com game review extractions (ground truth dataset)
-├── documents/                    # Reverse-engineering documentation & technical architecture
+├── docs/                         # Reverse-engineering documentation & technical architecture
 ├── public/                       # Static assets (WASM engines, opening books, audio, images)
 ├── server.js                     # Production HTTP server + Native Stockfish WebSocket bridge
 ├── sample_extracted_review.json  # Reference game review ground truth (Game #184653017586)
