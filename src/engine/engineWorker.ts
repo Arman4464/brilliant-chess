@@ -122,19 +122,22 @@ export async function createStockfishWorker(): Promise<StockfishEngine> {
         throw new Error("Window is not defined");
     }
 
-    // 1. Try connecting to native Stockfish bridge (stockfish-windows-x86-64-universal.exe)
-    try {
-        const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-        const host = window.location.host;
+    // 1. Try connecting to native Stockfish bridge only when running on local machine or LAN
+    const hostname = window.location.hostname;
+    const isLocalHost = Boolean(
+        hostname === "localhost" ||
+        hostname === "127.0.0.1" ||
+        hostname.startsWith("192.168.") ||
+        hostname.startsWith("10.") ||
+        hostname.startsWith("172.")
+    );
 
-        const candidateHosts: string[] = [];
-        if (host) candidateHosts.push(host);
-        if (host !== "localhost:3000" && !candidateHosts.includes("localhost:3000")) {
-            candidateHosts.push("localhost:3000");
-        }
+    if (isLocalHost) {
+        try {
+            const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+            const host = window.location.host;
+            const wsUrl = `${protocol}//${host}/engine/native`;
 
-        for (const candidateHost of candidateHosts) {
-            const wsUrl = `${protocol}//${candidateHost}/engine/native`;
             const nativeEngine = await new Promise<StockfishEngine | null>((resolve) => {
                 let settled = false;
                 let ws: WebSocket;
@@ -173,9 +176,9 @@ export async function createStockfishWorker(): Promise<StockfishEngine> {
                 console.log(`⚡ Connected to Native Stockfish 19 bridge at ${wsUrl}`);
                 return nativeEngine;
             }
+        } catch (e) {
+            console.warn("Native Stockfish bridge connection attempt failed, falling back to WebAssembly", e);
         }
-    } catch (e) {
-        console.warn("Native Stockfish bridge connection attempt failed, falling back to WebAssembly", e);
     }
 
     // 2. Fallback to WebAssembly Worker (Stockfish 19)
