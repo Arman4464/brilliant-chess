@@ -1,13 +1,14 @@
 import type { NextConfig } from "next"
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || undefined
+const bp = basePath || ""
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   basePath,
   assetPrefix: basePath ? basePath + "/" : undefined,
-  distDir: "dist",
+  distDir: process.env.VERCEL ? undefined : "dist",
   images: {
     unoptimized: true,
   },
@@ -20,14 +21,14 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: `${process.env.NEXT_PUBLIC_BASE_PATH}/(.*)`,
+        source: `${bp}/(.*)`,
         headers: [
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
           { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
         ],
       },
       {
-        source: `${process.env.NEXT_PUBLIC_BASE_PATH}/engine/(.*)`,
+        source: `${bp}/engine/(.*)`,
         headers: [
           { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
         ],
