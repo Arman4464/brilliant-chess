@@ -62,3 +62,4 @@ dist
 .eval_cache/
 *.exe
 stockfish/*.exe
+temp/

@@ -2,8 +2,16 @@ import { players } from "@/context/analyze";
 import { BISHOP, Chess, Color, KNIGHT, Move, PAWN, PieceSymbol, QUEEN, ROOK, Square, WHITE } from "chess.js";
 import { SetStateAction } from "react";
 import { StockfishEngine } from "./engineWorker";
+import {
+    MoveClassification,
+    classifyMove,
+    calculateDeltaE,
+    winExpectancy,
+    caps2MoveAccuracy
+} from "./classificationTree";
 
 export type { StockfishEngine };
+export { winExpectancy, caps2MoveAccuracy, calculateDeltaE, classifyMove };
 
 export type result = '1-0' | '0-1' | '1/2-1/2' | '*' | ''
 
@@ -18,7 +26,7 @@ export type square = {
     col: number,
 }
 
-export type moveRating = "forced" | "brilliant" | "great" | "best" | "excellent" | "good" | "book" | "inaccuracy" | "mistake" | "miss" | "blunder"
+export type moveRating = MoveClassification;
 
 export interface move {
     fen: string,
@@ -172,6 +180,7 @@ export async function prepareStockfish(stockfish: StockfishEngine | Worker, thre
 
     stockfish.postMessage("uci")
     stockfish.postMessage(`setoption name Threads value ${threads}`)
+    stockfish.postMessage("setoption name MultiPV value 2")
     await setHashValue(stockfish, hash)
 }
 
@@ -237,7 +246,38 @@ function formatMove(evaluation: string) {
     return { movement, coronation }
 }
 
+export function formatMultiPvEvals(evaluation: string): { pv1?: string[], pv2?: string[] } {
+    const lines = evaluation.split('\n')
+    let pv1: string[] | undefined
+    let pv2: string[] | undefined
+    for (let i = lines.length - 1; i >= 0; i--) {
+        const line = lines[i].trim()
+        if (line.startsWith('info') && line.includes(' score ')) {
+            const fields = line.split(/\s+/)
+            const scoreIdx = fields.indexOf('score')
+            const mpvIdx = fields.indexOf('multipv')
+            const mpvNum = mpvIdx !== -1 && mpvIdx + 1 < fields.length ? Number(fields[mpvIdx + 1]) : 1
+            if (scoreIdx !== -1 && scoreIdx + 2 < fields.length) {
+                const type = fields[scoreIdx + 1]
+                const val = fields[scoreIdx + 2]
+                if (type === 'cp' || type === 'mate') {
+                    if (mpvNum === 1 && !pv1) {
+                        pv1 = [type, val]
+                    } else if (mpvNum === 2 && !pv2) {
+                        pv2 = [type, val]
+                    }
+                }
+            }
+        }
+        if (pv1 && pv2) break
+    }
+    return { pv1, pv2 }
+}
+
 export function formatStaticEval(evaluation: string): string[] | undefined {
+    const { pv1 } = formatMultiPvEvals(evaluation)
+    if (pv1) return pv1
+
     const lines = evaluation.split('\n')
     for (let i = lines.length - 1; i >= 0; i--) {
         const line = lines[i].trim()
@@ -273,64 +313,6 @@ export function evalToCentipawns(evalTokens: string[] | undefined): number {
     return 0
 }
 
-export function winExpectancy(centipawns: number, rating: number = 1500): number {
-    if (centipawns >= 50000) return 1.0
-    if (centipawns <= -50000) return 0.0
-
-    // Rating scaling parameter s(R) calibrated against official review data
-    // P(win) = 1 / (1 + 10^(-cp / (400 * s(R))))
-    const s = Math.max(0.60, Math.min(1.40, 0.65 + 0.25 * (rating / 1000)))
-    return 1.0 / (1.0 + Math.pow(10, -centipawns / (400 * s)))
-}
-
-function normalizeCp(score: number): number {
-    if (score >= 50000) {
-        const moves = Math.max(1, Math.round((100000 - score) / 100))
-        return 2000 + Math.max(0, 500 - moves * 20)
-    }
-    if (score <= -50000) {
-        const moves = Math.max(1, Math.round((100000 - Math.abs(score)) / 100))
-        return -2000 - Math.max(0, 500 - moves * 20)
-    }
-    return score
-}
-
-export function caps2MoveAccuracy(
-    deltaE: number,
-    rating: number = 1500,
-    deltaCp: number = 0,
-    playerScoreBefore: number = 0,
-    playerScoreAfter: number = 0
-): number {
-    if (deltaE <= 0.001 && deltaCp <= 10) return 100
-
-    // 1. Missed forced checkmate sequence: player had forced mate and let it slip
-    if (playerScoreBefore >= 99000 && playerScoreAfter < 99000) {
-        return 18.0
-    }
-
-    // 2. Allowed forced checkmate from non-mating position: blundered into mate
-    if (playerScoreBefore > -90000 && playerScoreAfter <= -90000) {
-        return 0.0
-    }
-
-    const rFactor = Math.pow(rating / 1000, -0.2)
-    const normBefore = normalizeCp(playerScoreBefore)
-    const normAfter = normalizeCp(playerScoreAfter)
-    const dCp = Math.max(0, normBefore - normAfter)
-
-    const winDiscount = normAfter > 400 && normBefore > 400 ? 0.35 : (normBefore > 300 && normAfter < 200 ? 1.5 : 1.0)
-    const lossDiscount = normBefore < -200 ? Math.max(0.40, 1.0 - Math.abs(normBefore + 200) / 1500) : 1.0
-
-    const effectiveCpLoss = (Math.max(0, dCp - 10) / 100) * 4.5 * winDiscount * lossDiscount
-    const effectiveWinLoss = (deltaE * 100) * 1.0
-    const totalLoss = effectiveWinLoss + effectiveCpLoss
-
-    const k = 0.055
-    const raw = 103.1668 * Math.exp(-k * totalLoss * rFactor) - 3.1668
-    return Math.max(0, Math.min(100, Math.round(raw * 10) / 10))
-}
-
 export function getPieceCount(chess: Chess): number {
     let count = 0
     const board = chess.board()
@@ -342,10 +324,15 @@ export function getPieceCount(chess: Chess): number {
     return count
 }
 
-async function getBestMove(program: StockfishEngine | Worker, depth: number, signal: AbortSignal): Promise<{ bestMove: square[], coronation?: PieceSymbol, staticEval: string[] }> {
+async function getBestMove(
+    program: StockfishEngine | Worker,
+    depth: number,
+    signal: AbortSignal
+): Promise<{ bestMove: square[], coronation?: PieceSymbol, staticEval: string[], secondBestEval?: string[] }> {
     program.postMessage(`go depth ${depth}`)
 
-    let staticEval: string[]
+    let staticEval: string[] = []
+    let secondBestEval: string[] | undefined
     return new Promise((resolve, reject) => {
         function cleanUp() {
             program.removeEventListener('message', readMessage)
@@ -353,14 +340,16 @@ async function getBestMove(program: StockfishEngine | Worker, depth: number, sig
         }
 
         function readMessage(e: MessageEvent) {
-            const line = e.data
+            const line = typeof e.data === 'string' ? e.data : ''
 
             const { movement: bestMove, coronation } = formatMove(line)
-            staticEval = formatStaticEval(line) ?? staticEval
+            const { pv1, pv2 } = formatMultiPvEvals(line)
+            if (pv1) staticEval = pv1
+            if (pv2) secondBestEval = pv2
 
             if (bestMove) {
                 cleanUp()
-                resolve({ bestMove, coronation, staticEval })
+                resolve({ bestMove, coronation, staticEval, secondBestEval })
             }
         }
 
@@ -370,7 +359,6 @@ async function getBestMove(program: StockfishEngine | Worker, depth: number, sig
         }
 
         signal.addEventListener('abort', handleAbort)
-
         program.addEventListener('message', readMessage)
     })
 }
@@ -389,110 +377,32 @@ export function getMoveRating(
     piecesCount: number,
     bookComment?: string,
     playerRating: number = 1500,
-    san?: string
+    san?: string,
+    secondBestScore?: number
 ): { comment: string, moveRating: moveRating } {
-    const commentNumber = getRandomNumber(3)
-    const deltaCp = Math.max(0, playerScoreBefore - playerScoreAfter)
-
-    // 1. Opening book move
-    if (isBookMove) {
-        return { moveRating: 'book', comment: bookComment || 'This is a standard book move.' }
-    }
-
-    // 2. Forced move (single legal option available)
-    if (isForced) {
-        return { moveRating: 'forced', comment: COMMENTS.forced[commentNumber] }
-    }
-
-    // 3. Brilliant Move (!!) - 4 Strict Chess.com Criteria
-    const isContestedBefore = playerScoreBefore <= 350 && playerBeforeE <= 0.88
-    const isSoundSacrifice = deltaE <= 0.025 && playerAfterE >= 0.42
-    const satisfiesEndgame = piecesCount >= 7 || isBestMove
-
-    if (isSacrifice && isSoundSacrifice && isContestedBefore && satisfiesEndgame) {
-        return { moveRating: 'brilliant', comment: COMMENTS.brilliant[commentNumber] }
-    }
-
-    // 4. Miss (X) - Overlooked forced mate, failed to punish opponent blunder, or blew decisive lead
-    const missedMate = playerScoreBefore >= 90000 && playerScoreAfter < 90000
-    const blewWinningAdvantage = playerScoreBefore >= 250 && playerScoreAfter <= 50 && deltaCp >= 220 && !isBestMove
-    const failedToPunish = (opponentPreviousRating === 'mistake' || opponentPreviousRating === 'blunder' || opponentPreviousRating === 'miss') && deltaCp >= 110 && playerScoreAfter < 120 && !isBestMove
-    if (missedMate || blewWinningAdvantage || failedToPunish) {
-        return { moveRating: 'miss', comment: COMMENTS.missAdvantage[commentNumber] }
-    }
-
-    // 5. Great Move (!) - Rare turning point or critical tactical conversion
-    const foundMateSequence = playerScoreAfter >= 99000 && playerScoreBefore < 50000 && playerScoreBefore <= 450
-    const miraculousSave = playerScoreBefore <= -180 && playerScoreAfter >= -30
-    const tacticalPunish = (opponentPreviousRating === 'blunder' || opponentPreviousRating === 'miss') &&
-        playerScoreBefore <= 0 && playerScoreAfter >= 150
-    if (isBestMove && !isSacrifice && (foundMateSequence || miraculousSave || tacticalPunish)) {
-        return { moveRating: 'great', comment: COMMENTS.great[commentNumber] }
-    }
-
-    // 6. Best Move: Engine's top choice
-    if (isBestMove || playerScoreAfter >= 99990) {
-        if (playerScoreAfter >= 50000) {
-            return { moveRating: 'best', comment: COMMENTS.mate[commentNumber] }
-        }
-        return { moveRating: 'best', comment: COMMENTS.best[commentNumber] }
-    }
-
-    // 7. Checkmate sequence handling (mitigate distance-to-mate penalties)
-    if (playerScoreBefore >= 90000 && playerScoreAfter >= 90000) {
-        return { moveRating: 'excellent', comment: COMMENTS.excellent[commentNumber] }
-    }
-    if (playerScoreBefore <= -90000 && playerScoreAfter <= -90000) {
-        if (deltaCp > 250) return { moveRating: 'inaccuracy', comment: COMMENTS.inaccuracy[commentNumber] }
-        return { moveRating: 'excellent', comment: COMMENTS.excellent[commentNumber] }
-    }
-
-    // 8. Already severely lost positions: cannot blunder when already hopelessly lost
-    if (playerScoreBefore <= -300) {
-        if (deltaE <= 0.001) {
-            return { moveRating: 'best', comment: COMMENTS.best[commentNumber] }
-        }
-        if (playerScoreAfter <= -90000 && playerScoreBefore > -90000) {
-            return { moveRating: 'inaccuracy', comment: COMMENTS.inaccuracy[commentNumber] }
-        }
-        if (deltaCp >= 200 || deltaE >= 0.08) return { moveRating: 'inaccuracy', comment: COMMENTS.inaccuracy[commentNumber] }
-        if (deltaCp >= 60 || deltaE >= 0.03) return { moveRating: 'good', comment: COMMENTS.good[commentNumber] }
-        return { moveRating: 'excellent', comment: COMMENTS.excellent[commentNumber] }
-    }
-
-    // 9. Blunder: Massive loss of winning equity or blundering directly into mate
-    if (playerScoreBefore > -90000 && playerScoreAfter <= -90000) {
-        return { moveRating: 'blunder', comment: COMMENTS.blunder[commentNumber] }
-    }
-    if ((deltaE >= 0.30 || deltaCp >= 280) && playerScoreBefore > -250 && playerScoreAfter <= -150) {
-        return { moveRating: 'blunder', comment: COMMENTS.blunder[commentNumber] }
-    }
-
-    // 10. Mistake: Significant regression into losing position or throwing away an advantage
-    if (((deltaE >= 0.16 && playerScoreAfter < 120) || deltaCp >= 150 || (playerScoreBefore >= 180 && playerScoreAfter <= -30)) && playerScoreAfter < 200) {
-        return { moveRating: 'mistake', comment: COMMENTS.giveAdvantage[commentNumber] }
-    }
-
-    // 11. Inaccuracy: Measurable tactical or positional concession
-    if ((deltaE >= 0.085 || deltaCp >= 85) && playerScoreAfter < 350) {
-        return { moveRating: 'inaccuracy', comment: COMMENTS.inaccuracy[commentNumber] }
-    }
-
-    // 12. Good: Minor imprecision preserving underlying game state
-    if (deltaE >= 0.038 || deltaCp >= 38) {
-        return { moveRating: 'good', comment: COMMENTS.good[commentNumber] }
-    }
-
-    // 13. Excellent: Negligible reduction in winning equity
-    return { moveRating: 'excellent', comment: COMMENTS.excellent[commentNumber] }
+    const res = classifyMove({
+        playerScoreBefore,
+        playerScoreAfter,
+        playerRating,
+        isBestMove,
+        isBookMove,
+        isForced,
+        isSacrifice,
+        piecesCount,
+        opponentPreviousRating,
+        secondBestScore,
+        san,
+        bookComment
+    })
+    return { moveRating: res.classification, comment: res.comment }
 }
 
 async function analyze(program: StockfishEngine | Worker, fen: string, depth: number, signal: AbortSignal) {
     program.postMessage(`position fen ${fen}`)
 
     try {
-        const { bestMove, staticEval, coronation } = await getBestMove(program, depth, signal)
-        return { bestMove, staticEval, bestMoveCoronation: coronation }
+        const { bestMove, staticEval, coronation, secondBestEval } = await getBestMove(program, depth, signal)
+        return { bestMove, staticEval, bestMoveCoronation: coronation, secondBestEval }
     } catch {
         throw new Error('cancelled')
     }
@@ -689,23 +599,25 @@ export async function parseMove(
 
     const castle = getCastle(move.san)
 
-    let sacrifice, staticEval: string[], bestMove: square[] | undefined, forced, bestMoveCoronation
+    let sacrifice, staticEval: string[], bestMove: square[] | undefined, forced, bestMoveCoronation, secondBestEval: string[] | undefined
     if (chess.isCheckmate()) {
         sacrifice = false
         staticEval = ["mate", "0"]
         bestMove = undefined
         forced = false
         bestMoveCoronation = undefined
+        secondBestEval = undefined
     } else {
         sacrifice = move.promotion ? false : isSacrifice(move)
 
         try {
-            ({ staticEval, bestMove, bestMoveCoronation } = await analyze(stockfish, move.after, depth, signal))
+            ({ staticEval, bestMove, bestMoveCoronation, secondBestEval } = await analyze(stockfish, move.after, depth, signal))
         } catch {
             handleAbort()
             bestMove = undefined
             staticEval = []
             bestMoveCoronation = undefined
+            secondBestEval = undefined
         }
 
         if (signal.aborted) handleAbort()
@@ -722,11 +634,13 @@ export async function parseMove(
     // So from the player's perspective, it is the negative (or checkmate delivered).
     const playerScoreAfter = chess.isCheckmate() ? 100000 : -evalToCentipawns(staticEval)
 
-    // Expected Points calculation (logistic win probability dynamically scaled by rating):
+    // Second-best move score (Multi-PV 2) from player's perspective
+    let secondBestScore: number | undefined
+    if (secondBestEval && secondBestEval.length >= 2) {
+        secondBestScore = -evalToCentipawns(secondBestEval)
+    }
+
     const pRating = playerRating || 1500
-    const playerBeforeE = winExpectancy(playerScoreBefore, pRating)
-    const playerAfterE = winExpectancy(playerScoreAfter, pRating)
-    const deltaE = Math.max(0, playerBeforeE - playerAfterE)
 
     // Check if book move
     const bookComment = openings[fen]
@@ -736,39 +650,25 @@ export async function parseMove(
     const isBestMove = Boolean(previousBestMoveSan && previousBestMoveSan === move.san)
     const piecesCount = getPieceCount(chess)
 
-    const { moveRating, comment } = getMoveRating(
-        deltaE,
-        isBestMove,
-        isBookMove,
-        forced,
-        Boolean(sacrifice),
-        opponentRating,
+    const classificationResult = classifyMove({
         playerScoreBefore,
         playerScoreAfter,
-        playerBeforeE,
-        playerAfterE,
+        playerRating: pRating,
+        isBestMove,
+        isBookMove,
+        isForced: Boolean(forced),
+        isSacrifice: Boolean(sacrifice),
         piecesCount,
-        bookComment,
-        pRating,
-        san
-    )
-    const deltaCp = Math.max(0, playerScoreBefore - playerScoreAfter)
-    let accuracy = isBookMove || forced ? 100 : caps2MoveAccuracy(deltaE, pRating, deltaCp, playerScoreBefore, playerScoreAfter)
-    if (moveRating === 'best' || moveRating === 'great' || moveRating === 'brilliant') {
-        accuracy = 100
-    } else if (moveRating === 'excellent') {
-        accuracy = Math.max(accuracy, 93.0)
-    } else if (moveRating === 'good') {
-        accuracy = Math.min(accuracy, 85.0)
-    } else if (moveRating === 'inaccuracy') {
-        accuracy = Math.min(accuracy, 60.0)
-    } else if (moveRating === 'mistake') {
-        accuracy = Math.min(accuracy, 30.0)
-    } else if (moveRating === 'miss') {
-        accuracy = Math.min(accuracy, 18.0)
-    } else if (moveRating === 'blunder') {
-        accuracy = Math.min(accuracy, 0.0)
-    }
+        opponentPreviousRating: opponentRating,
+        secondBestScore,
+        san,
+        bookComment
+    })
+
+    const moveRating = classificationResult.classification
+    const comment = classificationResult.comment
+    const accuracy = classificationResult.accuracy
+    const deltaE = classificationResult.deltaE
 
     // Evaluation formatted for display (White's perspective):
     const whiteEvalCp = playerColor === 'w' ? playerScoreAfter : -playerScoreAfter
@@ -1052,6 +952,20 @@ export function parsePGN(
             progress++
             setProgress((progress / totalMoves) * 100)
         }
+
+        // Compute overall CAPS2 game accuracy for local review mode
+        const whiteMoves = moves.filter(m => m.playedBy === 'w' && m.moveRating !== 'book' && m.moveRating !== 'forced')
+        const blackMoves = moves.filter(m => m.playedBy === 'b' && m.moveRating !== 'book' && m.moveRating !== 'forced')
+        const whiteAcc = whiteMoves.length > 0
+            ? Number((whiteMoves.reduce((acc, m) => acc + (m.accuracy ?? 100), 0) / whiteMoves.length).toFixed(1))
+            : 100.0
+        const blackAcc = blackMoves.length > 0
+            ? Number((blackMoves.reduce((acc, m) => acc + (m.accuracy ?? 100), 0) / blackMoves.length).toFixed(1))
+            : 100.0
+
+        if (players[0]) players[0].accuracy = whiteAcc
+        if (players[1]) players[1].accuracy = blackAcc
+        ;(metadata as any).accuracies = { white: whiteAcc, black: blackAcc }
 
         resolve({ metadata, moves })
     })

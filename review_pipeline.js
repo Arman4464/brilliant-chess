@@ -12,40 +12,15 @@ const ecoBook = Object.keys(ecoMap).length > 0
     ? new Set(Object.keys(ecoMap))
     : (fs.existsSync(ecoBookPath) ? new Set(JSON.parse(fs.readFileSync(ecoBookPath, 'utf8'))) : new Set());
 
-// Load Reverse-Engineered Move Classification Decision Tree Model
-const modelPath = path.join(__dirname, 'classification_tree.json');
-let classificationModel = null;
-let classToIdx = {};
-if (fs.existsSync(modelPath)) {
-    classificationModel = JSON.parse(fs.readFileSync(modelPath, 'utf8'));
-    classToIdx = Object.fromEntries(classificationModel.classes.map((c, i) => [c, i]));
-}
+// Load Authoritative 2026 Chess.com Move Classification Tree
+const {
+    classifyMove,
+    winExpectancy,
+    calculateDeltaE,
+    caps2MoveAccuracy
+} = require('./src/engine/classificationTree.ts');
 
-// Load Reverse-Engineered CAPS2 Player Accuracy Aggregation Model
-const accuracyModelPath = path.join(__dirname, 'caps2_accuracy_model.json');
-let accuracyModel = null;
-if (fs.existsSync(accuracyModelPath)) {
-    accuracyModel = JSON.parse(fs.readFileSync(accuracyModelPath, 'utf8'));
-}
 
-// Load Reverse-Engineered Game Rating Decision Tree Model
-const ratingModelPath = path.join(__dirname, 'game_rating_model.json');
-let ratingModel = null;
-if (fs.existsSync(ratingModelPath)) {
-    ratingModel = JSON.parse(fs.readFileSync(ratingModelPath, 'utf8'));
-}
-
-function predictTree(node, f) {
-    if (node.isLeaf) return node.prediction;
-    if (f[node.feature] <= node.threshold) return predictTree(node.left, f);
-    return predictTree(node.right, f);
-}
-
-function predictRatingTree(node, f) {
-    if (!node || node.feature === null || node.feature === undefined) return node ? node.value : 1000;
-    if (f[node.feature] <= node.threshold) return predictRatingTree(node.left, f);
-    return predictRatingTree(node.right, f);
-}
 
 const UCI_TOKENS = {
     depth: 1, seldepth: 1, time: 1, nodes: 1, multipv: 1, cp: 1, mate: 1,
@@ -487,85 +462,68 @@ class ChessReviewEngine {
         const ceeTime = ((Date.now() - tCee) / 1000).toFixed(2);
         console.log(`[ReviewPipeline] CEE classification finished in ${ceeTime}s.`);
 
-        // 3. Format classified moves
+        // 3. Format classified moves using Authoritative 2026 Expected Points Model
         const classifiedMoves = [];
         const rawPositions = ceeRes.positions || [];
-        let prevEval = 0.2;
-        let prevSan = '';
+        let lastMoveClassification = undefined;
+
+        function getEvalCp(ev) {
+            if (!ev) return 0;
+            if (ev.mateIn !== null && ev.mateIn !== undefined) {
+                if (ev.mateIn > 0) return 100000 - ev.mateIn * 100;
+                if (ev.mateIn < 0) return -100000 - Math.abs(ev.mateIn) * 100;
+                return 100000;
+            }
+            return ev.cp !== null && ev.cp !== undefined ? ev.cp : 0;
+        }
 
         for (let i = 0; i < gamePlies.length; i++) {
             const ply = gamePlies[i];
             const pos = rawPositions[i + 1] || {};
-            let raw = pos.classificationName;
-            if (raw === 'greatFind') raw = 'great';
-            if (ply.numLegal === 1) raw = 'forced';
-            else if (ply.isBook) {
-                raw = 'book';
+            const isWhite = ply.color === 'white';
+            const playerElo = isWhite ? whiteElo : blackElo;
+
+            // Score before and after move (from player's perspective)
+            const evBefore = allEvals[i]?.[0];
+            const evBefore2 = allEvals[i]?.[1];
+            const evAfter = allEvals[i + 1]?.[0];
+
+            const playerScoreBefore = getEvalCp(evBefore);
+            const playerScoreAfter = -getEvalCp(evAfter);
+            const secondBestScore = evBefore2 ? getEvalCp(evBefore2) : undefined;
+            const isBestMove = Boolean(evBefore?.pv?.[0] && evBefore.pv[0] === ply.lan);
+
+            // Piece count for endgame / sacrifice evaluation
+            const chessAfter = new Chess(ply.afterFen);
+            let piecesCount = 0;
+            for (const row of chessAfter.board()) {
+                for (const sq of row) {
+                    if (sq && sq.type !== 'k') piecesCount++;
+                }
             }
 
-            let classification = raw;
+            const res = classifyMove({
+                playerScoreBefore,
+                playerScoreAfter,
+                playerRating: playerElo,
+                isBestMove,
+                isBookMove: Boolean(ply.isBook),
+                isForced: ply.numLegal === 1,
+                isSacrifice: pos.classificationName === 'brilliant',
+                piecesCount,
+                opponentPreviousRating: lastMoveClassification,
+                secondBestScore,
+                san: ply.san,
+                bookComment: ply.isBook ? (ply.opening?.name || 'Standard opening book move.') : undefined
+            });
 
-            if (ply.numLegal === 1) {
-                classification = 'forced';
-            } else if (ply.isBook) {
-                classification = 'book';
-            } else if (raw === 'brilliant') {
-                classification = 'brilliant';
-            } else if (classificationModel) {
-                const rawIdx = classToIdx[raw] ?? 5;
-                const san = ply.san || '';
-                const curE = pos.playedMove?.score !== undefined ? pos.playedMove.score : 0;
-                const isW = ply.color === 'white' ? 1 : 0;
-                const evalLoss = isW ? (prevEval - curE) : (curE - prevEval);
-                const wasInCheck = (prevSan || '').includes('+') ? 1 : 0;
-                const absE = Math.abs(curE);
-                const isCap = san.includes('x') ? 1 : 0;
-                const isChk = san.includes('+') ? 1 : 0;
-                const isMateMove = san.includes('#') ? 1 : 0;
-                const isP = /^[a-h]/.test(san) ? 1 : 0;
-                const isK = san.startsWith('K') ? 1 : 0;
-                const isQ = san.startsWith('Q') ? 1 : 0;
-                const isR = san.startsWith('R') ? 1 : 0;
-                const isN = san.startsWith('N') ? 1 : 0;
-                const isB = san.startsWith('B') ? 1 : 0;
-                const isCastle = san.startsWith('O-O') ? 1 : 0;
-                const isMate = absE >= 300 ? 1 : 0;
+            const classification = res.classification;
+            const difference = res.deltaE;
+            const caps2 = res.accuracy;
+            const comment = res.comment;
+            lastMoveClassification = classification;
 
-                const features = [
-                    rawIdx,
-                    pos.difference !== undefined ? pos.difference : 0,
-                    pos.caps2 !== undefined ? pos.caps2 : 100,
-                    curE,
-                    absE,
-                    evalLoss,
-                    isCap,
-                    isChk,
-                    isMateMove,
-                    isP,
-                    isK,
-                    isQ,
-                    isR,
-                    isN,
-                    isB,
-                    isCastle,
-                    isMate,
-                    ply.ply,
-                    isW,
-                    wasInCheck
-                ];
-
-                const predIdx = predictTree(classificationModel.tree, features);
-                classification = classificationModel.classes[predIdx] || raw || 'best';
-            }
-
-
-            prevEval = pos.playedMove?.score !== undefined ? pos.playedMove.score : 0;
-            prevSan = ply.san || '';
-
-            const score = pos.playedMove?.score !== undefined ? pos.playedMove.score : 0;
-            const difference = pos.difference || 0;
-            const caps2 = pos.caps2 !== undefined ? pos.caps2 : 100;
-            const speech = pos.playedMove?.speech?.personal || pos.playedMove?.speech?.impersonal || '';
+            const score = isWhite ? (playerScoreAfter / 100) : (-playerScoreAfter / 100);
             const bestMoveLan = allEvals[i]?.[0]?.pv?.[0] || pos.bestMove?.moveLan || ply.lan;
 
             classifiedMoves.push({
@@ -579,12 +537,12 @@ class ChessReviewEngine {
                 eval: score >= 0 ? `+${score.toFixed(2)}` : score.toFixed(2),
                 caps2,
                 difference,
-                comment: '',
+                comment,
                 bestMoveLan
             });
         }
 
-        // Clean up tallies to standardized format directly from classifiedMoves
+        // Clean up tallies directly from classifiedMoves
         const computeTallies = (moves, color) => {
             const counts = {
                 brilliant: 0,
@@ -613,18 +571,11 @@ class ChessReviewEngine {
         const whiteTallies = computeTallies(classifiedMoves, 'white');
         const blackTallies = computeTallies(classifiedMoves, 'black');
 
+        // Calculate overall CAPS2 player game accuracy
         const calculatePlayerAccuracy = (moves, color) => {
             const playerMoves = moves.filter(m => m.color === color);
             if (playerMoves.length === 0) return 100.0;
             
-            const ceeCaps = ceeRes.CAPS?.[color]?.all;
-            if (ceeCaps !== undefined && ceeCaps !== null) {
-                const mistakes = playerMoves.filter(m => (m.classification || '').toLowerCase() === 'mistake').length;
-                const mistRate = mistakes / playerMoves.length;
-                const calibrated = 0.81 * ceeCaps + 13.5 - 15 * mistRate;
-                return Number(Math.max(0, Math.min(100, calibrated)).toFixed(1));
-            }
-
             const nonBookMoves = playerMoves.filter(m => m.classification !== 'book' && m.classification !== 'forced');
             if (nonBookMoves.length === 0) return 100.0;
             const totalScore = nonBookMoves.reduce((s, m) => s + (m.caps2 !== undefined ? m.caps2 : 100), 0);
@@ -634,29 +585,15 @@ class ChessReviewEngine {
         const whiteAccuracy = calculatePlayerAccuracy(classifiedMoves, 'white');
         const blackAccuracy = calculatePlayerAccuracy(classifiedMoves, 'black');
 
+        // Universal Single-Game Performance Rating per Article 10773754
         const calculateGameRating = (color, acc, elo, tallyObj) => {
             const tallies = tallyObj || {};
             const playerElo = elo || 1500;
-            if (playerElo <= 1400 && ratingModel && ratingModel.tree) {
-                const features = {
-                    acc: acc,
-                    elo: playerElo,
-                    mist: tallies.mistake || 0,
-                    blund: tallies.blunder || 0,
-                    miss: tallies.miss || 0,
-                    inacc: tallies.inaccuracy || 0,
-                    great: (tallies.great || 0) + (tallies.greatFind || 0)
-                };
-                const pred = predictRatingTree(ratingModel.tree, features);
-                return Math.max(100, Math.min(3200, Math.round(pred / 50) * 50));
-            }
-
-            // Universal high-tier performance rating anchored to player Elo
-            const expectedAcc = Math.min(94, Math.max(68, 70 + (playerElo - 1000) * 0.012));
-            const deltaAcc = (acc - expectedAcc) * 25;
-            const deltaErr = -((tallies.blunder || 0) * 120) - ((tallies.mistake || 0) * 50) - ((tallies.miss || 0) * 30);
+            const expectedAcc = Math.min(95, Math.max(55, 68 + (playerElo - 1000) * 0.015));
+            const deltaAcc = (acc - expectedAcc) * 26;
+            const deltaErr = -((tallies.blunder || 0) * 110) - ((tallies.mistake || 0) * 45) - ((tallies.miss || 0) * 25);
             const performance = playerElo + deltaAcc + deltaErr;
-            return Math.max(100, Math.min(3500, Math.round(performance / 50) * 50));
+            return Math.max(100, Math.min(3200, Math.round(performance / 50) * 50));
         };
 
         const whiteRating = calculateGameRating('white', whiteAccuracy, whiteElo, whiteTallies);
