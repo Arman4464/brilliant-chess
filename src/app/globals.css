@@ -1,5 +1,82 @@
 @import "tailwindcss";
-@config "../../tailwind.config.ts";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-foregroundHighlighted: var(--foregroundHighlighted);
+  --color-foregroundGrey: var(--foregroundGrey);
+  --color-foregroundBlack: var(--foregroundBlack);
+  --color-foregroundBlackDark: var(--foregroundBlackDark);
+
+  --color-placeholder: var(--placeholder);
+
+  --color-backgroundBox: var(--backgroundBox);
+  --color-backgroundBoxDarker: var(--backgroundBoxDarker);
+  --color-backgroundBoxHover: var(--backgroundBoxHover);
+  --color-backgroundBoxBox: var(--backgroundBoxBox);
+  --color-backgroundBoxBoxDisabled: var(--backgroundBoxBoxDisabled);
+  --color-backgroundBoxBoxHover: var(--backgroundBoxBoxHover);
+  --color-backgroundBoxBoxHighlighted: var(--backgroundBoxBoxHighlighted);
+  --color-backgroundBoxBoxHighlightedHover: var(--backgroundBoxBoxHighlightedHover);
+  --color-backgroundWhiteClock: var(--backgroundWhiteClock);
+  --color-backgroundBlackClock: var(--backgroundBlackClock);
+
+  --color-foregroundProfileWhite: var(--foregroundProfileWhite);
+  --color-foregroundProfileBlack: var(--foregroundProfileBlack);
+  --color-backgroundProfileWhite: var(--backgroundProfileWhite);
+  --color-backgroundProfileBlack: var(--backgroundProfileBlack);
+
+  --color-evaluationBarWhite: var(--evaluationBarWhite);
+  --color-evaluationBarBlack: var(--evaluationBarBlack);
+
+  --color-border: var(--border);
+  --color-borderHighlighted: var(--borderHighlighted);
+
+  --color-blackBoard: var(--blackBoard);
+  --color-whiteBoard: var(--whiteBoard);
+
+  --color-highlightBrilliant: var(--highlightBrilliant);
+  --color-highlightGreat: var(--highlightGreat);
+  --color-highlightBest: var(--highlightBest);
+  --color-highlightExcellent: var(--highlightExcellent);
+  --color-highlightGood: var(--highlightGood);
+  --color-highlightBook: var(--highlightBook);
+  --color-highlightInaccuracy: var(--highlightInaccuracy);
+  --color-highlightMistake: var(--highlightMistake);
+  --color-highlightMiss: var(--highlightMiss);
+  --color-highlightBlunder: var(--highlightBlunder);
+
+  --color-normalArrow: var(--normalArrow);
+  --color-bestArrow: var(--bestArrow);
+  --color-badArrow: var(--badArrow);
+
+  --color-winGreen: var(--winGreen);
+  --color-lossRed: var(--lossRed);
+
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-full: 0px;
+  --radius-borderRoundness: 0px;
+  --radius-borderExtraRoundness: 0px;
+
+  --breakpoint-navTop: 516px;
+  --breakpoint-vertical: 1100px;
+  --breakpoint-reduceNav: 1280px;
+  --breakpoint-notFullDate: 1468px;
+  --breakpoint-reduceSummary: 1669px;
+
+  --shadow-shadowBoxBoxHighlighted: var(--shadowBoxBoxHighlighted) var(--backgroundBoxBoxHighlightedHover);
+}
 
 * {
   box-sizing: border-box;
