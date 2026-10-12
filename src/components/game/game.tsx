@@ -116,7 +116,7 @@ export default function Game() {
     const componentRef = useRef<HTMLDivElement>(null)
     const gameRef = useRef<HTMLDivElement>(null)
 
-    const intervalRef = useRef<NodeJS.Timeout>()
+    const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined)
     const tabRef = useRef(tab)
 
     const dragRef = useRef(drag)

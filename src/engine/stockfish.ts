@@ -183,7 +183,7 @@ function getRandomNumber(number: number) {
     return Math.floor(Math.random() * number)
 }
 
-function getPlayers(headers: Record<string, string>): players {
+function getPlayers(headers: Record<string, string | null | undefined>): players {
     const NO_NAME = 'Unknown'
     const NO_ELO = 'NOELO'
 
@@ -196,12 +196,12 @@ function getPlayers(headers: Record<string, string>): players {
     return [{ name: whiteName, elo: whiteElo }, { name: blackName, elo: blackElo }]
 }
 
-function getTime(headers: Record<string, string>) {
+function getTime(headers: Record<string, string | null | undefined>) {
     const seconds = headers.TimeControl ?? "0"
     return Number(seconds)
 }
 
-function getResult(headers: Record<string, string>, pgn: string): result {
+function getResult(headers: Record<string, string | null | undefined>, pgn: string): result {
     if (headers.Result) return headers.Result as result
     return (pgn.split(' ').pop() ?? "") as result
 }

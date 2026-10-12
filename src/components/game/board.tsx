@@ -284,7 +284,7 @@ function Coronation(props: { white: boolean, column: number, coroningWhite: bool
     )
 }
 
-function Piece(props: { squareSize: number, pieceRef: RefObject<HTMLDivElement>, castleRookRef: RefObject<HTMLDivElement>, moved: boolean, isCastleRook: boolean, pieceColor: Color, pieceSymbol: PieceSymbol, drag: drag, setDrag: (dragging: drag) => void, id: string, boardRef: RefObject<HTMLDivElement>, setPlaying: (playing: boolean) => void, isCoronating: boolean }) {
+function Piece(props: { squareSize: number, pieceRef: RefObject<HTMLDivElement | null>, castleRookRef: RefObject<HTMLDivElement | null>, moved: boolean, isCastleRook: boolean, pieceColor: Color, pieceSymbol: PieceSymbol, drag: drag, setDrag: (dragging: drag) => void, id: string, boardRef: RefObject<HTMLDivElement | null>, setPlaying: (playing: boolean) => void, isCoronating: boolean }) {
     const { boardRef, pieceRef, castleRookRef, moved, isCastleRook, pieceColor, pieceSymbol, drag, setDrag, id, squareSize, setPlaying, isCoronating } = props
 
     const [movement, setMovement] = useState({ x: 0, y: 0 })
@@ -649,7 +649,7 @@ export default function Board(props: { cleanArrows: () => void, sacrifice?: bool
         <div ref={boardRef} onContextMenu={e => e.preventDefault()} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} className="grid w-fit h-fit relative overflow-hidden shadow-2xl border border-white/5" style={{ gridTemplateColumns: `repeat(8, ${squareSize}px)`, pointerEvents: drag.is ? 'none' : 'unset' }}>
             {
                 (() => {
-                    const squares: JSX.Element[] = []
+                    const squares: React.ReactElement[] = []
                     let rowNumber = white ? 0 : 7
                     for (const row of board) {
                         let columnNumber = white ? 0 : 7
