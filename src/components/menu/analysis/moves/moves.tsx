@@ -24,23 +24,14 @@ export const RATING_TEXT_COLORS: Record<string, string> = {
 }
 
 function getRating(
-    moveNumber: number,
+    _moveNumber: number,
     rating: moveRating | undefined,
-    prevRating: moveRating | undefined,
-    nextRating: moveRating | undefined,
-    lastBookMove: number
+    _prevRating: moveRating | undefined,
+    _nextRating: moveRating | undefined,
+    _lastBookMove: number
 ): { rating: moveRating, textClass: string } | undefined {
     if (!rating) return
-
-    if (moveNumber === lastBookMove) return { rating, textClass: RATING_TEXT_COLORS[rating] || '' }
-
-    if (rating === 'best' && prevRating === 'inaccuracy') return { rating, textClass: RATING_TEXT_COLORS[rating] || '' }
-
-    if (['blunder', 'mistake', 'miss', 'great', 'brilliant', 'inaccuracy', 'book'].includes(rating)) {
-        return { rating, textClass: RATING_TEXT_COLORS[rating] || '' }
-    }
-
-    return
+    return { rating, textClass: RATING_TEXT_COLORS[rating] || '' }
 }
 
 export function getLastBookMove(moves: move[]) {

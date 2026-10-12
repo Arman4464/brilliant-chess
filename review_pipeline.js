@@ -560,9 +560,13 @@ class ChessReviewEngine {
             const evBefore2 = allEvals[i]?.[1];
             const evAfter = allEvals[i + 1]?.[0];
 
-            const playerScoreBefore = getEvalCp(evBefore);
-            const playerScoreAfter = -getEvalCp(evAfter);
-            const secondBestScore = evBefore2 ? getEvalCp(evBefore2) : undefined;
+            const evalBeforeWhite = getEvalCp(evBefore);
+            const evalAfterWhite = getEvalCp(evAfter);
+            const evalBefore2White = evBefore2 ? getEvalCp(evBefore2) : undefined;
+
+            const playerScoreBefore = isWhite ? evalBeforeWhite : -evalBeforeWhite;
+            const playerScoreAfter = isWhite ? evalAfterWhite : -evalAfterWhite;
+            const secondBestScore = evalBefore2White !== undefined ? (isWhite ? evalBefore2White : -evalBefore2White) : undefined;
             const isBestMove = Boolean(evBefore?.pv?.[0] && evBefore.pv[0] === ply.lan);
 
             // Piece count for endgame / sacrifice evaluation

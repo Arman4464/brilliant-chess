@@ -66,11 +66,6 @@ export default function Menu() {
 
     const { format } = data
 
-    useEffect(() => {
-        if (pageState !== 'analyze') return
-        setTab('moves')
-    }, [moveNumber])
-
     function stopSelecting() {
         setUsername({ platform: 'chessCom', username: '' })
     }

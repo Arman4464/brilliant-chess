@@ -288,7 +288,7 @@ export function classifyMove(params: ClassificationParams): ClassificationResult
     const missedMate = playerScoreBefore >= 90000 && playerScoreAfter < 90000;
     const blewWinningAdvantage = playerScoreBefore >= 250 && playerScoreAfter <= 50 && (deltaCp >= 200 || deltaE >= 0.20) && !isBestMove;
     const opponentErrored = opponentPreviousRating === 'mistake' || opponentPreviousRating === 'blunder' || opponentPreviousRating === 'miss';
-    const failedToPunish = opponentErrored && (deltaE >= 0.06 || deltaCp >= 110) && playerScoreAfter < 140 && !isBestMove;
+    const failedToPunish = opponentErrored && (deltaE >= 0.12 || deltaCp >= 130) && playerScoreAfter < 100 && !isBestMove;
 
     if (!isBestMove && (missedMate || blewWinningAdvantage || failedToPunish)) {
         return {
@@ -338,7 +338,7 @@ export function classifyMove(params: ClassificationParams): ClassificationResult
     // =========================================================================
     // 6. Best Move (⭐) - Top Engine Recommendation
     // =========================================================================
-    if (isBestMove || deltaE <= 0.0001 || playerScoreAfter >= 99990) {
+    if (isBestMove || (deltaE <= 0.002 && deltaCp <= 8) || playerScoreAfter >= 99990) {
         const comment = playerScoreAfter >= 50000
             ? 'The best move, leading directly to checkmate.'
             : getRandomComment('best');

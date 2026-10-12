@@ -903,7 +903,9 @@ export function parsePGN(
                         fen: startFen,
                         color: 'w',
                         bestMove: initBestMove,
-                        bestMoveSan: initBestLan
+                        bestMoveSan: initBestLan,
+                        previousStaticEvals: [['cp', '20']],
+                        evaluation: ['cp', '20']
                     });
 
                     for (let i = 0; i < history.length; i++) {
@@ -920,6 +922,11 @@ export function parsePGN(
                             if (m) bestSan = m.san;
                         } catch {}
 
+                        const whiteCp = sMove?.eval ? Math.round(parseFloat(sMove.eval) * 100) : 0;
+                        const sideToMove = invertColor(hMove.color);
+                        const uciCp = sideToMove === 'w' ? whiteCp : -whiteCp;
+                        const evalTuple = ['cp', String(uciCp)];
+
                         moves.push({
                             fen: hMove.after,
                             movement: [mFrom, mTo],
@@ -927,14 +934,16 @@ export function parsePGN(
                             bestMoveSan: bestSan,
                             moveRating: (sMove?.classification || 'best') as moveRating,
                             comment: sMove?.comment || '',
-                            color: invertColor(hMove.color),
+                            color: sideToMove,
                             playedBy: hMove.color,
                             capture: hMove.captured,
                             castle: getCastle(hMove.san),
                             san: hMove.san,
                             accuracy: sMove?.caps2 !== undefined ? sMove.caps2 : 100,
                             deltaE: sMove?.difference || 0,
-                            scoreAfter: sMove?.eval ? parseFloat(sMove.eval) * 100 : 0
+                            scoreAfter: whiteCp,
+                            evaluation: evalTuple,
+                            previousStaticEvals: [evalTuple]
                         });
                     }
 
