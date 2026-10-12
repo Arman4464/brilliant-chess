@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const { spawn } = require('child_process');
 const readline = require('readline');
 const { WebSocketServer } = require('ws');
@@ -316,9 +317,24 @@ wss.on('connection', (ws) => {
     });
 });
 
-server.listen(PORT, () => {
+function getLocalIp() {
+    const interfaces = os.networkInterfaces();
+    for (const name of Object.keys(interfaces)) {
+        for (const iface of interfaces[name]) {
+            if (iface.family === 'IPv4' && !iface.internal) {
+                return iface.address;
+            }
+        }
+    }
+    return '127.0.0.1';
+}
+
+server.listen(PORT, '0.0.0.0', () => {
+    const localIp = getLocalIp();
     const nativeFound = fs.existsSync(STOCKFISH_EXE);
-    console.log(`✓ Chessmate server running at http://localhost:${PORT}`);
+    console.log(`✓ Chessmate server active:`);
+    console.log(`  - Local:   http://localhost:${PORT}`);
+    console.log(`  - Network: http://${localIp}:${PORT}`);
     if (nativeFound) {
         console.log(`✓ Native Stockfish bridge active: ${STOCKFISH_EXE}`);
     } else {
