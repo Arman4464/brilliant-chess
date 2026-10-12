@@ -30,7 +30,7 @@ export default function CapturedPieces(props: { white: boolean, pieces: PieceSym
                                 return <SimplePieceSVG
                                     key={i}
                                     piece={piece as PieceSymbol}
-                                    color={white ? WHITE : BLACK}
+                                    color={white ? BLACK : WHITE}
                                     size={piece === PAWN ? smallSize : piece === ROOK || piece === KNIGHT || piece === BISHOP ? mediumSize : bigSize}
                                     className={`${piece === PAWN ? 'mx-[2px]' : piece === ROOK || piece === KNIGHT || piece === BISHOP ? 'mx-[1px]' : ''} ${i !== 0 ? 'vertical:ml-[-10px] ml-[-7px]' : ''}`}
                                     draggable

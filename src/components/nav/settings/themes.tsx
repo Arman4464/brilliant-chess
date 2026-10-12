@@ -41,23 +41,41 @@ export default function Themes() {
     }
 
     return (
-        <section>
-            <h1 className="block bg-backgroundBoxBox font-bold text-nowrap p-3 text-foreground">Board Theme</h1>
+        <section className="border-b border-white/5 pb-2">
+            <div className="px-3 py-1.5 bg-white/5 border-b border-white/10 text-[11px] font-bold uppercase tracking-wider text-neutral-400">
+                Board Theme
+            </div>
             {boardThemes.map((theme, i) => {
+                const isSelected = boardTheme === i
                 return (
-                    <button onClick={() => changeBoardTheme(i)} type="button" key={i} className="flex flex-row gap-2 items-center hover:bg-black transition-colors hover:text-foregroundHighlighted w-full relative p-2">
-                        <div className="grid grid-cols-2 w-fit">
-                            {Array.from({ length: 4 }).map((_, i) => {
-                                const isEvenCol = i % 2 === 0
-                                const isEvenRow = Math.floor(i / 2) % 2 === 0
+                    <button
+                        onClick={() => changeBoardTheme(i)}
+                        type="button"
+                        key={i}
+                        className={`flex items-center justify-between px-3 py-2 hover:bg-white/5 transition-colors w-full cursor-pointer text-left ${isSelected ? 'bg-white/5' : ''}`}
+                    >
+                        <div className="flex items-center gap-2.5">
+                            <div className="grid grid-cols-2 w-fit">
+                                {Array.from({ length: 4 }).map((_, j) => {
+                                    const isEvenCol = j % 2 === 0
+                                    const isEvenRow = Math.floor(j / 2) % 2 === 0
 
-                                const squareColor = isEvenCol ? (isEvenRow ? theme.white : theme.black) : (isEvenRow ? theme.black : theme.white)
+                                    const squareColor = isEvenCol ? (isEvenRow ? theme.white : theme.black) : (isEvenRow ? theme.black : theme.white)
 
-                                return <div key={i} style={{ backgroundColor: squareColor }} className="h-5 w-5" />
-                            })}
+                                    return <div key={j} style={{ backgroundColor: squareColor }} className="h-4 w-4" />
+                                })}
+                            </div>
+                            <span className="font-semibold text-sm text-neutral-200">{theme.label}</span>
                         </div>
-                        <span className="font-bold text-lg">{theme.label}</span>
-                        <div style={{backgroundColor: theme.black, display: boardTheme === i ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
+                        {isSelected ? (
+                            <div className="w-5 h-5 bg-[#81b64c] flex items-center justify-center text-white">
+                                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        ) : (
+                            <div className="w-5 h-5 border border-white/10" />
+                        )}
                     </button>
                 )
             })}

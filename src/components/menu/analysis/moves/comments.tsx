@@ -63,14 +63,19 @@ export function FormatEval(props: { evaluation: string[], white: boolean, smalle
         text = prevChar + Math.abs(number).toFixed(2)
     }
 
-    const isBlackLeading = prevChar === '-'
+    const isWhiteAdvantage = number > 0
+    const isBlackAdvantage = number < 0
 
     return (
         <span
-            className={`font-extrabold tabular-nums select-none tracking-tight inline-flex items-center justify-center ${
+            className={`font-mono font-extrabold tabular-nums select-none tracking-tight inline-flex items-center justify-center border ${
                 smaller ? 'px-2 py-0.5 text-xs' : 'px-2.5 py-1 text-xs md:text-sm'
             } ${
-                isBlackLeading ? 'bg-[#262421] text-white border border-white/10' : 'bg-neutral-100 text-[#211f1c] shadow-sm'
+                isWhiteAdvantage
+                    ? 'bg-white text-[#211f1c] border-white/20 shadow-sm'
+                    : isBlackAdvantage
+                    ? 'bg-[#181715] text-white border-white/20'
+                    : 'bg-[#2b2825] text-neutral-200 border-white/10'
             }`}
         >
             {text}
@@ -99,8 +104,8 @@ export default function Comments(props: {
     if (!rating || !moveSan) {
         return (
             <div className="w-full px-4 pt-3 pb-2 select-none">
-                <div className="w-full bg-[#2b2825] border border-white/10 text-neutral-300 p-3.5 shadow-md flex items-center gap-3">
-                    <p className="text-sm font-medium text-neutral-400">
+                <div className="w-full bg-[#262421] border border-white/10 text-neutral-300 p-3.5 shadow-md flex items-center gap-3">
+                    <p className="text-xs md:text-sm font-medium text-neutral-400">
                         Select a move to view detailed positional analysis and tactical breakdown.
                     </p>
                 </div>
@@ -116,15 +121,15 @@ export default function Comments(props: {
     return (
         <div className="w-full px-4 pt-3 pb-2 select-none">
             {/* Analysis Insight Card */}
-            <div className="w-full bg-white text-[#211f1c] p-3.5 shadow-lg flex flex-col gap-2 border border-black/5">
+            <div className="w-full bg-[#262421] text-white p-3.5 shadow-xl flex flex-col gap-2.5 border border-white/10">
                 {/* Header: Badge & Move SAN on left, Score Pill on right */}
-                <div className="flex items-center justify-between gap-2 border-b border-neutral-100 pb-2">
+                <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-2.5">
                     <div className="flex items-center gap-2">
-                        <RatingSVG draggable rating={rating} size={26} />
+                        <RatingSVG draggable rating={rating} size={24} />
                         <span className="font-extrabold text-base md:text-lg" style={{ color: ratingColor }}>
                             {title}
                         </span>
-                        <span className="font-bold text-neutral-800 text-sm md:text-base">
+                        <span className="font-bold text-white text-sm md:text-base">
                             {moveSan}
                         </span>
                     </div>
@@ -132,15 +137,15 @@ export default function Comments(props: {
                 </div>
 
                 {/* Analysis explanation */}
-                <p className="text-xs md:text-sm text-neutral-700 leading-snug font-medium">
+                <p className="text-xs md:text-sm text-neutral-300 leading-relaxed font-normal">
                     {explanation}
                 </p>
 
                 {/* Best move suggestion if sub-optimal */}
                 {showBestMove && (
-                    <div className="mt-0.5 flex items-center gap-1.5 bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600 w-fit">
-                        <span>Best was</span>
-                        <span className="font-extrabold text-[#81b64c]">{formatBestMove(bestMoveSan)}</span>
+                    <div className="mt-0.5 flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-medium text-neutral-300 w-fit">
+                        <span className="text-neutral-400 font-semibold">Best was</span>
+                        <span className="font-extrabold text-[#81b64c] tracking-wide">{formatBestMove(bestMoveSan)}</span>
                     </div>
                 )}
             </div>

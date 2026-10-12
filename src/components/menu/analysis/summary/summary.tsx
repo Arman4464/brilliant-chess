@@ -45,7 +45,7 @@ export default function Summary(props: {
     }
 
     return (
-        <div className="flex flex-col items-center w-full pb-4 overflow-y-auto select-none">
+        <div className="flex flex-col items-center w-full pb-8 select-none">
             {/* Game Review Summary Verdict Banner */}
             <div className="w-full px-4 pt-3 pb-2">
                 <div className="w-full bg-[#262421] border border-white/10 p-3.5 shadow-md flex items-center gap-3">

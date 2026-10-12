@@ -43,7 +43,7 @@ export default function Nav() {
     }, [])
 
     return (
-        <nav ref={navRef} className="flex md:flex-col flex-row md:w-36 w-full md:h-screen h-14 bg-[#262421] border-r md:border-r-white/5 border-b md:border-b-0 border-white/5 select-none relative z-40 flex-shrink-0">
+        <nav ref={navRef} className="flex md:flex-col flex-row md:w-36 w-full md:h-screen h-14 bg-[#262421] border-r md:border-r-white/5 border-b md:border-b-0 border-white/5 select-none relative z-[100] flex-shrink-0">
             {/* Top Brand Logo */}
             <div className="flex md:flex-col flex-row md:justify-between justify-between items-center w-full h-full md:p-3 px-3 py-2">
                 <div className="flex md:flex-col flex-row items-center md:items-start md:gap-4 gap-2 w-full">
@@ -110,7 +110,7 @@ export default function Nav() {
             {openedMenu === 'settings' && (
                 <div
                     ref={menuRef}
-                    className="absolute md:left-full md:top-3 top-14 left-2 z-50 p-3 bg-[#262421] border border-white/10 shadow-2xl min-w-[320px] max-w-[360px] max-h-[85vh] overflow-y-auto backdrop-blur-md"
+                    className="absolute md:left-full md:top-3 top-14 left-2 z-[110] p-4 bg-[#262421] border border-white/10 shadow-2xl min-w-[340px] max-w-[380px] max-h-[85vh] overflow-y-auto backdrop-blur-md pb-6"
                 >
                     <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
                         <span className="font-bold text-white text-sm">Settings</span>

@@ -87,7 +87,7 @@ function parseUciLine(line) {
 }
 
 class ChessReviewEngine {
-    constructor(numWorkers = 2) {
+    constructor(numWorkers = Math.min(4, require('os').cpus().length || 2)) {
         this.sfPath = path.join(__dirname, 'stockfish', 'stockfish-windows-x86-64-universal.exe');
         this.wasmPath = path.join(__dirname, 'explanation-engine.wasm');
         this.numWorkers = numWorkers;
@@ -140,9 +140,18 @@ class ChessReviewEngine {
 
                 const isWhiteTurn = item.fen.split(' ')[1] === 'w';
                 let buffer = '';
+                let onTargetFn = null;
+                let itemDone = false;
+                let curEval = [];
 
-                function finishItem(curEval) {
-                    results[item.idx] = curEval.filter(Boolean);
+                function finishItem() {
+                    if (itemDone) return;
+                    itemDone = true;
+                    clearTimeout(itemTimer);
+                    worker.proc.stdout.removeListener('data', onData);
+                    if (onTargetFn) worker.proc.stdout.removeListener('data', onTargetFn);
+
+                    results[item.idx] = (curEval || []).filter(Boolean);
                     completed++;
                     worker.busy = false;
 
@@ -157,11 +166,16 @@ class ChessReviewEngine {
                     }
                 }
 
+                const itemTimer = setTimeout(() => {
+                    try { worker.proc.stdin.write('stop\n'); } catch {}
+                    finishItem();
+                }, 3500);
+
                 function onData(chunk) {
                     buffer += chunk.toString();
                     if (buffer.includes('bestmove')) {
                         worker.proc.stdout.removeListener('data', onData);
-                        const curEval = [];
+                        curEval = [];
 
                         for (const line of buffer.split('\n')) {
                             if (!line.startsWith('info depth')) continue;
@@ -186,10 +200,10 @@ class ChessReviewEngine {
                         const hasPlayedMove = item.playedLan ? curEval.some(ev => ev && ev.pv && ev.pv[0] === item.playedLan) : true;
                         if (!hasPlayedMove && item.playedLan) {
                             let targetBuf = '';
-                            function onTarget(tChunk) {
+                            onTargetFn = function(tChunk) {
                                 targetBuf += tChunk.toString();
                                 if (targetBuf.includes('bestmove')) {
-                                    worker.proc.stdout.removeListener('data', onTarget);
+                                    worker.proc.stdout.removeListener('data', onTargetFn);
                                     let latestTargetEval = null;
                                     for (const tLine of targetBuf.split('\n')) {
                                         if (!tLine.startsWith('info depth')) continue;
@@ -210,10 +224,10 @@ class ChessReviewEngine {
                                     }
                                     finishItem(curEval);
                                 }
-                            }
-                            worker.proc.stdout.on('data', onTarget);
+                            };
+                            worker.proc.stdout.on('data', onTargetFn);
                             worker.proc.stdin.write(`position fen ${item.fen}\n`);
-                            worker.proc.stdin.write(`go depth ${depth} searchmoves ${item.playedLan}\n`);
+                            worker.proc.stdin.write(`go depth ${depth} movetime 1500 searchmoves ${item.playedLan}\n`);
                         } else {
                             finishItem(curEval);
                         }

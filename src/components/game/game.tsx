@@ -681,7 +681,7 @@ export default function Game() {
 
                 {/* Top Player (Opponent) */}
                 <div style={{ width: boardWidthWithEval }} className="flex flex-row justify-between items-center">
-                    <Name materialAdvantage={materialAdvantage} captured={captured[white ? 'black' : 'white']} white={!white}>{`${players[white ? 1 : 0].name} ${players[white ? 1 : 0].elo !== 'NOELO' ? `(${players[white ? 1 : 0].elo})` : ''}`}</Name>
+                    <Name materialAdvantage={materialAdvantage} captured={captured[white ? 'white' : 'black']} white={!white}>{`${players[white ? 1 : 0].name} ${players[white ? 1 : 0].elo !== 'NOELO' ? `(${players[white ? 1 : 0].elo})` : ''}`}</Name>
                     <Clock white={!white} colorMoving={game[moveNumber]?.color}>{formatTime(time)}</Clock>
                 </div>
 
@@ -729,7 +729,7 @@ export default function Game() {
 
                 {/* Bottom Player (Self) */}
                 <div style={{ width: boardWidthWithEval }} className="flex flex-row justify-between items-center">
-                    <Name materialAdvantage={materialAdvantage} captured={captured[white ? 'white' : 'black']} white={white}>{`${players[white ? 0 : 1].name} ${players[white ? 0 : 1].elo !== 'NOELO' ? `(${players[white ? 0 : 1].elo})` : ''}`}</Name>
+                    <Name materialAdvantage={materialAdvantage} captured={captured[white ? 'black' : 'white']} white={white}>{`${players[white ? 0 : 1].name} ${players[white ? 0 : 1].elo !== 'NOELO' ? `(${players[white ? 0 : 1].elo})` : ''}`}</Name>
                     <Clock white={white} colorMoving={game[moveNumber]?.color}>{formatTime(time)}</Clock>
                 </div>
             </div>

@@ -192,15 +192,17 @@ export default function PlayersAccuracy(props: {
 
                 {/* White Accuracy */}
                 <div className="flex justify-center">
-                    <div className="w-20 py-1.5 bg-white text-[#211f1c] font-black text-base md:text-lg text-center shadow-sm tabular-nums">
-                        {isNaN(accuracy.w) ? '—' : accuracy.w.toFixed(1)}%
+                    <div className="w-24 py-1.5 bg-[#262421] text-white border border-white/20 font-black text-base md:text-lg text-center shadow-md tabular-nums flex items-center justify-center gap-1.5">
+                        <span className="w-2.5 h-2.5 bg-white flex-shrink-0" />
+                        <span>{isNaN(accuracy.w) ? '—' : `${accuracy.w.toFixed(1)}%`}</span>
                     </div>
                 </div>
 
                 {/* Black Accuracy */}
                 <div className="flex justify-center">
-                    <div className="w-20 py-1.5 bg-[#1e1d1a] text-white border border-white/10 font-black text-base md:text-lg text-center shadow-sm tabular-nums">
-                        {isNaN(accuracy.b) ? '—' : accuracy.b.toFixed(1)}%
+                    <div className="w-24 py-1.5 bg-[#262421] text-white border border-white/20 font-black text-base md:text-lg text-center shadow-md tabular-nums flex items-center justify-center gap-1.5">
+                        <span className="w-2.5 h-2.5 bg-neutral-600 border border-white/20 flex-shrink-0" />
+                        <span>{isNaN(accuracy.b) ? '—' : `${accuracy.b.toFixed(1)}%`}</span>
                     </div>
                 </div>
             </div>

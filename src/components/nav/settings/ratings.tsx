@@ -84,35 +84,43 @@ export default function Ratings() {
     }
 
     return (
-        <section>
-            <h1 className="block bg-backgroundBoxBox font-bold text-nowrap p-3 text-foreground">Ratings</h1>
-            <button onClick={toggleHighlightByRating} type="button" className="flex flex-row gap-2 items-center hover:text-foregroundHighlighted hover:bg-black transition-colors w-full relative p-2">
-                <div className="grid grid-cols-2 w-fit">
-                    {Array.from({ length: 4 }).map((_, i) => {
-                        const isEvenCol = i % 2 === 0
-                        const isEvenRow = Math.floor(i / 2) % 2 === 0
+        <section className="border-b border-white/5 pb-2">
+            <div className="px-3 py-1.5 bg-white/5 border-b border-white/10 text-[11px] font-bold uppercase tracking-wider text-neutral-400">
+                Move Ratings
+            </div>
+            <button
+                onClick={toggleHighlightByRating}
+                type="button"
+                className="flex items-center justify-between px-3 py-2 hover:bg-white/5 transition-colors w-full cursor-pointer text-left"
+            >
+                <div className="flex items-center gap-2.5">
+                    <div className="grid grid-cols-2 w-fit">
+                        {Array.from({ length: 4 }).map((_, i) => {
+                            const isEvenCol = i % 2 === 0
+                            const isEvenRow = Math.floor(i / 2) % 2 === 0
 
-                        const squareColor = isEvenCol ? (isEvenRow ? boardThemes[boardTheme].white : boardThemes[boardTheme].black) : (isEvenRow ? boardThemes[boardTheme].black : boardThemes[boardTheme].white)
+                            const squareColor = isEvenCol ? (isEvenRow ? boardThemes[boardTheme].white : boardThemes[boardTheme].black) : (isEvenRow ? boardThemes[boardTheme].black : boardThemes[boardTheme].white)
 
-                        return (
-                            <div key={i} style={{ backgroundColor: squareColor }} className="h-5 w-5 relative">
-                                {i === 2 || i === 3 ? <div className="w-full h-full absolute top-0 left-0 opacity-50" style={{backgroundColor: highlightByRating ? 'var(--highlightGreat)' : boardThemes[boardTheme].highlight}} /> : null}
-                                {i === 3 ? (
-                                    <>
-                                        <PieceSVG className="absolute z-10 top-0 left-0" piece={QUEEN} size={20} color={WHITE} />
-                                        <RatingSVG rating="great" size={12} className="absolute top-0 right-0 translate-x-1/2 translate-y-[-50%]" />
-                                    </>
-                                ) : null}
-                            </div>
-                        )
-                    })}
+                            return (
+                                <div key={i} style={{ backgroundColor: squareColor }} className="h-4 w-4 relative">
+                                    {i === 2 || i === 3 ? <div className="w-full h-full absolute top-0 left-0 opacity-50" style={{backgroundColor: highlightByRating ? 'var(--highlightGreat)' : boardThemes[boardTheme].highlight}} /> : null}
+                                    {i === 3 ? (
+                                        <>
+                                            <PieceSVG className="absolute z-10 top-0 left-0" piece={QUEEN} size={16} color={WHITE} />
+                                            <RatingSVG rating="great" size={10} className="absolute top-0 right-0 translate-x-1/2 translate-y-[-50%]" />
+                                        </>
+                                    ) : null}
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <span className="font-semibold text-sm text-neutral-200">Highlight by rating</span>
                 </div>
-                <span className="font-bold text-lg">Highlight by rating</span>
-                <div style={{backgroundColor: "var(--foreground)", display: highlightByRating ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
+                <div className={`w-8 h-4 transition-colors relative flex items-center px-0.5 ${highlightByRating ? 'bg-[#81b64c]' : 'bg-neutral-700'}`}>
+                    <div className={`w-3 h-3 bg-white transition-transform ${highlightByRating ? 'translate-x-4' : 'translate-x-0'}`} />
+                </div>
             </button>
             {ratings.map((rating, i) => {
-                const color = rating === 'forced' ? 'var(--highlightGood)' : `var(--highlight${capitalizeFirst(rating)})`
-
                 function toggleRating() {
                     const newUsedRatings = {
                         ...usedRatings,
@@ -122,11 +130,22 @@ export default function Ratings() {
                     localStorage.setItem('usedRatings', serializeRatings(newUsedRatings))
                 }
 
+                const isActive = Boolean(usedRatings[rating as keyof typeof usedRatings])
+
                 return (
-                    <button onClick={toggleRating} type="button" key={i} className="flex flex-row gap-2 items-center hover:text-foregroundHighlighted hover:bg-black transition-colors w-full relative p-2">
-                        <RatingSVG rating={rating} size={35} className="w-[40px] h-[40px] flex justify-center items-center" />
-                        <span className="font-bold text-lg">{capitalizeFirst(rating)}</span>
-                        <div style={{backgroundColor: color, display: usedRatings[rating as keyof typeof usedRatings] ? '' : 'none'}} className="w-3 h-3 absolute right-3" />
+                    <button
+                        onClick={toggleRating}
+                        type="button"
+                        key={i}
+                        className="flex items-center justify-between px-3 py-1.5 hover:bg-white/5 transition-colors w-full cursor-pointer text-left"
+                    >
+                        <div className="flex items-center gap-2.5">
+                            <RatingSVG rating={rating} size={22} className="w-6 h-6 flex justify-center items-center flex-shrink-0" />
+                            <span className="font-semibold text-sm text-neutral-200">{capitalizeFirst(rating)}</span>
+                        </div>
+                        <div className={`w-8 h-4 transition-colors relative flex items-center px-0.5 ${isActive ? 'bg-[#81b64c]' : 'bg-neutral-700'}`}>
+                            <div className={`w-3 h-3 bg-white transition-transform ${isActive ? 'translate-x-4' : 'translate-x-0'}`} />
+                        </div>
                     </button>
                 )
             })}
