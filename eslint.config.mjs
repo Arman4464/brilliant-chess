@@ -11,6 +11,7 @@ const config = [
       "tests/**",
       "review_pipeline.js",
       "server.js",
+      "documents/**",
     ],
   },
   ...nextConfig,
