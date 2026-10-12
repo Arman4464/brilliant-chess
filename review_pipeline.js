@@ -68,7 +68,7 @@ class ChessReviewEngine {
         this.numWorkers = numWorkers;
     }
 
-    async evaluatePositionsPool(fens, depth = 18, multiPv = 2, targetMoves = []) {
+    async evaluatePositionsPool(fens, depth = 18, multiPv = 2, targetMoves = [], onProgress = null) {
         const workers = [];
         for (let i = 0; i < this.numWorkers; i++) {
             const proc = spawn(this.sfPath);
@@ -102,6 +102,17 @@ class ChessReviewEngine {
                     results[item.idx] = [];
                     completed++;
                     worker.busy = false;
+                    if (onProgress) {
+                        try {
+                            onProgress({
+                                completed,
+                                total: fens.length,
+                                idx: item.idx,
+                                fen: item.fen,
+                                playedLan: item.playedLan
+                            });
+                        } catch {}
+                    }
                     if (completed % 15 === 0 || completed === fens.length) {
                         console.log(`[ReviewPipeline] Evaluated ${completed}/${fens.length} positions...`);
                     }
@@ -129,6 +140,17 @@ class ChessReviewEngine {
                     results[item.idx] = (curEval || []).filter(Boolean);
                     completed++;
                     worker.busy = false;
+                    if (onProgress) {
+                        try {
+                            onProgress({
+                                completed,
+                                total: fens.length,
+                                idx: item.idx,
+                                fen: item.fen,
+                                playedLan: item.playedLan
+                            });
+                        } catch {}
+                    }
 
                     if (completed % 15 === 0 || completed === fens.length) {
                         console.log(`[ReviewPipeline] Evaluated ${completed}/${fens.length} positions...`);
@@ -230,7 +252,7 @@ class ChessReviewEngine {
         return results;
     }
 
-    async analyzeGame({ pgn, moves, startFen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', whiteElo = 1500, blackElo = 1500, depth = 18, multiPv = 2 }) {
+    async analyzeGame({ pgn, moves, startFen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', whiteElo = 1500, blackElo = 1500, depth = 18, multiPv = 2, onProgress = null }) {
         const t0 = Date.now();
 
         // 1. Reconstruct positions and moves
@@ -391,12 +413,62 @@ class ChessReviewEngine {
         if (fs.existsSync(cachePath)) {
             console.log(`[ReviewPipeline] Loaded cached Stockfish evaluations (${allFens.length} positions).`);
             allEvals = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+            if (onProgress) {
+                try {
+                    onProgress({
+                        completed: allFens.length,
+                        total: allFens.length,
+                        stage: 'Evaluations ready',
+                        elapsedSeconds: 0,
+                        etaSeconds: 0,
+                        speed: allFens.length
+                    });
+                } catch {}
+            }
         } else {
-            allEvals = await this.evaluatePositionsPool(allFens, depth, multiPv, targetMoves);
+            const tPoolStart = Date.now();
+            allEvals = await this.evaluatePositionsPool(allFens, depth, multiPv, targetMoves, (p) => {
+                if (onProgress) {
+                    try {
+                        const elapsed = Math.max(0.1, (Date.now() - tPoolStart) / 1000);
+                        const rate = p.completed > 0 ? p.completed / elapsed : 0;
+                        const remaining = p.total - p.completed;
+                        const eta = rate > 0 ? Math.round(remaining / rate) : undefined;
+                        const plyIdx = p.idx;
+                        const currentPly = plyIdx > 0 && gamePlies[plyIdx - 1] ? gamePlies[plyIdx - 1] : null;
+
+                        onProgress({
+                            completed: p.completed,
+                            total: p.total,
+                            san: currentPly ? currentPly.san : undefined,
+                            color: currentPly ? (currentPly.color === 'white' ? 'w' : 'b') : undefined,
+                            fen: p.fen,
+                            stage: p.completed < 8 ? 'Opening Book Recognition' : p.completed > p.total - 10 ? 'Endgame Conversion' : 'Middlegame Tactical Evaluation',
+                            elapsedSeconds: Math.round(elapsed),
+                            etaSeconds: eta,
+                            speed: Number(rate.toFixed(1))
+                        });
+                    } catch {}
+                }
+            });
             fs.writeFileSync(cachePath, JSON.stringify(allEvals));
         }
         const evalTime = ((Date.now() - t0) / 1000).toFixed(2);
         console.log(`[ReviewPipeline] Stockfish evaluation finished in ${evalTime}s.`);
+
+        if (onProgress) {
+            try {
+                const elapsed = Math.round((Date.now() - t0) / 1000);
+                onProgress({
+                    completed: allFens.length,
+                    total: allFens.length,
+                    stage: 'Calculating CAPS2 Accuracy & Coach Feedback',
+                    elapsedSeconds: elapsed,
+                    etaSeconds: 1,
+                    speed: 0
+                });
+            } catch {}
+        }
 
         // 2. Run CEE batch analysis
         console.log(`[ReviewPipeline] Classifying entire game with Chess.com CEE in single batch...`);

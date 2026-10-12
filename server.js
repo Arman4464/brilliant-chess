@@ -77,6 +77,34 @@ const server = http.createServer((req, res) => {
             try {
                 const params = JSON.parse(body);
                 const engine = new ChessReviewEngine();
+                const wantsStream = Boolean(params.stream || (req.headers['accept'] && req.headers['accept'].includes('application/x-ndjson')));
+
+                if (wantsStream) {
+                    res.writeHead(200, {
+                        'Content-Type': 'application/x-ndjson',
+                        'Transfer-Encoding': 'chunked',
+                        'Cache-Control': 'no-cache',
+                        'Connection': 'keep-alive'
+                    });
+                    const review = await engine.analyzeGame({
+                        pgn: params.pgn,
+                        moves: params.moves,
+                        startFen: params.startFen,
+                        whiteElo: params.whiteElo,
+                        blackElo: params.blackElo,
+                        depth: params.depth || 18,
+                        multiPv: params.multiPv || 2,
+                        onProgress: (p) => {
+                            try {
+                                res.write(JSON.stringify({ type: 'progress', ...p }) + '\n');
+                            } catch (e) {}
+                        }
+                    });
+                    res.write(JSON.stringify({ type: 'complete', success: true, ...review }) + '\n');
+                    res.end();
+                    return;
+                }
+
                 const review = await engine.analyzeGame({
                     pgn: params.pgn,
                     moves: params.moves,
@@ -90,8 +118,15 @@ const server = http.createServer((req, res) => {
                 res.end(JSON.stringify({ success: true, ...review }));
             } catch (err) {
                 console.error('[API /api/review Error]', err);
-                res.writeHead(500, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ success: false, error: err.message }));
+                if (res.headersSent) {
+                    try {
+                        res.write(JSON.stringify({ type: 'error', error: err.message }) + '\n');
+                        res.end();
+                    } catch (e) {}
+                } else {
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ success: false, error: err.message }));
+                }
             }
         });
         return;

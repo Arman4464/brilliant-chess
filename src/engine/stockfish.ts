@@ -1,4 +1,4 @@
-import { players } from "@/context/analyze";
+import { players, AnalysisProgress } from "@/context/analyze";
 import { BISHOP, Chess, Color, KNIGHT, Move, PAWN, PieceSymbol, QUEEN, ROOK, Square, WHITE } from "chess.js";
 import { SetStateAction } from "react";
 import { StockfishEngine } from "./engineWorker";
@@ -754,13 +754,23 @@ export function parsePGN(
     openings: openings,
     setProgress: React.Dispatch<SetStateAction<number>>,
     signal: AbortSignal,
-    performanceRatings?: { white?: number, black?: number }
+    performanceRatings?: { white?: number, black?: number },
+    onProgressUpdate?: (info: AnalysisProgress) => void
 ): Promise<{ metadata: { time: number, players: players, result: result }, moves: move[] }> {
     return new Promise(async (resolve, reject) => {
         function handleAbort() {
             reject(new Error('canceled'))
             signal.removeEventListener('abort', handleAbort)
             setProgress(0)
+            if (onProgressUpdate) {
+                onProgressUpdate({
+                    progress: 0,
+                    currentMove: 0,
+                    totalMoves: 0,
+                    stage: 'Analysis canceled',
+                    elapsedSeconds: 0
+                })
+            }
         }
 
         signal.addEventListener('abort', handleAbort)
@@ -805,26 +815,85 @@ export function parsePGN(
 
         const whiteElo = parseInt(players[0]?.elo, 10) || 1500
         const blackElo = parseInt(players[1]?.elo, 10) || 1500
+        const startTime = Date.now()
+
+        if (onProgressUpdate) {
+            onProgressUpdate({
+                progress: 0,
+                currentMove: 0,
+                totalMoves,
+                stage: 'Connecting to Deep Engine...',
+                elapsedSeconds: 0
+            })
+        }
 
         // Fast-path: query authentic server review pipeline (CEE + Stockfish) if available
         try {
             const apiRes = await fetch('/api/review', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/x-ndjson'
+                },
                 body: JSON.stringify({
                     pgn,
                     moves: history.map(h => ({ san: h.san, lan: h.from + h.to + (h.promotion || ''), color: h.color === 'w' ? 'white' : 'black' })),
                     whiteElo,
                     blackElo,
                     depth: 18,
-                    multiPv: 2
+                    multiPv: 2,
+                    stream: true
                 }),
                 signal
             });
             if (apiRes.ok) {
-                const reviewData = await apiRes.json();
-                console.log('[Stockfish Engine] Authenticated CEE Review Data received:', reviewData);
-                if (reviewData.success && reviewData.moves && reviewData.moves.length === totalMoves) {
+                let reviewData: any = null;
+                const contentType = apiRes.headers.get('content-type') || '';
+
+                if (contentType.includes('application/x-ndjson') && apiRes.body) {
+                    const reader = apiRes.body.getReader();
+                    const decoder = new TextDecoder();
+                    let buffer = '';
+
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+                        buffer += decoder.decode(value, { stream: true });
+                        const lines = buffer.split('\n');
+                        buffer = lines.pop() || '';
+
+                        for (const line of lines) {
+                            if (!line.trim()) continue;
+                            try {
+                                const msg = JSON.parse(line);
+                                if (msg.type === 'progress') {
+                                    const pct = Math.min(99.5, Number(((msg.completed / msg.total) * 100).toFixed(1)));
+                                    setProgress(pct);
+                                    if (onProgressUpdate) {
+                                        onProgressUpdate({
+                                            progress: pct,
+                                            currentMove: msg.completed,
+                                            totalMoves: msg.total,
+                                            moveSan: msg.san,
+                                            moveColor: msg.color,
+                                            stage: msg.stage,
+                                            elapsedSeconds: msg.elapsedSeconds ?? Math.round((Date.now() - startTime) / 1000),
+                                            etaSeconds: msg.etaSeconds,
+                                            speed: msg.speed,
+                                            fen: msg.fen
+                                        });
+                                    }
+                                } else if (msg.type === 'complete') {
+                                    reviewData = msg;
+                                }
+                            } catch {}
+                        }
+                    }
+                } else {
+                    reviewData = await apiRes.json();
+                }
+
+                if (reviewData && reviewData.success && reviewData.moves && reviewData.moves.length === totalMoves) {
                     const firstMove = history[0];
                     const startFen = firstMove ? firstMove.before : 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
                     const initBestLan = reviewData.moves[0]?.bestMoveLan || 'e2e4';
@@ -867,7 +936,6 @@ export function parsePGN(
                             deltaE: sMove?.difference || 0,
                             scoreAfter: sMove?.eval ? parseFloat(sMove.eval) * 100 : 0
                         });
-                        setProgress(((i + 1) / totalMoves) * 100);
                     }
 
                     if (reviewData.performanceRatings) {
@@ -885,6 +953,18 @@ export function parsePGN(
                         (metadata as any).opening = reviewData.opening;
                     }
 
+                    setProgress(100);
+                    if (onProgressUpdate) {
+                        onProgressUpdate({
+                            progress: 100,
+                            currentMove: totalMoves,
+                            totalMoves,
+                            stage: 'Review Complete',
+                            elapsedSeconds: Math.round((Date.now() - startTime) / 1000),
+                            etaSeconds: 0
+                        });
+                    }
+
                     resolve({ metadata, moves });
                     return;
                 }
@@ -897,10 +977,35 @@ export function parsePGN(
             console.log('[Stockfish Engine] Server review fallback to local engine:', err?.message);
         }
 
+        const localStartTime = Date.now();
         let moveNumber = 0, previousBestMoveSan: string | undefined, previousSacrifice = false, previousStaticEvals: string[][] = []
         let lastWhiteRating: moveRating | undefined
         let lastBlackRating: moveRating | undefined
+
         for (const move of history) {
+            const elapsed = Math.max(0.1, (Date.now() - localStartTime) / 1000);
+            const completed = moveNumber;
+            const rate = completed > 0 ? completed / elapsed : 0;
+            const remaining = totalMoves - completed;
+            const eta = rate > 0 ? Math.round(remaining / rate) : undefined;
+            const pct = Math.min(99.5, Number(((completed / totalMoves) * 100).toFixed(1)));
+
+            setProgress(pct);
+            if (onProgressUpdate) {
+                onProgressUpdate({
+                    progress: pct,
+                    currentMove: completed + 1,
+                    totalMoves,
+                    moveSan: move.san,
+                    moveColor: move.color,
+                    stage: completed < 8 ? 'Opening Book Recognition' : completed > totalMoves - 10 ? 'Endgame Conversion' : 'Middlegame Tactical Evaluation',
+                    elapsedSeconds: Math.round(elapsed),
+                    etaSeconds: eta,
+                    speed: Number(rate.toFixed(1)),
+                    fen: move.before
+                });
+            }
+
             if (moveNumber === 0) {
                 chess.load(move.before)
                 const pos = await parsePosition(stockfish, chess, depth, signal, handleAbort)
@@ -948,9 +1053,18 @@ export function parsePGN(
 
             moveNumber++
             previousSacrifice = analyzedMove.sacrifice
-    
-            progress++
-            setProgress((progress / totalMoves) * 100)
+        }
+
+        setProgress(100);
+        if (onProgressUpdate) {
+            onProgressUpdate({
+                progress: 100,
+                currentMove: totalMoves,
+                totalMoves,
+                stage: 'Review Complete',
+                elapsedSeconds: Math.round((Date.now() - localStartTime) / 1000),
+                etaSeconds: 0
+            });
         }
 
         // Compute overall CAPS2 game accuracy for local review mode

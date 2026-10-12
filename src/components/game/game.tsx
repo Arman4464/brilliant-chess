@@ -6,7 +6,7 @@ import Board, { drag, gameStartSound } from "./board"
 import Clock from "./clock"
 import Name from "./name"
 import Evaluation from "./evaluation"
-import { AnalyzeContext, CustomLine } from "@/context/analyze"
+import { AnalyzeContext, CustomLine, defaultAnalysisProgress } from "@/context/analyze"
 import { formatSquare, getCastle, invertColor, move, openings, parseMove, parsePGN, parsePosition, prepareStockfish, result, square, StockfishEngine } from "@/engine/stockfish"
 import { createStockfishWorker } from "@/engine/engineWorker"
 import { Chess, PieceSymbol, WHITE } from "chess.js"
@@ -99,6 +99,7 @@ export default function Game() {
     const [materialAdvantage] = analyzeContext.materialAdvantage
     const [result, setResult] = analyzeContext.result
     const setProgress = analyzeContext.progress[1]
+    const setAnalysisProgress = analyzeContext.analysisProgress[1]
     const [tab, setTab] = analyzeContext.tab
     const [analyzeController, setAnalyzeController] = analyzeContext.analyzeController
     const [customLine, setCustomLine] = analyzeContext.customLine
@@ -365,7 +366,7 @@ export default function Game() {
         if (!stockfish) return
 
         try {
-            const { metadata, moves } = await parsePGN(stockfish, pgn, depth, openings, setProgress, analyzeController.signal, data.performanceRatings)
+            const { metadata, moves } = await parsePGN(stockfish, pgn, depth, openings, setProgress, analyzeController.signal, data.performanceRatings, setAnalysisProgress)
 
             if ((metadata as any).accuracies || (metadata as any).opening) {
                 setData(prev => ({
@@ -400,6 +401,7 @@ export default function Game() {
         }
 
         setProgress(0)
+        setAnalysisProgress(defaultAnalysisProgress)
         setMoveNumber(0)
     }
 

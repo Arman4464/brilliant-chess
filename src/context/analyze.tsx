@@ -35,6 +35,29 @@ export interface CustomLine {
     arrows: AllGameArrows
 }
 
+export interface AnalysisProgress {
+    progress: number;
+    currentMove: number;
+    totalMoves: number;
+    moveSan?: string;
+    moveColor?: 'w' | 'b';
+    stage?: string;
+    elapsedSeconds: number;
+    etaSeconds?: number;
+    speed?: number;
+    fen?: string;
+}
+
+export const defaultAnalysisProgress: AnalysisProgress = {
+    progress: 0,
+    currentMove: 0,
+    totalMoves: 0,
+    stage: 'Initializing Stockfish...',
+    elapsedSeconds: 0,
+    etaSeconds: undefined,
+    speed: 0
+}
+
 type pageState = 'default' | 'loading' | 'analyze' | 'analyzeCustom'
 
 type tabs = 'analyze' | 'selectGame' | 'summary' | 'moves'
@@ -55,6 +78,7 @@ export const AnalyzeContext = createContext<{
     materialAdvantage: [number, Dispatch<SetStateAction<number>>],
     result: [result, Dispatch<SetStateAction<result>>],
     progress: [number, Dispatch<SetStateAction<number>>],
+    analysisProgress: [AnalysisProgress, Dispatch<SetStateAction<AnalysisProgress>>],
     tab: [tabs, Dispatch<SetStateAction<tabs>>],
     analyzeController: [AbortController, Dispatch<SetStateAction<AbortController>>],
     customLine: [CustomLine, Dispatch<SetStateAction<CustomLine>>],
@@ -76,6 +100,7 @@ export const AnalyzeContext = createContext<{
     materialAdvantage: [0, () => { }],
     result: ['', () => { }],
     progress: [0, () => { }],
+    analysisProgress: [defaultAnalysisProgress, () => { }],
     tab: ['analyze', () => { }],
     analyzeController: [abortControllerInstance, () => { }],
     customLine: [{ moveNumber: -1, moves: [], arrows: {} }, () => { }],
@@ -99,6 +124,7 @@ export default function AnalyzeContextProvider(props: { children: React.ReactNod
     const [materialAdvantage, setMaterialAdvantage] = useState(0)
     const [result, setResult] = useState<result>('')
     const [progress, setProgress] = useState(0)
+    const [analysisProgress, setAnalysisProgress] = useState<AnalysisProgress>(defaultAnalysisProgress)
     const [tab, setTab] = useState<tabs>('analyze')
     const [analyzeController, setAnalyzeController] = useState<AbortController>(abortControllerInstance)
     const [customLine, setCustomLine] = useState<CustomLine>({ moveNumber: -1, moves: [], arrows: {} })
@@ -189,7 +215,7 @@ export default function AnalyzeContextProvider(props: { children: React.ReactNod
     }
 
     return (
-        <AnalyzeContext.Provider value={{ data: [data, setData], pageState: [pageState, setPageState], game: [game, setGame], players: [players, setPlayers], moveNumber: [moveNumber, setMoveNumber], forward: [forward, setForward], white: [white, setWhite], animation: [animation, setAnimation], playing: [playing, setPlaying], time: [time, setTime], materialAdvantage: [materialAdvantage, setMaterialAdvantage], result: [result, setResult], progress: [progress, setProgress], tab: [tab, setTab], analyzeController: [analyzeController, setAnalyzeController], customLine: [customLine, setCustomLine], returnedToNormalGame: [returnedToNormalGame, setReturnedToNormalGame], analyzingMove: [analyzingMove, setAnalyzingMove], depth: [depth, setDepth], gameController }}>
+        <AnalyzeContext.Provider value={{ data: [data, setData], pageState: [pageState, setPageState], game: [game, setGame], players: [players, setPlayers], moveNumber: [moveNumber, setMoveNumber], forward: [forward, setForward], white: [white, setWhite], animation: [animation, setAnimation], playing: [playing, setPlaying], time: [time, setTime], materialAdvantage: [materialAdvantage, setMaterialAdvantage], result: [result, setResult], progress: [progress, setProgress], analysisProgress: [analysisProgress, setAnalysisProgress], tab: [tab, setTab], analyzeController: [analyzeController, setAnalyzeController], customLine: [customLine, setCustomLine], returnedToNormalGame: [returnedToNormalGame, setReturnedToNormalGame], analyzingMove: [analyzingMove, setAnalyzingMove], depth: [depth, setDepth], gameController }}>
             {props.children}
         </AnalyzeContext.Provider>
     )
