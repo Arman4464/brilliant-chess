@@ -104,14 +104,29 @@ export default function Form(props: {
                 if (gameId) {
                     setLoadingGame(true)
                     try {
-                        const response = await fetch(`/api/game?id=${gameId}`)
-                        if (!response.ok) {
-                            throw new Error(`Failed to load game ${gameId}`)
-                        }
-                        const resData = await response.json()
-                        const pgn = resData.pgn
+                        let pgn = ''
+                        // 1. Try local server endpoint if running with backend
+                        try {
+                            const response = await fetch(`/api/game?id=${gameId}`)
+                            if (response.ok) {
+                                const resData = await response.json()
+                                if (resData.pgn) pgn = resData.pgn
+                            }
+                        } catch {}
+
+                        // 2. Direct fallback for Chess.com live game callback
                         if (!pgn) {
-                            throw new Error("No PGN found for this game")
+                            try {
+                                const cbRes = await fetch(`https://www.chess.com/callback/live/game/${gameId}`)
+                                if (cbRes.ok) {
+                                    const cbData = await cbRes.json()
+                                    if (cbData?.game?.pgn) pgn = cbData.game.pgn
+                                }
+                            } catch {}
+                        }
+
+                        if (!pgn) {
+                            throw new Error("Could not load game by URL/ID on static hosting. Please paste the game PGN directly or enter your username.")
                         }
                         setData({ format: "pgn", string: pgn })
                     } catch (err: any) {

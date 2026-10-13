@@ -828,25 +828,30 @@ export function parsePGN(
         }
 
         // Fast-path: query authentic server review pipeline (CEE + Stockfish) if available
-        try {
-            const apiRes = await fetch('/api/review', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/x-ndjson'
-                },
-                body: JSON.stringify({
-                    pgn,
-                    moves: history.map(h => ({ san: h.san, lan: h.from + h.to + (h.promotion || ''), color: h.color === 'w' ? 'white' : 'black' })),
-                    whiteElo,
-                    blackElo,
-                    depth: 18,
-                    multiPv: 2,
-                    stream: true
-                }),
-                signal
-            });
-            if (apiRes.ok) {
+        const hasServerReview = typeof window !== 'undefined'
+            ? (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || Boolean(process.env.NEXT_PUBLIC_SERVER_REVIEW))
+            : false;
+
+        if (hasServerReview) {
+            try {
+                const apiRes = await fetch('/api/review', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/x-ndjson'
+                    },
+                    body: JSON.stringify({
+                        pgn,
+                        moves: history.map(h => ({ san: h.san, lan: h.from + h.to + (h.promotion || ''), color: h.color === 'w' ? 'white' : 'black' })),
+                        whiteElo,
+                        blackElo,
+                        depth: 18,
+                        multiPv: 2,
+                        stream: true
+                    }),
+                    signal
+                });
+                if (apiRes.ok) {
                 let reviewData: any = null;
                 const contentType = apiRes.headers.get('content-type') || '';
 
@@ -985,6 +990,7 @@ export function parsePGN(
             }
             console.log('[Stockfish Engine] Server review fallback to local engine:', err?.message);
         }
+    }
 
         const localStartTime = Date.now();
         let moveNumber = 0, previousBestMoveSan: string | undefined, previousSacrifice = false, previousStaticEvals: string[][] = []

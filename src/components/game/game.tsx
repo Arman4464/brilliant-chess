@@ -140,9 +140,16 @@ export default function Game() {
 
     useEffect(() => {
         (async () => {
-            const openingsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/openings/openings.json`)
-            const openings = await openingsRes.json()
-            setOpenings(openings as openings)
+            try {
+                const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+                const openingsRes = await fetch(`${basePath}/openings/openings.json`)
+                if (openingsRes.ok) {
+                    const openings = await openingsRes.json()
+                    setOpenings(openings as openings)
+                }
+            } catch (err) {
+                console.warn('Could not load openings database:', err)
+            }
         })()
     }, [])
 
